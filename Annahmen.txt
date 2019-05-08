@@ -2,12 +2,15 @@ Explained in own words:
 
 
 Back Propagation:
+    (completely wrong)
     The result of a neural network for one piece of training data can be compared with the desired result(which we know in supervised learning) and then you can determine how big the difference is.
     You express that difference in an error function and try to minimize that function.
     To do that we take the derivative of that function for each variable of the neural network and end up with a large gradient vector.
     Then we try to find a vector x that when inserted into the gradient vector results in a vector of zeros. That is done by appyling the newton method to each entry of the vector.
     (what prevents us from finding local maxima instead of minima?)
     After we found the right x values we change all the weights of the neural network a little bit into the direction of those x values.
+    (new Assumption)
+
 Convolutional Neural Network:
     Convolutional Nueral Networks are the same as Neural Networks with the difference that input nodes that are in some way close to each other are grouped together and
     they all are connected to a single node in the next layer. This is repeated for each layer until the desired output size is reached.
