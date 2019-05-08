@@ -1,4 +1,4 @@
-                                totalPages: 30
+                                totalPages: 31
                                 pages
 Introduction
     Topic Overview              1
@@ -8,11 +8,11 @@ Introduction
 
 
 Main
-    Architectures/Methodology   6
+    Architectures/Methodology   7
     Implementations             4
         Tensorflow
         Optimizations
-    Data and Setup              2
+    Data and Setup              3
     Performance and Results     3
         Runtimes
         Learning Curves
