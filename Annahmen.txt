@@ -1,0 +1,32 @@
+Explained in own words:
+
+
+Back Propagation:
+    The result of a neural network for one piece of training data can be compared with the desired result(which we know in supervised learning) and then you can determine how big the difference is.
+    You express that difference in an error function and try to minimize that function.
+    To do that we take the derivative of that function for each variable of the neural network and end up with a large gradient vector.
+    Then we try to find a vector x that when inserted into the gradient vector results in a vector of zeros. That is done by appyling the newton method to each entry of the vector.
+    (what prevents us from finding local maxima instead of minima?)
+    After we found the right x values we change all the weights of the neural network a little bit into the direction of those x values.
+Convolutional Neural Network:
+    Convolutional Nueral Networks are the same as Neural Networks with the difference that input nodes that are in some way close to each other are grouped together and
+    they all are connected to a single node in the next layer. This is repeated for each layer until the desired output size is reached.
+Autoencoder:
+
+Variatonal Autoencoder:
+
+Denoising Autoencoder:
+
+Generative Adversarial Network:
+
+
+Assumptions:
+
+    1.  The main advantage of a CNN over a regular NN is that it is computationally faster since not every node of each layer is connected to every node of the next layer.
+        CNNs are better than regular NNs at extracting knowledge of small areas of pictures since they group the inputs of small areas to generate the value of a node.
+    2.  The main application of autoencoders is to use the decoder as a generator that creates new images the from a correctly manipulated input encoding.
+        2.1 Wrong. The main value of autoencoders lies in the generation of the encoding and the decoder is just a byproduct.
+            We want to force the encoder to learn the desired knowledge by constraining it. For example if the encoding has a smaller dimension than the input
+            the encoder is forced to only put the most important features into the latent code. This way the encoder has learnt what the most important features of an image are and it learnt to find the underlying patterns which is obviously desired. 
+            (could be used for pretraining a net fo classification)
+m 
