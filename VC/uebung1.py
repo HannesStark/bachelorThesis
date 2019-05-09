@@ -56,6 +56,7 @@ def imageLayGrid(originalImage, tileNumber):
 
 
 img = cv2.imread(bridge2)
+print(img)
 rgbPlot(img)
 plt.show()
 gridded, tileArray = imageLayGrid(img, 3)
