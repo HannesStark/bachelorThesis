@@ -1,0 +1,14 @@
+Aufgabe 5: Berechnung und Darstellung von Histogrammen
+
+a) Implementieren Sie eine Funktion, die ein Histogramm zu allen drei Farbkanälen eines Bildes berechnet und visualisiert. Die Funktion soll beliebige RGB-Bilder entgegennehmen können.
+b) Passen Sie Ihre Funktion so an, dass ein normalisiertes Histogramm berechnet und visualisiert wird.
+c) Fügen Sie Ihrer Funktion hinzu, dass sie zusätzlich die kumulativen Summenhistogramme zu den drei Farbanälen eines RGB-Bildes berechnet und visualisiert.
+d) Berechnen Sie die Standardabweichung σg und den Mittelwert µ der drei Histogramme.
+e) Fügen Sie Ihrer Funktion hinzu, dass sie drei Normalverteilungen N (g; µ, σg) mit den zuvor berechneten Mittelwerten und Standardabweichungen berechnet und visualisiert.
+
+Nützliche Dokumentationen und Befehle:
+    • cv2.calcHist([...]) zur Berechnung von Histogrammen
+    • plt.plot_hist([...]) zur Visualisierung von Histogrammen
+    • scipy.stats.norm.pdf([...]) zur Berechnung von Normalverteilungen
+    • https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html
+    • https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html
