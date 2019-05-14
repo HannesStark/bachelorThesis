@@ -17,14 +17,17 @@ channels = 3
 learning_rate = 0.01
 
 X = tf.placeholder(tf.float32, shape = (None, height,width,channels)) # 1024*1024*3
-conv1 = tf.layers.conv2d(X,filters=32,kernel_size=8, strides=[4,4],padding="SAME",activation=tf.nn.relu) # 256*256*32
-conv2 = tf.layers.conv2d(conv1, filters=32,kernel_size=8, strides=[2,2],padding="SAME",activation=tf.nn.relu) # 128*128*32
-conv3 = tf.layers.conv2d(conv2, filters=32,kernel_size=4,strides=[2,2],padding="SAME",activation=tf.nn.relu) # 64*64*32
-conv4 = tf.layers.conv2d(conv3, filters=1, kernel_size=2,strides=[2,2],padding="SAME",activation=tf.nn.relu) # 32*32*1 latent space
-deconv4 = tf.layers.conv2d_transpose(conv4, filters=1, kernel_size=2,strides=[2,2],padding="SAME",activation=tf.nn.relu) # 64*64*32
-deconv3 = tf.layers.conv2d_transpose(deconv4, filters=32,kernel_size=4,strides=[2,2],padding="SAME",activation=tf.nn.relu) # 128*128*32
-deconv2 = tf.layers.conv2d_transpose(deconv3, filters=32,kernel_size=8, strides=[2,2],padding="SAME",activation=tf.nn.relu) # 256*256*32
-deconv1 = tf.layers.conv2d_transpose(deconv2,filters=3,kernel_size=8, strides=[4,4],padding="SAME",activation=tf.nn.relu) # 1024*1024*3
+conv1 = tf.layers.conv2d(X,filters=32,kernel_size=8, strides=4,padding="SAME",activation=tf.nn.relu) # 256*256*32
+conv2 = tf.layers.conv2d(conv1, filters=32,kernel_size=8, strides=2,padding="SAME",activation=tf.nn.relu) # 128*128*32
+conv3 = tf.layers.conv2d(conv2, filters=32,kernel_size=4,strides=2,padding="SAME",activation=tf.nn.relu) # 64*64*32
+latent_mean = tf.layers.conv2d(conv3, filters=32, kernel_size=2,strides=2,padding="SAME",activation=None) # 32*32*32
+latent_gamma = tf.layers.conv2d(conv3, filters=32, kernel_size=2,strides=2,padding="SAME",activation=None) # 32*32*32
+noise = tf.random_normal(tf.shape(latent_gamma), dtype=tf.float32)
+latent_space = latent_mean + tf.exp(0.5 * latent_gamma) * noise # 32*32*32
+deconv4 = tf.layers.conv2d_transpose(latent_space, filters=32, kernel_size=2,strides=2,padding="SAME",activation=tf.nn.relu) # 64*64*32
+deconv3 = tf.layers.conv2d_transpose(deconv4, filters=32,kernel_size=4,strides=2,padding="SAME",activation=tf.nn.relu) # 128*128*32
+deconv2 = tf.layers.conv2d_transpose(deconv3, filters=32,kernel_size=8, strides=2,padding="SAME",activation=tf.nn.relu) # 256*256*32
+deconv1 = tf.layers.conv2d_transpose(deconv2,filters=3,kernel_size=8, strides=4,padding="SAME",activation=tf.nn.relu) # 1024*1024*3
 
 reconstruction_loss = tf.reduce_mean(tf.square(deconv1 - X))
 reg_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
@@ -59,7 +62,7 @@ def get_image_batch(path,index,amount):
         batch.append(tifffile.imread(path + "/"+files[i]))
     return np.array(batch)
 
-#trainNet()
+trainNet()
 
 def try_net():
     with tf.Session() as sess:
