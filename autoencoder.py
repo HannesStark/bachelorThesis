@@ -49,9 +49,9 @@ def trainNet():
         for iteration in range(len(os.listdir(data_directory))//batch_size):
             batch = get_image_batch(data_directory, iteration*batch_size, batch_size)
             sess.run(training_op, feed_dict={X: batch})
-            print(deconv1.shape)
+            print(np.array(deconv1))
             print(loss)
-        save_path = saver.save(sess, "./savedModels/autoencoder1.ckpt")
+        save_path = saver.save(sess, "./savedModels/autoencoder2.ckpt")
 
 
 def get_image_batch(path,index,amount):
@@ -66,7 +66,7 @@ trainNet()
 
 def try_net():
     with tf.Session() as sess:
-        saver.restore(sess, "./savedModels/autoencoder1.ckpt")
+        saver.restore(sess, "./savedModels/autoencoder2.ckpt")
         img = tifffile.imread("./Track1/JAX_218_003_RGB.tif")
         images= [img]
         res = deconv1.eval(feed_dict={X: images})
