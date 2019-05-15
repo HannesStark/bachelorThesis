@@ -1,2 +1,2 @@
-model_checkpoint_path: "autoencoder2.ckpt"
-all_model_checkpoint_paths: "autoencoder2.ckpt"
+model_checkpoint_path: "autoencoder3.ckpt"
+all_model_checkpoint_paths: "autoencoder3.ckpt"
