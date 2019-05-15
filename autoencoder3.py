@@ -23,9 +23,9 @@ conv2 = tf.layers.conv2d(conv1, filters=32,kernel_size=(12,12), strides=(2,2),pa
 conv3 = tf.layers.conv2d(conv2, filters=32,kernel_size=(12,12),strides=(2,2),padding="SAME",activation=tf.nn.relu) # 64*64*32
 latent_mean = tf.layers.conv2d(conv3, filters=32, kernel_size=(12,12),strides=(2,2),padding="SAME",activation=None) # 32*32*32
 latent_gamma = tf.layers.conv2d(conv3, filters=32, kernel_size=(12,12),strides=(2,2),padding="SAME",activation=None) # 32*32*32
-#noise = tf.random_normal(tf.shape(latent_gamma), dtype=tf.float32)
-#latent_space = latent_mean + tf.exp(0.5 * latent_gamma) * noise # 32*32*32
-deconv4 = tf.layers.conv2d_transpose(latent_mean, filters=32, kernel_size=(12,12),strides=(2,2),padding="SAME",activation=tf.nn.relu) # 64*64*32
+noise = tf.random_normal(tf.shape(latent_gamma), dtype=tf.float32)
+latent_space = latent_mean + tf.exp(0.5 * latent_gamma) * noise # 32*32*32
+deconv4 = tf.layers.conv2d_transpose(latent_space, filters=32, kernel_size=(12,12),strides=(2,2),padding="SAME",activation=tf.nn.relu) # 64*64*32
 deconv3 = tf.layers.conv2d_transpose(deconv4, filters=32,kernel_size=(12,12),strides=(2,2),padding="SAME",activation=tf.nn.relu) # 128*128*32
 deconv2 = tf.layers.conv2d_transpose(deconv3, filters=32,kernel_size=(12,12), strides=(2,2),padding="SAME",activation=tf.nn.relu) # 256*256*32
 deconv1 = tf.layers.conv2d_transpose(deconv2,filters=3,kernel_size=(12,12), strides=(4,4),padding="SAME",activation=tf.nn.relu) # 1024*1024*3
@@ -35,7 +35,7 @@ reconstruction_loss = tf.reduce_mean(tf.square(deconv1 - X))
 latent_loss = 0.5* tf.reduce_sum(tf.exp(latent_gamma)+tf.square(latent_mean)-1 - latent_gamma)
 
 #loss = tf.add_n([reconstruction_loss] + reg_losses)
-loss = reconstruction_loss
+loss = reconstruction_loss + latent_loss
 
 optimizer = tf.train.AdamOptimizer(learning_rate)
 training_op = optimizer.minimize(loss)
