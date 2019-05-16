@@ -77,14 +77,14 @@ def train_net():
                       "Images: {}/{}...".format((iteration + 1) * batch_size, iterations * batch_size),
                       "Training loss: {:.4f}".format(batch_loss))
 
-        save_path = saver.save(sess, "./savedModels/autoencoder2.ckpt")
+        save_path = saver.save(sess, "./savedModels/autoencoder2Variational.ckpt")
 
 
 def try_net():
     img = imread("./Track1/JAX_218_003_RGB.tif")
     images = [img]
     with tf.Session() as sess:
-        saver.restore(sess, "./savedModels/autoencoder2.ckpt")
+        saver.restore(sess, "./savedModels/autoencoder2Variational.ckpt")
         res = logits.eval(feed_dict={inputs_: images})
         result_img = np.array(res[0], dtype=int)
         print("Maximum value of image: " + str(np.max(result_img)))
