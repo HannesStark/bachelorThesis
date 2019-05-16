@@ -30,7 +30,7 @@ dense7_mean = tf.layers.dense(flatten6, units=4000, activation=tf.nn.relu)
 dense7_gamma = tf.layers.dense(flatten6,units=4000, activation=tf.nn.relu)
 noise = tf.random_normal(tf.shape(dense7_gamma), dtype=tf.float32)
 latent_space = dense7_mean + tf.exp(0.5 * dense7_gamma) * noise
-dense8 = tf.layers.dense(latent_space, units=8192, activation=tf.nn.relu)
+dense8 = tf.layers.dense(dense7_mean, units=8192, activation=tf.nn.relu)
 reshape9 = tf.reshape(dense8, shape=[-1, 32, 32, 8])
 upsampler2 = tf.keras.layers.UpSampling2D(size=(2,2))
 upsampler4 = tf.keras.layers.UpSampling2D(size=(4,4))
@@ -39,14 +39,14 @@ conv11 = tf.layers.conv2d(upsample10, filters=8,kernel_size=(4,4),strides=(1,1),
 upsample12 = upsampler4.apply(conv11)
 conv13 = tf.layers.conv2d(upsample12, filters=8,kernel_size=(4,4),strides=(1,1),padding="SAME",activation=tf.nn.relu)
 upsample14 = upsampler4.apply(conv13)
-conv15 = tf.layers.conv2d(upsample14, filters=3,kernel_size=(4,4),strides=(1,1),padding="SAME",activation=tf.nn.relu)
+conv15 = tf.layers.conv2d(upsample14, filters=3,kernel_size=(4,4),strides=(1,1),padding="SAME",activation=None)
 
 reconstruction_loss = tf.reduce_mean(tf.square(conv15 - X))
 #reg_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
 latent_loss = 0.5* tf.reduce_sum(tf.exp(dense7_gamma)+tf.square(dense7_mean)-1 - dense7_gamma)
 
 #loss = tf.add_n([reconstruction_loss] + reg_losses)
-loss = reconstruction_loss - latent_loss
+loss = reconstruction_loss
 
 optimizer = tf.train.AdamOptimizer(learning_rate)
 training_op = optimizer.minimize(loss)
@@ -55,7 +55,7 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 n_epochs = 1
-batch_size = 10
+batch_size = 5
 data_directory = "test-RGB"
 def train_net():
     with tf.Session() as sess:
@@ -65,11 +65,10 @@ def train_net():
             for iteration in range(iterations):
                 batch = get_image_batch_shuffled(data_directory, iteration*batch_size, batch_size)
                 batch_loss, batch_training_op, batch_deconv1 = sess.run([loss, training_op, conv15], feed_dict={X: batch})
-                print(batch_deconv1)
                 print("Epoch: {}/{}...".format(epoch + 1, n_epochs),
                       "Iteration: {}/{}...".format(iteration + 1, iterations),
+                      "Images: {}/{}...".format((iteration + 1) * batch_size, iterations * batch_size),
                       "Training loss: {:.4f}".format(batch_loss))
-                print(batch_training_op)
         save_path = saver.save(sess, "./savedModels/autoencoder.ckpt")
 
 
@@ -85,18 +84,20 @@ def get_image_batch_shuffled(path,index,amount):
 
 
 def try_net():
+    img = imread("./Track1/JAX_218_003_RGB.tif")
+    images = [img]
     with tf.Session() as sess:
         saver.restore(sess, "./savedModels/autoencoder.ckpt")
-        images= [img]
         res = conv15.eval(feed_dict={X: images})
-        print(res)
-        plt.imshow(res[0])
+        result_img = np.array(res[0], dtype=int)
+        print("Maximum value of image: " + str(np.max(result_img)))
+        f, img_array = plt.subplots(1, 2)
+        img_array[0].imshow(img)
+        img_array[1].imshow(result_img)
         plt.show()
 
 train_net()
 try_net()
 
-print("X" + str(X.shape))
-print("conv1" + str(conv1.shape))
 
 
