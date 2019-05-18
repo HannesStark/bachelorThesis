@@ -7,10 +7,7 @@ import time
 import numpy as np
 import glob
 import matplotlib.pyplot as plt
-import PIL
-import imageio
-
-from IPython import display
+from tifffile import imread
 
 
 class CVAE(tf.keras.Model):
@@ -65,7 +62,7 @@ class CVAE(tf.keras.Model):
                     activation='relu'),
                 # No activation
                 tf.keras.layers.Conv2DTranspose(
-                    filters=1, kernel_size=3, strides=(1, 1), padding="SAME"),
+                    filters=3, kernel_size=3, strides=(1, 1), padding="SAME"),
             ]
         )
 
@@ -89,9 +86,6 @@ class CVAE(tf.keras.Model):
             return probs
 
         return logits
-
-
-optimizer = tf.keras.optimizers.Adam(1e-4)
 
 
 def log_normal_pdf(sample, mean, logvar, raxis=1):
@@ -122,39 +116,42 @@ def apply_gradients(optimizer, gradients, variables):
     optimizer.apply_gradients(zip(gradients, variables))
 
 
-epochs = 100
-latent_dim = 50
-num_examples_to_generate = 16
-# keeping the random vector constant for generation (prediction) so
-# it will be easier to see the improvement.
-random_vector_for_generation = tf.random.normal(
-    shape=[num_examples_to_generate, latent_dim])
-model = CVAE(latent_dim)
-checkpoint_dir = './training_checkpoints'
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
-checkpoint = tf.train.Checkpoint(optimizer=optimizer)
+def get_image_paths(dir):
+    image_paths = os.listdir(dir)
+    data = list()
+    for i in image_paths:
+        data.append(dir + "/" + i)
+    return data
 
 
+def get_image_batch(files, index, batchsize):
+    batch = list()
+    for i in range(index, index + batchsize):
+        batch.append(imread(files[i]))
+    batch = np.array(batch, dtype=np.float32)
+    batch /= 255.
+    return batch
 
 
-def train_step(images):
-    mean, logvar = model.encode(images)
-    reparameterized =model.reparameterize(mean, logvar=logvar)
-    logits = model.decode(reparameterized)
-    with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
-        generated_images = generator(noise, training=True)
-
-        real_output = discriminator(images, training=True)
-        fake_output = discriminator(generated_images, training=True)
-
-        gen_loss = generator_loss(fake_output)
-        disc_loss = discriminator_loss(real_output, fake_output)
-
-    gradients_of_generator = gen_tape.gradient(gen_loss, generator.trainable_variables)
-    gradients_of_discriminator = disc_tape.gradient(disc_loss, discriminator.trainable_variables)
-
-    generator_optimizer.apply_gradients(zip(gradients_of_generator, generator.trainable_variables))
-    discriminator_optimizer.apply_gradients(zip(gradients_of_discriminator, discriminator.trainable_variables))
+def train_net(model, n_epochs, batchsize, files):
+    optimizer = tf.keras.optimizers.Adam(1e-4)
+    np.random.shuffle(files)
+    n_files = len(files)
+    iterations = n_files // batchsize
+    for epoch in range(n_epochs):
+        for iteration in range(iterations):
+            batch = get_image_batch(files, iteration, batchsize)
+            batch_gradients, batch_loss = compute_gradients(model, batch)
+            apply_gradients(optimizer, batch_gradients, batch)
+            print("Epoch: {}/{}...".format(epoch + 1, n_epochs),
+                  "Iteration: {}/{}...".format(iteration + 1, iterations),
+                  "Images: {}/{}...".format((iteration + 1) * batchsize, iterations * batchsize),
+                  "Training loss: {:.4f}".format(batch_loss))
+        checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
+        # keeping the random vector constant for generation (prediction) so
+        # it will be easier to see the improvement.
+        random_vector_for_generation = tf.random.normal(shape=[num_examples_to_generate, latent_dim])
+        generate_and_save_images(model, epoch, random_vector_for_generation)
 
 
 def generate_and_save_images(model, epoch, test_input):
@@ -170,4 +167,15 @@ def generate_and_save_images(model, epoch, test_input):
     plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
     plt.show()
 
-# generate_and_save_images(model, 0, random_vector_for_generation)
+
+epochs = 1
+batch_size = 10
+latent_dim = 50
+num_examples_to_generate = 16
+vaemodel = CVAE(latent_dim)
+checkpoint_dir = './training_checkpoints'
+checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
+file_paths = get_image_paths("test-RGB")
+
+train_net(vaemodel, epochs, batch_size, file_paths)
+
