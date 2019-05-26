@@ -48,9 +48,9 @@ conv6 = tf.layers.conv2d(inputs=upsample3, filters=32, kernel_size=(3, 3), paddi
 logits = tf.layers.conv2d(inputs=conv6, filters=3, kernel_size=(3, 3), padding='same', activation=None)
 reconstruction_loss = tf.reduce_mean(tf.square(logits - inputs_))
 # reg_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
-# latent_loss = 0.5* tf.reduce_sum(tf.exp(latent_gamma)+tf.square(latent_mean)-1 - latent_gamma)
+latent_loss = 0.5* tf.reduce_sum(tf.exp(latent_gamma)+tf.square(latent_mean)-1 - latent_gamma)
 
-# loss = tf.add_n([reconstruction_loss] + reg_losses)
+#loss = tf.add_n([reconstruction_loss] + reg_losses)
 loss = reconstruction_loss
 
 optimizer = tf.train.AdamOptimizer(learning_rate)

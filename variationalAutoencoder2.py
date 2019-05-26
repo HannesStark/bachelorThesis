@@ -69,7 +69,7 @@ class CVAE(tf.keras.Model):
     def sample(self, eps=None):
         if eps is None:
             eps = tf.random.normal(shape=(100, self.latent_dim))
-        return self.decode(eps, apply_sigmoid=True)
+        return self.decode(eps)
 
     def encode(self, x):
         mean, logvar = tf.split(self.inference_net(x), num_or_size_splits=2, axis=1)
@@ -99,21 +99,21 @@ def compute_loss(model, x):
     mean, logvar = model.encode(x)
     z = model.reparameterize(mean, logvar)
     x_logit = model.decode(z)
-    cross_ent = tf.nn.sigmoid_cross_entropy_with_logits(logits=x_logit, labels=x)
-    logpx_z = -tf.reduce_sum(cross_ent, axis=[1, 2, 3])
+    print("X: " + str(x))
+    print("logits: " + str(x_logit))
+    reconstruction_loss = tf.reduce_mean(tf.square(x_logit - x))
     logpz = log_normal_pdf(z, 0., 0.)
     logqz_x = log_normal_pdf(z, mean, logvar)
-    return -tf.reduce_mean(logpx_z + logpz - logqz_x)
+    latent_loss = tf.reduce_mean(tf.square(logpz - logqz_x))
+    print("latent Loss: " + str(latent_loss))
+    print("reconstruction loss: " + str(reconstruction_loss))
+    return reconstruction_loss
 
 
 def compute_gradients(model, x):
     with tf.GradientTape() as tape:
         loss = compute_loss(model, x)
     return tape.gradient(loss, model.trainable_variables), loss
-
-
-def apply_gradients(optimizer, gradients, variables):
-    optimizer.apply_gradients(zip(gradients, variables))
 
 
 def get_image_paths(dir):
@@ -129,12 +129,13 @@ def get_image_batch(files, index, batchsize):
     for i in range(index, index + batchsize):
         batch.append(imread(files[i]))
     batch = np.array(batch, dtype=np.float32)
-    batch /= 255.
+    batch /= 127.5
+    batch -= 1.
     return batch
 
 
 def train_net(model, n_epochs, batchsize, files):
-    optimizer = tf.keras.optimizers.Adam(1e-3)
+    optimizer = tf.keras.optimizers.Adam(0.0001)
     np.random.shuffle(files)
     n_files = len(files)
     iterations = n_files // batchsize
@@ -142,51 +143,59 @@ def train_net(model, n_epochs, batchsize, files):
         for iteration in range(iterations):
             batch = get_image_batch(files, iteration, batchsize)
             batch_gradients, batch_loss = compute_gradients(model, batch)
-            apply_gradients(optimizer, batch_gradients, model.trainable_variables)
+            optimizer.apply_gradients(zip(batch_gradients, model.trainable_variables))
             print("Epoch: {}/{}...".format(epoch + 1, n_epochs),
                   "Iteration: {}/{}...".format(iteration + 1, iterations),
                   "Images: {}/{}...".format((iteration + 1) * batchsize, iterations * batchsize),
                   "Training loss: {:.4f}".format(batch_loss))
         checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
-        random_vector_for_generation = tf.random.normal(shape=[num_examples_to_generate, latent_dim])
-        generate_and_save_images(model, epoch, random_vector_for_generation)
+        # random_vector_for_generation = tf.random.normal(shape=[num_examples_to_generate, latent_dim])
+        # generate_and_save_images(model, epoch, random_vector_for_generation)
 
 
 def generate_and_save_images(model, epoch, test_input):
     predictions = model.sample(test_input)
     fig = plt.figure(figsize=(4, 4))
-
+    predictions += 1.
+    predictions *= 127.
+    predictions = predictions.astype()
     for i in range(predictions.shape[0]):
         plt.subplot(4, 4, i + 1)
-        plt.imshow(predictions[i, :, :, 0], cmap='gray')
+        plt.imshow(predictions[i, :, :, 0])
         plt.axis('off')
 
     plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
     plt.show()
 
 
-def try_net(model,image):
-    image /= 255.
+def try_net(model, image):
+    image /= 127.5
+    image -= 1.
     mean, logvar = model.encode([image])
-    encoding = model.reparameterize(mean,logvar)
-    return model.decode(encoding)
+    encoding = model.reparameterize(mean, logvar)
+    erg = model.decode(encoding)
+    print("erg: "+ str(erg))
+    erg += 1.
+    erg *= 127.5
+    return np.array(erg, dtype=np.int)
+
+
 epochs = 1
 batch_size = 10
 latent_dim = 64
 num_examples_to_generate = 16
 vaemodel = CVAE(latent_dim)
-checkpoint_path= './training_checkpoints/cp.ckpt'
+checkpoint_path = './training_checkpoints/cp.ckpt'
 cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path, verbose=1)
 
 file_paths = get_image_paths("test-RGB")
 
 train_net(vaemodel, epochs, batch_size, file_paths)
 vaemodel.save_weights('./savedModels/path_to_my_model.h5')
-vaemodel.summary()
-#new_model = tf.keras.models.load_('./savedModels/path_to_my_model.h5')
+# new_model = tf.keras.models.load_('./savedModels/variationalAutoencoder2.h5')
 tryimg = imread("./Track1-RGB/JAX_467_013_RGB.tif")
-result = try_net(vaemodel, tryimg)
+tryimg = np.array(tryimg, dtype=np.float32)
+result = try_net(vaemodel, np.array([tryimg]))
 print(result)
-plt.imshow(result)
+plt.imshow(result[0])
 plt.show()
-

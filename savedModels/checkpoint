@@ -1,2 +1,0 @@
-model_checkpoint_path: "autoencoder2Variational.ckpt"
-all_model_checkpoint_paths: "autoencoder2Variational.ckpt"

@@ -35,3 +35,4 @@ Assumptions:
             We want to force the encoder to learn the desired knowledge by constraining it. For example if the encoding has a smaller dimension than the input
             the encoder is forced to only put the most important features into the latent code. This way the encoder has learnt what the most important features of an image are and it learnt to find the underlying patterns which is obviously desired. 
             (could be used for pretraining a net for classification)
+    3.  When I remove all the shadows from an image the latent code should change in a predictable pattern
