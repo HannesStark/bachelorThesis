@@ -101,10 +101,10 @@ def compute_loss(model, x):
     x_logit = model.decode(z)
     print("X: " + str(x))
     print("logits: " + str(x_logit))
-    reconstruction_loss = tf.reduce_mean(tf.square(x_logit - x))
+    reconstruction_loss = tf.reduce_mean(tf.math.abs(x_logit - x))
     logpz = log_normal_pdf(z, 0., 0.)
     logqz_x = log_normal_pdf(z, mean, logvar)
-    latent_loss = tf.reduce_mean(tf.square(logpz - logqz_x))
+    latent_loss = tf.reduce_mean(tf.math.abs(logpz - logqz_x))
     print("latent Loss: " + str(latent_loss))
     print("reconstruction loss: " + str(reconstruction_loss))
     return reconstruction_loss
@@ -135,7 +135,7 @@ def get_image_batch(files, index, batchsize):
 
 
 def train_net(model, n_epochs, batchsize, files):
-    optimizer = tf.keras.optimizers.Adam(0.0001)
+    optimizer = tf.keras.optimizers.Adam(0.001)
     np.random.shuffle(files)
     n_files = len(files)
     iterations = n_files // batchsize
@@ -174,13 +174,13 @@ def try_net(model, image):
     mean, logvar = model.encode([image])
     encoding = model.reparameterize(mean, logvar)
     erg = model.decode(encoding)
-    print("erg: "+ str(erg))
+    print("erg: " + str(erg))
     erg += 1.
     erg *= 127.5
     return np.array(erg, dtype=np.int)
 
 
-epochs = 1
+epochs = 2
 batch_size = 10
 latent_dim = 64
 num_examples_to_generate = 16

@@ -1,8 +1,10 @@
 from tifffile import imread
 from matplotlib import pyplot as plt
 import numpy as np
-#from PIL import IMAGE
-#from PIL.TiffTags import TAGS
+import exifread
+import pprint as pp
+import zipfile
+import os
 
 def splitVNIR():
     img = imread("./Track1-MSI-3/OMA_315_008_MSI.tif")
@@ -25,8 +27,10 @@ def splitVNIR():
     plt.show()
 
 def readEXIF():
-    with Image.open("./Track1-MSI-3/OMA_315_008_MSI.tif"):
-        metadata = {TAGS[key] : img.tag[key]}
+    image = open("./Track1-Truth/JAX_004_016_CLS.tif", 'rb')
+    exifTags = exifread.process_file(image)
+    print(type(exifTags))
+    pp.pprint(exifTags)
 
 def readCls():
     img = imread("./Track1-Truth/JAX_004_016_CLS.tif")
@@ -38,3 +42,11 @@ def readCls():
 
 def readAndDisplayDSM():
     imread()
+
+def testUnzip():
+    os.listdir(os.getcwd())
+    zip_ref = zipfile.ZipFile("test-RGB.zip", 'r')
+    zip_ref.extractall("./")
+    zip_ref.close()
+
+testUnzip()
