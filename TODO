@@ -1,8 +1,7 @@
-1. Redo structure with the topic in mind (Latent Representation of Topographic Classes in Remote Sensing Image Data using Autoencoders"
 
-2. Gather questions on Tensorflow for Mathias
+KL Divergence lesen lernen und schreiben
 
-3. Describe the Data we have available how it was gathered what the channels mean and how they are good for our use case
+VAE für MNIST machen
 
 4. Describe what Autoencoders we have how they work and what they are capable of
 
@@ -11,3 +10,5 @@
 6. Describe what experiments can be done with the given data to gain an understanding of the latent code. (comparing normal AE with VAE to explain the value of using a VAE?)
 
 7. Tools to evaluate the latent code further
+
+8.
