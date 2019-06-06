@@ -1,0 +1,15 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'C:\Users\Hannes\projects\bachelorarbeit\bachelorThesis\latex\temp\main\main.blg'
+[38] biber-MSWIN64:315> INFO - === 
+[125] Biber.pm:371> INFO - Reading 'C:\Users\Hannes\projects\bachelorarbeit\bachelorThesis\latex\temp\main\main.bcf'
+[233] Biber.pm:889> INFO - Found 44 citekeys in bib section 0
+[248] Biber.pm:4093> INFO - Processing section 0
+[280] Biber.pm:4254> INFO - Looking for bibtex format file 'references.bib' for section 0
+[298] bibtex.pm:1523> INFO - LaTeX decoding ...
+[370] bibtex.pm:1340> INFO - Found BibTeX data source 'references.bib'
+[608] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[608] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[608] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[609] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[687] bbl.pm:636> INFO - Writing 'C:\Users\Hannes\projects\bachelorarbeit\bachelorThesis\latex\temp\main\main.bbl' with encoding 'UTF-8'
+[702] bbl.pm:739> INFO - Output to C:\Users\Hannes\projects\bachelorarbeit\bachelorThesis\latex\temp\main\main.bbl
