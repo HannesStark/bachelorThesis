@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.6)  8 JUN 2019 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.6)  9 JUN 2019 13:47
 entering extended mode
 **f:/projects/bachelorarbeit/latexBachelorThesis/template.main.tex
 (f:/projects/bachelorarbeit/latexBachelorThesis/template.main.tex
@@ -578,20 +578,20 @@ File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
 ) (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.aux)
 \openout1 = `template.main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
  ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
@@ -624,9 +624,9 @@ Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 17.
+LaTeX Info: Redefining \selectfont on input line 18.
 \AtBeginShipoutBox=\box40
-Package hyperref Info: Link coloring OFF on input line 17.
+Package hyperref Info: Link coloring OFF on input line 18.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
@@ -634,9 +634,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count327
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
  (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.out) (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.out)
 \@outlinefile=\write4
 \openout4 = `template.main.out'.
@@ -649,42 +649,46 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'template.main.bbl' found.
  (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl)
-Package biblatex Info: Reference section=0 on input line 17.
-Package biblatex Info: Reference segment=0 on input line 17.
- (latex/tex/template.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
+Package biblatex Info: Reference section=0 on input line 18.
+Package biblatex Info: Reference segment=0 on input line 18.
+ (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.toc)
+\tf@toc=\write5
+\openout5 = `template.main.toc'.
+
+ (latex/tex/front.tex) (latex/tex/introduction.tex) (latex/tex/template.tex [1
+
+{C:/Users/Hannes Stärk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
-) [1
-
-{C:/Users/Hannes Stärk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+ [2]) (latex/tex/architecture.tex) (latex/tex/end.tex) [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `template.main.out' has not changed.
-(rerunfilecheck)             Checksum: 0CB91DEED187E7C5396F9167BB444499;87.
+(rerunfilecheck)             Checksum: F3877C9D853F8467C6D505CF9AC83998;788.
 Package logreq Info: Writing requests to 'template.main.run.xml'.
 \openout1 = `template.main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 15899 strings out of 492895
- 265878 string characters out of 3133454
- 729088 words of memory out of 3000000
- 19595 multiletter control sequences out of 15000+200000
- 11088 words of font info for 35 fonts, out of 3000000 for 9000
+ 15998 strings out of 492895
+ 267374 string characters out of 3133454
+ 730166 words of memory out of 3000000
+ 19640 multiletter control sequences out of 15000+200000
+ 21586 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,9n,94p,1209b,1417s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.pdf (2 pages, 50513 bytes).
+ <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Hannes Stärk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on f:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.pdf (4 pages, 110415 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 386 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
