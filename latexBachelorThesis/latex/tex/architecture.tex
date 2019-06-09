@@ -1,8 +1,64 @@
 \section{Architecture}
-\subsection{Entropy}
+\subsection{Loss Function}
 
+\paragraph{Entropy}\mbox{}
+
+A part of the loss function used in the variational autoencoder is based on Kullback-Leibner divergence.
 To understand Kullback-Leibler divergence it seems necessary to explain entropy from
 the field of information theory. In short, entropy is a measure for the minimum average size an
 encoding for a piece of information can possibly have.
 
-To explain that further it is wor
+Suppose there is a system $S1$ that can have four different states $a, b, c, d$
+and every one of those states is equally likely to occur, that means the probability $P(x)$
+of each state $x$ is $1/4$. Now the goal is to losslessly transmit all information about that system
+with the minimum average amount of bits. That can be done with onyl two bits for example like this
+
+\begin{center}
+    \begin{tabular} {c c c c}
+        $a: 00$ & $b: 01$ & $c: 10$ & $d: 11$
+    \end{tabular}
+\end{center}
+
+However, if $P(a)=1$ and $P(b)=P(c)=P(d)=0,$ zero bits will suffice to encode the information since
+it is always certain that the system is in state a. So the entropy of the system clearly depends on
+the probablities of each state. To see in which way, one can consider the system $S2$ with 
+$P(a)=1/2, P(b)=1/4, P(c)=1/8$ and $P(d)=1/8$. In that case it would be best to encode the state
+with the highest probability with as few bits as possible since it has to be transmitted the most
+often. That means $a$ is encoded with one bit as $0$. When decoding the information there must be
+no ambiguities so while the encoding for $b$ has to start with a $1$ it cannot be $1$ since we need 
+to encode two more states so $b: 10$. Additionally if $c: 11$ there would be no space left for $d$:
+say $d: 111$ then if the transmitted information is $111111\dots$ it could either be decoded to
+$ccc\dots$ or $dd\dots$. So $c$ should rather be encoded as $110$ which way $d: 111$ works. In the end a valid
+encoding that can transmit all information with the minimum average amount of bits is
+
+\begin{center}
+    \begin{tabular} {c c c c}
+        $a: 0$ & $b: 10$ & $c: 110$ & $d: 111$
+    \end{tabular}
+\end{center}
+
+Here the states $c, d$ are encoded with three bits instead of the two bits in the first example.
+But $c$ and $d$ are transmitted far less often than $a$ which now only needs one bit. To be more precise
+half of all transmissions have one bit. Additionally a quarter of all transmissions have two bits. 
+The sum of those probabilities multiplied with the respective amount of bits is the average amount of bits
+needed to transfer the information in a given encoding. So in the example, with $f(x)$ as the number of
+bits that encode a state $x$, that turns out to be $P(a)f(a)+P(b)f(b)+P(c)f(c)+P(d)f(d)=1.75$.
+That means for $S2$ on average you only need $1.75$ bits to encode a state and since that is also the
+minimum $1.75$ is the entropy of $S2$.
+
+In general in an optimal encoding $f(x)$ is the same as $\log _{2} (\frac{1}{P(x)})$. For $S1$ $P(x)$ is $1/4$
+so the number of bits for $x$ is $\log_{2} (4)=2$ what matches the two bits the first encoding uses 
+for the states of $S1$.
+
+The entropy of a system $S$ with a set of discrete events $X$ and the probability distribution $P(x)$
+for each $x\in X$ is
+\[ \sum_{x\in X} P(x)\log _{2} (\frac{1}{P(x)}) = -\sum_{x\in X} P(x)\log _{2} (P(x))\]
+Intuitively if a system has high entropy, the size of the encodings are high on average and many states
+have small probabilities. This means it is hard to predict what state the system will be in at a given time
+since there is no state that can be guessed with high confidence. If entropy is low, zero for example,
+one can be confident that the system is in a certain state like in the previous example with $P(a)=1$.
+
+%wie muss hier der fall P(x) = 0 abgesichert werden weil log(0) und 1/0 ?
+
+\paragraph{Cross Entropy} \mbox{}
+
