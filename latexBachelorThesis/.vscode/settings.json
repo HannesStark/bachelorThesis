@@ -10,7 +10,7 @@
 "latex-workshop.latex.autoBuild.run": "onFileChange",
 "latex-workshop.intellisense.package.enabled": true,
 
-"latex-workshop.view.pdf.viewer": "browser",
+"latex-workshop.view.pdf.viewer": "tab",
 "latex-workshop.view.pdf.ref.viewer": "tabOrBrowser",
 
 "latex-workshop.synctex.afterBuild.enabled": true,
