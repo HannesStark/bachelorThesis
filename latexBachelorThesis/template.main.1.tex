@@ -1,0 +1,35 @@
+\documentclass{article}
+% ==============================================================================
+%   template.main.tex ----------------------------------------------------------
+% ==============================================================================
+
+%   document styles ------------------------------------------------------------
+    \usepackage{latex/source/scientific}
+    
+    \usepackage{latex/source/bibliography}
+    \usepackage{latex/source/figures}
+
+%   bibliography ---------------------------------------------------------------
+    \addbibresource{bibliography/topographic-objects.bib}
+%   document -------------------------------------------------------------------
+% ==============================================================================
+    \title{Latent Representation of Topographic Classes in Remote Sensing Image Data using Autoencoders}
+    \author{Hannes St\"ark}
+    \begin{document}
+
+%   appendix -------------------------------------------------------------------
+
+%   content: -------------------------------------------------------------------
+    \maketitle
+    \tableofcontents
+    \input{latex/tex/front.tex} % abstract, kurzfassung
+    \input{latex/tex/introduction.tex}
+    \input{latex/tex/template.tex}
+    \input{latex/tex/architecture.tex}
+    \input{latex/tex/end.tex}
+
+% bibliography ---------------------------------------------------------------
+    \pagebreak % @formatting    
+    \printbibliography
+    
+\end{document}

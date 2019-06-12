@@ -41,13 +41,13 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="1">
+  <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>template.main.bcf</file>
+      <file>template.main.1.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>template.main.bbl</file>
+      <file>template.main.1.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>template.main</infile>
+      <infile>template.main.1</infile>
     </cmdline>
     <input>
-      <file>template.main.bcf</file>
+      <file>template.main.1.bcf</file>
     </input>
     <output>
-      <file>template.main.bbl</file>
+      <file>template.main.1.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>template.main.bbl</file>
+      <file>template.main.1.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>template.main.bcf</file>
+      <file>template.main.1.bcf</file>
     </requires>
     <requires type="editable">
       <file>bibliography/topographic-objects.bib</file>

@@ -2,21 +2,21 @@
 
 \subsection{Data}
 
-The available data are 1024x1024 images of the two United States cities Jacksonville
+The available data are 1024x1024\footnote{\textcolor{red}{Sehr spezzifische Angabe für einen Einleitungssatz }} images of the two United States cities Jacksonville
 in Florida and Omaha in Nebraska taken from the US3D Dataset that
 was partially published to provide research data for the problem
 of 3D reconstruction \parencite{2019-bosch-semantic}.
 The images for each recorded area cover one square kilometer and can be divided 
 into four categories with the first one being optical satellite images with three channels (RGB). 
 Secondly visible and near infrared satellite images with eight channels (VNIR). 
-Thirdly digital surface models (DSM). And lastly semantic labeling with five different categories.
+Thirdly digital surface models (DSM).\footnote{\textcolor{red}{Der Satz ist zu kurz und kann mit dem vorherigen vielleicht verbunden werden. }} And lastly semantic labeling with five different categories.
 \medskip
 
 The optical images were taken by the WorldView-3 satellite of Digital Globe from 2014 to 2016
-and contain seasonal and daily differences in vegetation and sun positions. 
-Each pixel of an image is described by three bytes representing the intensity of either red, green or blue.
+and contain\footnote{\textcolor{red}{Ist dieser Begriff passend?}} seasonal and daily differences in vegetation and sun positions.\footnote{\textcolor{red}{Die Logik des Satzes ist m.E. nach nicht konsistent?}}. \footnote{\textcolor{red}{Hierbei wurden die Bilder zu verschiedenen Jahreszeiten- zeiten aufgenommen, die dazu fuehren, dass die Erscheinungen der Szene sich in einem hohen Masse unterscheiden. Zum Beispiel fuehren unterschidedliche Sonnenstaende zu veraenderten Schatten und Reflexionen. plus wetter}} 
+Each pixel of an image is described by three bytes representing the intensity\footnote{\textcolor{red}{die reflektierte Intensitaet des zugehoerigen Punktes auf der Erdoberflaeche in den Wellenlaengen}}  of either red, green or blue.
 
-Also collected by WorldView-3 were the VNIR images which contain eight channels for eight different bands of the spectrum with a ground sample distance of 1.3 meters. These images were taken over the course of all twelve months making them usable for training models that can handle seasonal appearance differences which are even more distinct than in the RGB data because certain wavelengths capture shadows and vegetation especially well. Overall this data offers more detail than the three channel RBG pictures. The eight channels of the imagery correspond to the following wavelengths:
+Also collected by WorldView-3 were the VNIR images\footnote{\textcolor{red}{VNIR am Anfang? Und uber msi statt vnir reden}} which contain eight channels for eight different bands of the\footnote{\textcolor{red}{the? Warum ein bestimmter Artikel?}}  spectrum with a ground sample distance of 1.3 meters\footnote{\textcolor{red}{Verhaelt es sich anders zu den RGB-Bildern?}}. These images were taken over the course of all twelve months making them usable for training models that can handle seasonal appearance differences which are even more distinct than in the RGB data because certain wavelengths capture shadows and vegetation especially well. Overall this data offers more detail than the three channel RBG pictures. The eight channels of the imagery correspond to the following wavelengths:\footnote{\textcolor{red}{Ist es sinnvoller zuerst die Wellenlaengen einzufuehren und hiernach auf die verschiedenen Bilddaten. Darueber hinaus die Inhalte von der Aufnahme zu trennen?}}
 
 \begin{tabular} {c c}
     \parbox{5cm}{
@@ -40,16 +40,16 @@ Also collected by WorldView-3 were the VNIR images which contain eight channels 
 
 The given DSMs were collected using light detection and ranging technology (Lidar). 
 They have a single channel that describes the height of each pixel with a greater number 
-representing a higher distance to the ground. 
+representing a higher distance to the ground. \footnote{\textcolor{red}{Gefallen dir die Saetze zu DSMs? Ich formuliere hier einen anderen Satz.}} 
 
 Lastly there are semantic labeled pictures with one channel of a single byte encodes one of five 
 different topographic classes. Those classes are vegetation, water, ground, building and clutter. 
-The semantic labeling was done automatically from lidar data but manually checked and corrected afterwards.
+The semantic labeling was done automatically from lidar data but manually checked and corrected afterwards.\footnote{\textcolor{red}{Welchem Zweck dienen diese Daten? Bzw. warum wurden diese Daten gelabelt? Das ist eine nicht unwichtige Information. Du erwaehntest oben schon die 3D-Reconstruction. }} 
 
 For all four categories of data the area covered in a single image
-is one square kilometer and they contain a lot of oblique view of 
+is one square kilometer\footnote{\textcolor{red}{Wiederholung?}} and they contain a lot of oblique view of 
 buildings, often with sunshine casting good shadows making the 
-data ideal for training models that should detect them.
+data ideal for training models that should detect them.\footnote{\textcolor{red}{Logik: Abweichungen von der zentralperspektive, die dazu fuehren dass Objekte mit starken Hoehenaenderungen sichtbare Schatten werfen... Ich komme nicht mit der Logik des Satzes klar.}} 
 
 \subsection{Experiments}
 
