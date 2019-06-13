@@ -1,15 +1,15 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.blg'
-[46] biber-MSWIN32:313> INFO - === 
-[123] Biber.pm:371> INFO - Reading 'A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bcf'
-[221] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
-[236] Biber.pm:3976> INFO - Processing section 0
-[266] Biber.pm:4136> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
-[283] bibtex.pm:1500> INFO - LaTeX decoding ...
-[410] bibtex.pm:1316> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
-[445] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[445] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[445] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[445] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
-[447] bbl.pm:617> INFO - Writing 'A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bbl' with encoding 'latin1'
-[448] bbl.pm:720> INFO - Output to A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bbl
+[32] biber-MSWIN32:313> INFO - === 
+[63] Biber.pm:371> INFO - Reading 'A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bcf'
+[159] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
+[175] Biber.pm:3976> INFO - Processing section 0
+[190] Biber.pm:4136> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
+[202] bibtex.pm:1500> INFO - LaTeX decoding ...
+[329] bibtex.pm:1316> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
+[363] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[363] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[363] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[363] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[365] bbl.pm:617> INFO - Writing 'A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bbl' with encoding 'latin1'
+[366] bbl.pm:720> INFO - Output to A:\OneDrive\Workspace\Miscellaneous\bachelor-staerk\latexBachelorThesis\latex\temp\template.main.1\template.main.1.bbl

@@ -1,0 +1,79 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{2019-bosch-semantic}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=3c7d5a7a419bf6eb32c4778923ed5739}{%
+           family={Bosch},
+           familyi={B\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=02a6a8bb0fd93b041f0b9fa55ce0b392}{%
+           family={Foster},
+           familyi={F\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f3e4c0add585784750c5f1816722590e}{%
+           family={Christie},
+           familyi={C\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c2062c5ece388aa1d97215a120543b4e}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8d95f135870dc395fe6db9bc3b865bc4}{%
+           family={Hager},
+           familyi={H\bibinitperiod},
+           given={Gregory\bibnamedelima D},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=30c5d786852485fb7190fdff37dc4238}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Myron},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{634703d450225bc389767a4b63f56c96}
+      \strng{fullhash}{878997e5b54d12ddcd5d632c461c6112}
+      \strng{bibnamehash}{634703d450225bc389767a4b63f56c96}
+      \strng{authorbibnamehash}{634703d450225bc389767a4b63f56c96}
+      \strng{authornamehash}{634703d450225bc389767a4b63f56c96}
+      \strng{authorfullhash}{878997e5b54d12ddcd5d632c461c6112}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE Winter Conference on Applications of Computer Vision (WACV)}
+      \field{title}{Semantic Stereo for Incidental Satellite Images}
+      \field{year}{2019}
+      \field{pages}{1524\bibrangedash 1532}
+      \range{pages}{9}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
