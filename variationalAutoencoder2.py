@@ -180,8 +180,8 @@ def try_net(model, image):
     return np.array(erg, dtype=np.int)
 
 
-epochs = 2
-batch_size = 10
+epochs = 1
+batch_size = 3
 latent_dim = 64
 num_examples_to_generate = 16
 vaemodel = CVAE(latent_dim)
@@ -189,9 +189,16 @@ checkpoint_path = './training_checkpoints/cp.ckpt'
 cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path, verbose=1)
 
 file_paths = get_image_paths("test-RGB")
-
-train_net(vaemodel, epochs, batch_size, file_paths)
+batch = list()
+for i in range(len(file_paths)):
+    batch.append(imread(file_paths[i]))
+batch = np.array(batch, dtype=np.float32)
+batch /= 127.5
+batch -= 1.
+vaemodel.fit(batch)
+# train_net(vaemodel, epochs, batch_size, file_paths)
 vaemodel.save_weights('./savedModels/path_to_my_model.h5')
+#vaemodel.load_weights('./savedModels/path_to_my_model.h5')
 # new_model = tf.keras.models.load_('./savedModels/variationalAutoencoder2.h5')
 tryimg = imread("./Track1-RGB/JAX_467_013_RGB.tif")
 tryimg = np.array(tryimg, dtype=np.float32)
