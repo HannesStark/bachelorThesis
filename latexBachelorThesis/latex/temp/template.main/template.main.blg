@@ -1,15 +1,15 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.blg'
-[93] biber-MSWIN64:315> INFO - === 
-[205] Biber.pm:371> INFO - Reading 'C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
-[426] Biber.pm:889> INFO - Found 1 citekeys in bib section 0
-[498] Biber.pm:4093> INFO - Processing section 0
-[564] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
-[613] bibtex.pm:1523> INFO - LaTeX decoding ...
-[923] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
-[1000] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1001] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1001] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1001] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[1006] bbl.pm:636> INFO - Writing 'C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
-[1009] bbl.pm:739> INFO - Output to C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl
+[56] biber-MSWIN64:315> INFO - === 
+[116] Biber.pm:371> INFO - Reading 'C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
+[309] Biber.pm:889> INFO - Found 1 citekeys in bib section 0
+[348] Biber.pm:4093> INFO - Processing section 0
+[406] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
+[430] bibtex.pm:1523> INFO - LaTeX decoding ...
+[802] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
+[896] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[897] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[897] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[897] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[904] bbl.pm:636> INFO - Writing 'C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
+[907] bbl.pm:739> INFO - Output to C:\Users\Hannes\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl

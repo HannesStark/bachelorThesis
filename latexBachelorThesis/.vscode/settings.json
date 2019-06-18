@@ -56,5 +56,14 @@
       "name": "LaTeXmk", "tools": ["latexmk"]
     },
 ],
+"spellright.language": [
+  "de",
+  "en"
+],
+"spellright.documentTypes": [
+  "markdown",
+  "latex",
+  "plaintext"
+],
 
 }
