@@ -3,9 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 
 import os
-import time
 import numpy as np
-import glob
 import matplotlib.pyplot as plt
 from tifffile import imread
 
