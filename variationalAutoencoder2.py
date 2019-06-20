@@ -196,7 +196,7 @@ batch -= 1.
 vaemodel.fit(batch)
 # train_net(vaemodel, epochs, batch_size, file_paths)
 vaemodel.save_weights('./savedModels/path_to_my_model.h5')
-#vaemodel.load_weights('./savedModels/path_to_my_model.h5')
+vaemodel.load_weights('./savedModels/path_to_my_model.h5')
 # new_model = tf.keras.models.load_('./savedModels/variationalAutoencoder2.h5')
 tryimg = imread("./Track1-RGB/JAX_467_013_RGB.tif")
 tryimg = np.array(tryimg, dtype=np.float32)

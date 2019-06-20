@@ -21,7 +21,7 @@ class CVAE(tf.keras.Model):
         self.latent_dim = latent_dim
         self.inference_net = tf.keras.Sequential(
             [
-                tf.keras.layers.InputLayer(input_shape=(1024, 1024, 3)),
+                tf.keras.layers.InputLayer(input_shape=(256, 256, 3)),
                 tf.keras.layers.Conv2D(
                     filters=32, kernel_size=3, strides=(2, 2), activation='relu'),
                 tf.keras.layers.Conv2D(
@@ -37,8 +37,8 @@ class CVAE(tf.keras.Model):
         self.generative_net = tf.keras.Sequential(
             [
                 tf.keras.layers.InputLayer(input_shape=(latent_dim,)),
-                tf.keras.layers.Dense(units=128 * 128 * 32, activation=tf.nn.relu),
-                tf.keras.layers.Reshape(target_shape=(128, 128, 32)),
+                tf.keras.layers.Dense(units=32 * 32 * 32, activation=tf.nn.relu),
+                tf.keras.layers.Reshape(target_shape=(32, 32, 32)),
                 tf.keras.layers.Conv2DTranspose(
                     filters=32,
                     kernel_size=3,
@@ -100,11 +100,10 @@ def compute_loss(model, x):
     z = model.reparameterize(mean, logvar)
     x_logit = model.decode(z)
 
-    cross_ent = tf.nn.sigmoid_cross_entropy_with_logits(logits=x_logit, labels=x)
-    logpx_z = -tf.reduce_sum(cross_ent, axis=[1, 2, 3])
+    reconstruction_loss = -tf.reduce_mean(tf.abs(x_logit - x))
     logpz = log_normal_pdf(z, 0., 0.)
     logqz_x = log_normal_pdf(z, mean, logvar)
-    return -tf.reduce_mean(logpx_z + logpz - logqz_x)
+    return -tf.reduce_mean(reconstruction_loss + logpz - logqz_x)
 
 
 def compute_gradients(model, x):
@@ -154,13 +153,13 @@ def get_image_batch(files, index, batchsize):
     return batch
 
 
-epochs = 100
+epochs = 10
 latent_dim = 128
 num_examples_to_generate = 16
-batchsize = 30
+batchsize = 100
 test_train_ratio = 1 / 8  # is only used if test_size is null
-test_size = None  # if test_size is null the test_train_ratio will be used
-data_source_dir = "test-RGB"
+test_size = 200  # if test_size is null the test_train_ratio will be used
+data_source_dir = "Track1-RGB/Track1-RGB256x256"
 
 random_vector_for_generation = tf.random.normal(
     shape=[num_examples_to_generate, latent_dim])
@@ -176,11 +175,13 @@ if (test_size != None and n_files <= test_size):
     print("error: test_size is larger than the amount of files in the training directory")
 
 split_index = int(n_files // test_train_ratio) if test_size == None else n_files - test_size
-print("split index: " + str(split_index))
 training_paths, test_paths = file_paths[:split_index], file_paths[split_index:]
-print("len(training_paths): " + str(len(training_paths)))
+print("number of training images: " + str(len(training_paths)))
+print("number of test images: " + str(len(test_paths)))
 train_iterations = len(training_paths) // batchsize
 test_iterations = len(test_paths) // batchsize
+
+log_file = "{}.log".format(time.strftime("%d.%m.%Y %H:%M:%S"))
 
 for epoch in range(1, epochs + 1):
     start_time = time.time()
@@ -188,10 +189,16 @@ for epoch in range(1, epochs + 1):
         batch = get_image_batch(training_paths, iteration, batchsize)
         gradients, loss = compute_gradients(model, batch)
         apply_gradients(optimizer, gradients, model.trainable_variables)
-        print("Epoch: {}/{}...".format(epoch + 1, epochs),
+        print("Epoch: {}/{}...".format(epoch, epochs),
               "Iteration: {}/{}...".format(iteration + 1, train_iterations),
               "Images: {}/{}...".format((iteration + 1) * batchsize, train_iterations * batchsize),
               "Training loss: {:.4f}".format(loss))
+        f = open(log_file, "a")
+        f.write("Epoch: {}/{}...".format(epoch, epochs) +
+                "Iteration: {}/{}...".format(iteration + 1, train_iterations) +
+                "Images: {}/{}...".format((iteration + 1) * batchsize, train_iterations * batchsize) +
+                "Training loss: {:.4f}".format(loss) + "\n")
+        f.close()
     end_time = time.time()
 
     if epoch % 1 == 0:
@@ -207,6 +214,15 @@ for epoch in range(1, epochs + 1):
                                                         end_time - start_time))
         generate_and_save_images(
             model, epoch, random_vector_for_generation)
+
+saveLocation = 'saved/v1_256x256RGB_to{}.h5'.format(latent_dim)
+if not os.path.exists(os.path.dirname(saveLocation)):
+    try:
+        os.makedirs(os.path.dirname(saveLocation))
+    except OSError as exc:  # Guard against race condition
+        if exc.errno != errno.EEXIST:
+            raise
+model.save_weights(saveLocation)
 
 
 def display_image(epoch_no):
