@@ -11,7 +11,7 @@ encoding for a piece of information can possibly have.
 Suppose there is a system $S1$ that can have four different states $a, b, c, d$
 and every one of those states is equally likely to occur, that means the probability $P(x)$
 of each state $x$ is $1/4$. Now the goal is to losslessly transmit all information about that system
-with the minimum average amount of bits. That can be done with onyl two bits for example like this
+with the minimum average amount of bits. That can be done with only two bits for example like this
 
 \begin{center}
     \begin{tabular} {c c c c}
@@ -21,7 +21,7 @@ with the minimum average amount of bits. That can be done with onyl two bits for
 
 However, if $P(a)=1$ and $P(b)=P(c)=P(d)=0,$ zero bits will suffice to encode the information since
 it is always certain that the system is in state a. So the entropy of the system clearly depends on
-the probablities of each state. To see in which way, one can consider the system $S2$ with 
+the probabilities of each state. To see in which way, one can consider the system $S2$ with 
 $P(a)=1/2,\ P(b)=1/4,\ P(c)=1/8$ and $P(d)=1/8$. In that case it would be best to encode the state
 with the highest probability with as few bits as possible since it has to be transmitted the most
 often. That means $a$ is encoded with one bit as $0$. When decoding the information there must be
@@ -74,9 +74,9 @@ expectation under the actual distribution resulting in the cross entropy $H(P,Q)
     H(P,Q)=E_{x\sim P}[-log_{2}Q(x)]=-\sum_{x\in X} P(x)\log_{2} (Q(x))
 \end{equation}
 In machine learning tasks regarding classification this is often used as a loss function since the
-label of a piece of data gives us a distribution $P$ with absolute cetrainty and $H(P)=0$. With the
+label of a piece of data gives us a distribution $P$ with absolute certainty and $H(P)=0$. With the
 inaccurate distribution $Q$ that the model estimates $H(P,Q)$ will be greater than zero unless
-$P=Q$ where $H(P,Q)=H(P,P)=H(P)=0$. So the lerning algorithm can try to minimize $H(P,Q)$.
+$P=Q$ where $H(P,Q)=H(P,P)=H(P)=0$. So the learning algorithm can try to minimize $H(P,Q)$.
 
 \paragraph{Kullback-Leibler Divergence}\mbox{}\\
 
@@ -94,7 +94,7 @@ possible to compare those distributions by comparing $H(P)$ and $H(P,Q)$ through
 where $D_{KL}(P\parallel Q)$ is called the Kullback-Leibler divergence of $P$ and $Q$. This works
 because $D_{KL}(P\parallel Q)$ is zero if $Q$ and $P$ are the same since that means $H(P,Q)=H(P)$.
 On the opposite if $Q$ is different from $P$ then $H(P,Q)$ is greater than $H(P)$ and therefore 
-the KL divergence is greater than zero proportional to how differten $Q$ and $P$ are.
+the KL divergence is greater than zero proportional to how different $Q$ and $P$ are.
 In summary Kullback-Leibler divergence is a measure of how different two probability distributions
 are that is zero if they are the same and greater than zero if not.
 
