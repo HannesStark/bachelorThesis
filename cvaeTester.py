@@ -87,12 +87,14 @@ class CVAE(tf.keras.Model):
 
 # 'saved/v1_256x256RGB_to128.h5' = reconstruction loss mae latent loss aus dem tf 2.0 cvae tutorial learning rate 1-4e
 latent_dim = 128
-savedWeights = 'saved/v1_256x256_to{}.h5'.format(latent_dim)
+savedWeights = 'saved/v1_256x256RGB_to{}.h5'.format(latent_dim)
 model = CVAE(latent_dim)
 model.load_weights(savedWeights)
 
-img = imread("Track1-RGB/Track1-RGB256x256/OMA_198_039_RGB.tif")
-mean, logvar = model.encode(img)
+img = imread("Track1-RGB/Track1-RGB256x256/JAX_018_001_RGB_256x256_13.tif")
+image_float = np.array([img], dtype=np.float32)
+image_float /= 255.
+mean, logvar = model.encode(image_float)
 encoding = model.reparameterize(mean, logvar)
 res = model.decode(encoding)
-plt.imshow(res)
+plt.imshow(res[0])
