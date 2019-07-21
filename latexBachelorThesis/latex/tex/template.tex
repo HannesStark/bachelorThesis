@@ -41,20 +41,21 @@ a ground sample distance of 1.3 meters. The eight channels of the imagery corres
 \bigskip
 
 Three of those channels were extracted and used as RGB data. 
-Each pixel of an image is described by three bytes representing the intensity of either red, green or blue.
+Each pixel of an image is described by three bytes representing the intensity of the wavelengths of the 
+reflected light corresponding to either red, green or blue.
 
-The given DSMs were collected using light detection and ranging technology (Lidar). 
-They have a single channel that describes the height of each pixel with a greater number 
-representing a higher distance to the ground. 
+The DSM data was collected using light detection and ranging technology (Lidar) which measures the 
+distance to points of earths surface. This distance is proportional to the value of the single channel
+that each pixel of the DSM has.
 
-Lastly there are semantic labeled pictures with one channel of a single byte encodes one of five 
+Lastly there are semantic labeled pictures with one channel of a single byte that encodes one of five 
 different topographic classes. Those classes are vegetation, water, ground, building and clutter. 
 The semantic labeling was done automatically from lidar data but manually checked and corrected afterwards.
 
-For all four categories of data the area covered in a single image
-is one square kilometer and they contain a lot of oblique view of 
-buildings, often with sunshine casting good shadows making the 
-data ideal for training models that should detect them.
+Those four categories of data all cover one square kilometer in each image.
+Additionally they contain a lot of oblique view on buildings and other valuable
+features like clear shadows making the data ideal for training models that should 
+detect those features.
 
 \subsection{Experiments}
 
