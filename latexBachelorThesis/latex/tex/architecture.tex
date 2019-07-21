@@ -108,4 +108,11 @@ that resembles the real distribution.
 
 To define that goal in a loss function Kullback-Leibler divergence is used to force the distribution
 of the latent space to resemble a normal distribution.
-%TODO D_{KL}(P\parallel Q) von latent  und normal wird minimiert 
+%TODO D_{KL}(P\parallel Q) von latent  und normal wird minimiert
+
+The second goal is of course that the output of the variational autoencoder is similar to the input.
+The loss function used for this purpose is the sum of the absolute differences between each input and
+each output pixel.
+
+The final loss function is the sum of both, the Kullback-Leibler divergence and the sum of the absolute
+errors.
