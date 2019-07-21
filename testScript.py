@@ -30,3 +30,4 @@ random_vector_for_generation = tf.random.normal(
 
 keras.utils.plot_model(model, to_file="test_keras_plot_model.png", show_shapes=True)
 IPython.display.Image("test_keras_plot_model.png")
+print(model.to_json())

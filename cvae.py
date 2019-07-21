@@ -100,7 +100,7 @@ def compute_loss(model, x):
     z = model.reparameterize(mean, logvar)
     x_logit = model.decode(z)
 
-    reconstruction_loss = -tf.reduce_mean(tf.abs(x_logit - x))
+    reconstruction_loss = -tf.reduce_sum(tf.abs(x_logit - x))
     logpz = log_normal_pdf(z, 0., 0.)
     logqz_x = log_normal_pdf(z, mean, logvar)
     return -tf.reduce_mean(reconstruction_loss + logpz - logqz_x)
@@ -154,7 +154,7 @@ def get_image_batch(files, index, batchsize):
 
 
 epochs = 10
-latent_dim = 128
+latent_dim = 1024
 num_examples_to_generate = 16
 batchsize = 100
 test_train_ratio = 1 / 8  # is only used if test_size is null
@@ -215,7 +215,7 @@ for epoch in range(1, epochs + 1):
         generate_and_save_images(
             model, epoch, random_vector_for_generation)
 
-saveLocation = 'saved/v1_256x256RGB_to{}.h5'.format(latent_dim)
+saveLocation = 'saved/v3_256x256RGB_to{}.h5'.format(latent_dim)
 if not os.path.exists(os.path.dirname(saveLocation)):
     try:
         os.makedirs(os.path.dirname(saveLocation))
