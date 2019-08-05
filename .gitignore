@@ -9,3 +9,5 @@ savedModels
 VC
 *.log
 generatedImages
+test-RGB256x256
+validation
