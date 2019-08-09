@@ -156,7 +156,7 @@ def get_image_batch(files, index, batchsize):
 epochs = 10
 latent_dim = 1024
 num_examples_to_generate = 16
-batchsize = 100
+batch_size = 100
 test_train_ratio = 1 / 8  # is only used if test_size is null
 test_size = 200  # if test_size is null the test_train_ratio will be used
 data_source_dir = "Track1-RGB/Track1-RGB256x256"
@@ -178,25 +178,26 @@ split_index = int(n_files // test_train_ratio) if test_size == None else n_files
 training_paths, test_paths = file_paths[:split_index], file_paths[split_index:]
 print("number of training images: " + str(len(training_paths)))
 print("number of test images: " + str(len(test_paths)))
-train_iterations = len(training_paths) // batchsize
-test_iterations = len(test_paths) // batchsize
+train_iterations = len(training_paths) // batch_size
+test_iterations = len(test_paths) // batch_size
 
 log_file = "{}.log".format(time.strftime("%d.%m.%Y %H:%M:%S"))
 
 for epoch in range(1, epochs + 1):
     start_time = time.time()
     for iteration in range(train_iterations):
-        batch = get_image_batch(training_paths, iteration, batchsize)
+        first_index = iteration * batch_size
+        batch = get_image_batch(training_paths, first_index, batch_size)
         gradients, loss = compute_gradients(model, batch)
         apply_gradients(optimizer, gradients, model.trainable_variables)
         print("Epoch: {}/{}...".format(epoch, epochs),
               "Iteration: {}/{}...".format(iteration + 1, train_iterations),
-              "Images: {}/{}...".format((iteration + 1) * batchsize, train_iterations * batchsize),
+              "Images: {}/{}...".format((iteration + 1) * batch_size, train_iterations * batch_size),
               "Training loss: {:.4f}".format(loss))
         f = open(log_file, "a")
         f.write("Epoch: {}/{}...".format(epoch, epochs) +
                 "Iteration: {}/{}...".format(iteration + 1, train_iterations) +
-                "Images: {}/{}...".format((iteration + 1) * batchsize, train_iterations * batchsize) +
+                "Images: {}/{}...".format((iteration + 1) * batch_size, train_iterations * batch_size) +
                 "Training loss: {:.4f}".format(loss) + "\n")
         f.close()
     end_time = time.time()
@@ -204,7 +205,8 @@ for epoch in range(1, epochs + 1):
     if epoch % 1 == 0:
         loss = tf.keras.metrics.Mean()
         for iteration in range(test_iterations):
-            batch = get_image_batch(test_paths, iteration, batchsize)
+            first_index = iteration * batch_size
+            batch = get_image_batch(test_paths, first_index, batch_size)
             loss(compute_loss(model, batch))
         elbo = -loss.result()
         display.clear_output(wait=False)

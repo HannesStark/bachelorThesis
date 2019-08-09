@@ -10,4 +10,5 @@ VC
 *.log
 generatedImages
 test-RGB256x256
+test-RGB128x128
 validation

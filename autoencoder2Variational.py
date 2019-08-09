@@ -79,7 +79,8 @@ def train_net():
             n_images = len(listdir(data_directory))
             iterations = n_images // batch_size
             for iteration in range(iterations):
-                batch = get_image_batch(data_directory, iteration * batch_size, batch_size)
+                first_index = iteration * batch_size
+                batch = get_image_batch(data_directory, first_index, batch_size)
                 batch_loss, batch_training_opt = sess.run([loss, training_op], feed_dict={inputs: batch})
                 print("Epoch: {}/{}...".format(epoch + 1, n_epochs),
                       "Iteration: {}/{}...".format(iteration + 1, iterations),

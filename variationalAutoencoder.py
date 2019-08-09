@@ -140,7 +140,8 @@ def train_net(model, n_epochs, batchsize, files):
     iterations = n_files // batchsize
     for epoch in range(n_epochs):
         for iteration in range(iterations):
-            batch = get_image_batch(files, iteration, batchsize)
+            first_index = iteration * batch_size
+            batch = get_image_batch(files, first_index, batchsize)
             batch_gradients, batch_loss = compute_gradients(model, batch)
             apply_gradients(optimizer, batch_gradients, model.trainable_variables)
             print("Epoch: {}/{}...".format(epoch + 1, n_epochs),

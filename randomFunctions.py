@@ -92,4 +92,4 @@ def split_images(directory, split_by=2):
                 imsave(filepath, img[i * height:(i + 1) * height, j * width:(j + 1) * width])
 
 
-split_images("test-RGB", 4)
+#split_images("test-RGB", 8)
