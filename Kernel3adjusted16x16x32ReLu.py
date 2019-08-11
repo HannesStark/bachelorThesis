@@ -29,12 +29,10 @@ class Sampling(tf.keras.layers.Layer):
 
 
 inputs = tf.keras.layers.Input(shape=[128, 128, 3])
-z = tf.keras.layers.Conv2D(16, kernel_size=3, padding="same", activation="selu")(inputs)
-z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
-z = tf.keras.layers.Conv2D(32, kernel_size=3, padding="same", activation="selu")(z)
-z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
-z = tf.keras.layers.Conv2D(64, kernel_size=3, padding="same", activation="selu")(z)
-z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
+z = tf.keras.layers.Conv2D(8, strides=2, kernel_size=3, padding="same", activation="relu")(inputs)
+z = tf.keras.layers.Conv2D(16, strides=2, kernel_size=3, padding="same", activation="relu")(z)
+z = tf.keras.layers.Conv2D(32, strides=2, kernel_size=3, padding="same", activation="relu")(z)
+
 z = tf.keras.layers.Flatten()(z)
 codings_mean = tf.keras.layers.Dense(latent_dim)(z)  # μ
 codings_log_var = tf.keras.layers.Dense(latent_dim)(z)  # γ
@@ -43,10 +41,10 @@ variational_encoder = tf.keras.Model(
     inputs=[inputs], outputs=[codings_mean, codings_log_var, codings])
 
 decoder_inputs = tf.keras.layers.Input(shape=[latent_dim])
-x = tf.keras.layers.Dense(16 * 16 * 64)(decoder_inputs)
-x = tf.keras.layers.Reshape([16, 16, 64])(x)
-x = tf.keras.layers.Conv2DTranspose(32, kernel_size=3, strides=2, padding="same", activation="selu")(x)
-x = tf.keras.layers.Conv2DTranspose(16, kernel_size=3, strides=2, padding="same", activation="selu")(x)
+x = tf.keras.layers.Dense(16 * 16 * 32)(decoder_inputs)
+x = tf.keras.layers.Reshape([16, 16, 32])(x)
+x = tf.keras.layers.Conv2DTranspose(16, kernel_size=3, strides=2, padding="same", activation="relu")(x)
+x = tf.keras.layers.Conv2DTranspose(8, kernel_size=3, strides=2, padding="same", activation="relu")(x)
 outputs = tf.keras.layers.Conv2DTranspose(3, kernel_size=3, strides=2, padding="same", activation="sigmoid")(x)
 variational_decoder = tf.keras.Model(inputs=[decoder_inputs], outputs=[outputs])
 
@@ -160,14 +158,14 @@ def predictions_and_generations():
         plt.savefig(generation_path + "generated" + str(i))
 
 
-start_time = time.time()
-train()
-f = open(log_file, "a")
-f.write(str(time.time() - start_time))
-f.close()
-variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+#start_time = time.time()
+#train()
+#f = open(log_file, "a")
+#f.write(str(time.time() - start_time))
+#f.close()
+#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-#variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 

@@ -91,7 +91,8 @@ train_iterations = len(training_paths) // batch_size
 test_iterations = len(test_paths) // batch_size
 
 log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"))
-
+if not os.path.exists("log"):
+    os.mkdir("log")
 
 def train():
     for epoch in range(1, epochs + 1):
@@ -157,14 +158,14 @@ def predictions_and_generations():
         plt.savefig(generation_path + "generated" + str(i))
 
 
-start_time = time.time()
-train()
-f = open(log_file, "a")
-f.write(str(time.time() - start_time))
-f.close()
-variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+#start_time = time.time()
+#train()
+#f = open(log_file, "a")
+#f.write(str(time.time() - start_time))
+#f.close()
+#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 

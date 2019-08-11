@@ -93,7 +93,10 @@ Additionally they contain a lot of oblique view on buildings and other valuable
 features like clear shadows making the data ideal for training models that should 
 detect those features.
 
-
+In the dataset there are $2,783$ $1024\times 1024$ RGB images available. Since the autoencoder should
+be able to distinguish between categories like shadows and vegetation each image is split into $64$
+$128\times 128$ pictures resulting in $178,112$ total training images. Those smaller picture sections
+are more likely to have a dominant feature like containing mainly shadows or only vegetation.
 
 \subsection{Architecture}
 

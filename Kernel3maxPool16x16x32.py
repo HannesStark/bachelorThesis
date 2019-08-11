@@ -16,10 +16,11 @@ epochs = 50
 num_examples_to_generate = 16
 test_train_ratio = 1 / 8  # is only used if test_size is null
 test_size = 200  # if test_size is null the test_train_ratio will be used
-# data_source_dir = "Track1-RGB/Track1-RGB128x128"
-generation_path = "generatedImages/" + file_tag + "/"
+# data_source_dir = "Track1-RGB/Track1-RGB128x128" #jupyter notebook
+# data_source_dir = "Track1-RGB128x128" # xla machine unibw
+data_source_dir = "test-RGB128x128split8"  # local
 
-data_source_dir = "test-RGB128x128split8"
+generation_path = "generatedImages/" + file_tag + "/"
 
 
 class Sampling(tf.keras.layers.Layer):
@@ -93,6 +94,8 @@ train_iterations = len(training_paths) // batch_size
 test_iterations = len(test_paths) // batch_size
 
 log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"))
+if not os.path.exists("log"):
+    os.mkdir("log")
 
 
 def train():
@@ -166,7 +169,7 @@ f.write(str(time.time() - start_time))
 f.close()
 variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-#variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 

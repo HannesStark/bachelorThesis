@@ -93,7 +93,8 @@ train_iterations = len(training_paths) // batch_size
 test_iterations = len(test_paths) // batch_size
 
 log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"))
-
+if not os.path.exists("log"):
+    os.mkdir("log")
 
 def train():
     for epoch in range(1, epochs + 1):
