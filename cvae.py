@@ -181,7 +181,7 @@ print("number of test images: " + str(len(test_paths)))
 train_iterations = len(training_paths) // batch_size
 test_iterations = len(test_paths) // batch_size
 
-log_file = "{}.log".format(time.strftime("%d.%m.%Y %H:%M:%S"))
+log_file = "log/{}.log".format(time.strftime("%d.%m.%Y %H:%M:%S"))
 
 for epoch in range(1, epochs + 1):
     start_time = time.time()

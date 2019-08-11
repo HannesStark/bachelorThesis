@@ -1,33 +1,32 @@
 import tensorflow as tf
 import keras
-import IPython
-model = tf.keras.Sequential(
-            [
-                tf.keras.layers.Conv2D(
-                    filters=32, kernel_size=3, strides=(2, 2), activation='relu'),
-                tf.keras.layers.Conv2D(
-                    filters=64, kernel_size=3, strides=(2, 2), activation='relu'),
-                tf.keras.layers.Conv2D(
-                    filters=64, kernel_size=3, strides=(2, 2), activation='relu'),
-                tf.keras.layers.Flatten(),
-                # No activation
-                tf.keras.layers.Dense(128 + 128),
-            ]
-        )
+import os
+
+latent_dim = 1024
+
+K = tf.keras.backend
 
 
+class Sampling(tf.keras.layers.Layer):
+    def call(self, inputs):
+        mean, log_var = inputs
+        return K.random_normal(tf.shape(log_var)) * K.exp(log_var / 2) + mean
 
-epochs = 10
-latent_dim = 128
-num_examples_to_generate = 16
-batchsize = 100
-test_train_ratio = 1 / 8  # is only used if test_size is null
-test_size = 200  # if test_size is null the test_train_ratio will be used
-data_source_dir = "Track1-RGB/Track1-RGB256x256"
 
-random_vector_for_generation = tf.random.normal(
-    shape=[num_examples_to_generate, latent_dim])
+inputs = tf.keras.layers.Input(shape=[128, 128, 3])
+z = tf.keras.layers.Conv2D(8, strides=2, kernel_size=3, padding="same", activation="selu")(inputs)
+z = tf.keras.layers.Conv2D(16, strides=2, kernel_size=3, padding="same", activation="selu")(z)
+z = tf.keras.layers.Conv2D(32, strides=2, kernel_size=3, padding="same", activation="selu")(z)
+z = tf.keras.layers.Conv2D(64, strides=2, kernel_size=3, padding="same", activation="selu")(z)
+z = tf.keras.layers.Conv2D(128, strides=2, kernel_size=3, padding="same", activation="selu")(z)
+z = tf.keras.layers.Conv2D(256, strides=2, kernel_size=3, padding="same", activation="selu")(z)
 
-keras.utils.plot_model(model, to_file="test_keras_plot_model.png", show_shapes=True)
-IPython.display.Image("test_keras_plot_model.png")
-print(model.to_json())
+z = tf.keras.layers.Flatten()(z)
+codings_mean = tf.keras.layers.Dense(latent_dim)(z)  # μ
+codings_log_var = tf.keras.layers.Dense(latent_dim)(z)  # γ
+codings = Sampling()([codings_mean, codings_log_var])
+variational_encoder = tf.keras.Model(
+    inputs=[inputs], outputs=[codings_mean, codings_log_var, codings])
+
+variational_encoder.summary()
+

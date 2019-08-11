@@ -73,6 +73,50 @@
       \field{pages}{1524\bibrangedash 1532}
       \range{pages}{9}
     \endentry
+    \entry{2019-geron-homl}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fb48b65407d03cee0c164d17c1ea7eac}{%
+           family={Geron},
+           familyi={G\bibinitperiod},
+           given={Aurelien},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly UK Ltd.}%
+      }
+      \strng{namehash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \strng{fullhash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \strng{bibnamehash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \strng{authorbibnamehash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \strng{authornamehash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \strng{authorfullhash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781492032649}
+      \field{title}{Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow}
+    \endentry
+    \entry{tensorflow}{online}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={Google},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tensorflow}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

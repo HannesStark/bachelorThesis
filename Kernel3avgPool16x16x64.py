@@ -9,16 +9,17 @@ import time
 
 K = tf.keras.backend
 
+file_tag = os.path.splitext(os.path.basename(__file__))[0]
 latent_dim = 1024
 batch_size = 128
 epochs = 50
 num_examples_to_generate = 16
 test_train_ratio = 1 / 8  # is only used if test_size is null
 test_size = 200  # if test_size is null the test_train_ratio will be used
-#data_source_dir = "Track1-RGB/Track1-RGB128x128"
+# data_source_dir = "Track1-RGB/Track1-RGB128x128"
+generation_path = "generatedImages/" + file_tag + "/"
 
-
-data_source_dir = "test-RGB128x128"
+data_source_dir = "test-RGB128x128split8"
 
 
 class Sampling(tf.keras.layers.Layer):
@@ -29,11 +30,11 @@ class Sampling(tf.keras.layers.Layer):
 
 inputs = tf.keras.layers.Input(shape=[128, 128, 3])
 z = tf.keras.layers.Conv2D(16, kernel_size=3, padding="same", activation="selu")(inputs)
-z = tf.keras.layers.MaxPool2D(pool_size=2)(z)
+z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
 z = tf.keras.layers.Conv2D(32, kernel_size=3, padding="same", activation="selu")(z)
-z = tf.keras.layers.MaxPool2D(pool_size=2)(z)
+z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
 z = tf.keras.layers.Conv2D(64, kernel_size=3, padding="same", activation="selu")(z)
-z = tf.keras.layers.MaxPool2D(pool_size=2)(z)
+z = tf.keras.layers.AvgPool2D(pool_size=2)(z)
 z = tf.keras.layers.Flatten()(z)
 codings_mean = tf.keras.layers.Dense(latent_dim)(z)  # μ
 codings_log_var = tf.keras.layers.Dense(latent_dim)(z)  # γ
@@ -91,58 +92,82 @@ print("number of test images: " + str(len(test_paths)))
 train_iterations = len(training_paths) // batch_size
 test_iterations = len(test_paths) // batch_size
 
-log_file = "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"))
+log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"))
 
-#for epoch in range(1, epochs + 1):
-#    for iteration in range(train_iterations):
-#        first_index = iteration * batch_size
-#        batch = get_image_batch(training_paths, first_index, batch_size)
-#        history = variational_ae.train_on_batch(batch, batch)
-#        print(history)
-#        print("Epoch: {}/{}...".format(epoch, epochs),
-#              "Iteration: {}/{}...".format(iteration + 1, train_iterations),
-#              "Images: {}/{}...".format((iteration + 1) * batch_size, train_iterations * batch_size))
-#        f = open(log_file, "a")
-#        f.write(str(history) + "\n" +
-#                "Epoch: {}/{}...".format(epoch, epochs) +
-#                "Iteration: {}/{}...".format(iteration + 1, train_iterations) +
-#                "Images: {}/{}...".format((iteration + 1) * batch_size, train_iterations * batch_size) + "\n")
-#        f.close()
-#
-#    saveLocation = 'saved/v1_128x128RGB_to{}_epoch_{}.h5'.format(latent_dim, epoch)
-#    if not os.path.exists(os.path.dirname(saveLocation)):
-#        try:
-#            os.makedirs(os.path.dirname(saveLocation))
-#        except OSError as exc:  # Guard against race condition
-#            if exc.errno != errno.EEXIST:
-#                raise
-#    variational_ae.save_weights(saveLocation)
 
-variational_ae.load_weights("./savedModels/modelNewArchitecureV1.h5")
+def train():
+    for epoch in range(1, epochs + 1):
+        for iteration in range(train_iterations):
+            first_index = iteration * batch_size
+            batch = get_image_batch(training_paths, first_index, batch_size)
+            history = variational_ae.train_on_batch(batch, batch)
 
-#variational_ae.save_weights("modelNewArchitecureV1.h5")
+            result = str(history) + "\n" + "Epoch: {}/{}...".format(epoch, epochs) + "Iteration: {}/{}...".format(
+                iteration + 1, train_iterations) + "Images: {}/{}...".format((iteration + 1) * batch_size,
+                                                                             train_iterations * batch_size) + "\n"
+            print(result)
+            f = open(log_file, "a")
+            f.write(result)
+            f.close()
 
-pred_on = list()
-for path in file_paths[5:15]:
-    pred_on.append(tiff.imread(path))
-pred_on = np.array(pred_on, dtype=np.float32)
-pred_on /= 255.
 
-predictions = variational_ae.predict(pred_on)
+if not os.path.exists(generation_path):
+    os.mkdir(generation_path)
 
-for i in range(0, len(pred_on)):
-    plt.imshow(pred_on[i])
-    plt.savefig("img" + str(i))
 
-for i in range(0, len(predictions)):
-    plt.imshow(predictions[i])
-    plt.savefig("pred" + str(i))
+def predictions_and_generations():
+    pred_on = list()
+    file_names = os.listdir("RGB-From-Track1128x128split8")
+    for filename in file_names[5:15]:
+        pred_on.append(tiff.imread("RGB-From-Track1128x128split8/" + filename))
+    pred_on = np.array(pred_on, dtype=np.float32)
+    pred_on /= 255.
 
-codings = tf.random.normal(shape=[12, latent_dim])
-images_generated = variational_decoder.predict(codings, steps=1)
-print(type(images_generated))
-print(images_generated.shape)
+    latent_log_var, latent_mean, latent_vars = variational_encoder.predict(pred_on)
+    predictions = variational_decoder.predict(latent_vars)
 
-for i in range(0, len(images_generated)):
-    plt.imshow(images_generated[i])
-    plt.savefig("generated" + str(i))
+    for i in range(0, len(predictions)):
+        plt.clf()
+        plt.subplot(2, 3, 1)
+        plt.title('Latent Log Variance')
+        plt.plot(latent_log_var[i], 'o', markersize=1)
+        plt.subplot(2, 3, 2)
+        plt.title('Latent Mean')
+        plt.plot(latent_mean[i], 'o', markersize=1)
+        plt.subplot(2, 3, 3)
+        plt.title('Latent Sampled Variables')
+        plt.plot(latent_vars[i], 'o', markersize=1)
+        plt.subplot(2, 3, 4)
+        plt.title('Original Image')
+        plt.imshow(pred_on[i])
+        plt.subplot(2, 3, 5)
+        plt.title('Reconstructed Image')
+        plt.imshow(predictions[i])
+
+        plt.tight_layout()
+
+        plt.savefig(generation_path + "reconstruction" + str(i))
+
+    codings = tf.random.normal(shape=[12, latent_dim])
+    images_generated = variational_decoder.predict(codings, steps=1)
+    print(type(images_generated))
+    print(images_generated.shape)
+
+    for i in range(0, len(images_generated)):
+        plt.clf()
+        plt.imshow(images_generated[i])
+        plt.savefig(generation_path + "generated" + str(i))
+
+
+start_time = time.time()
+train()
+f = open(log_file, "a")
+f.write(str(time.time() - start_time))
+f.close()
+variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+
+#variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+
+variational_ae.summary()
+
+predictions_and_generations()

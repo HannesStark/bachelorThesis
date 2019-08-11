@@ -12,3 +12,8 @@ generatedImages
 test-RGB256x256
 test-RGB128x128
 validation
+test-RGB128x128split2
+test-RGB128x128split4
+test-RGB128x128split8
+RGB-From-Track1
+RGB-From-Track1128x128split8

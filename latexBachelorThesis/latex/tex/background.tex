@@ -1,5 +1,12 @@
-\section{Architecture}
-\subsection{Loss Function}
+\section{Background}
+
+\subsection{Artificial Neural Networks}
+
+\subsection{Convolutional Neural Networks}
+
+\subsection{Autoencoders}
+
+\subsection{Kullback-Leibler Divergence}
 
 \paragraph{Entropy}\mbox{}\\
 
@@ -98,21 +105,4 @@ the KL divergence is greater than zero proportional to how different $Q$ and $P$
 In summary Kullback-Leibler divergence is a measure of how different two probability distributions
 are that is zero if they are the same and greater than zero if not.
 
-\paragraph{The Loss Function}\mbox{}\\
-
-Intuitively the loss function defines a goal that the model should reach when training by minimizing
-the loss function. In the variational autoencoder one of those goals is that the distribution of the 
-latent space is similar to a normal distribution since that makes it possible to sample latent 
-variables from a normal distribution. From those sampled variables the decoder can generate an output
-that resembles the real distribution.
-
-To define that goal in a loss function Kullback-Leibler divergence is used to force the distribution
-of the latent space to resemble a normal distribution.
-%TODO D_{KL}(P\parallel Q) von latent  und normal wird minimiert
-
-The second goal is of course that the output of the variational autoencoder is similar to the input.
-The loss function used for this purpose is the sum of the absolute differences between each input and
-each output pixel.
-
-The final loss function is the sum of both, the Kullback-Leibler divergence and the sum of the absolute
-errors.
+\subsection{Variational Autoencoders}

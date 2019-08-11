@@ -1,0 +1,123 @@
+\section{Methodology}
+
+In this section the subsection environment will explain what tools were used to program the autoencoders
+and what hardware the developed models were trained and written on. The subsection Datasets 
+contains information about the remote sensing image data that was analyzed using the autoencoders. 
+The architecture subsection lays out 
+the design of the different models regarding the layers and loss functions. In the last subsection 
+latent space there are the techniques used to visualize and understand the latent code between the 
+encoder and decoder with comparisons of the latent space between normal autoencoders and variational
+autoencoders.
+
+\subsection{Environment}
+
+\subsubsection{Hardware}
+
+Training autoencoders with larger images of multiple channels takes a lot of computation especially if the 
+features that should be learned are as complicated and abstract as the topography of remote sensing data.
+As this is very time consuming the training of the models was mainly done on a remote machine from the
+Leibniz University in Hannover that could run 24/7. Only the
+programming of the models and tests with small datasets took place on a local personal computer that had no
+GPU that was capable of training models in the given scenario. The following
+are the specifications of the used systems:\\
+
+\paragraph{Personal Computer} \mbox{} \smallskip \\
+
+AMD Ryzen 7 1700, 16 GB 1064 DDR4, NVIDIA GeForce GTX
+
+\paragraph{Personal Computer} \mbox{} \smallskip \\
+
+Accelerated linear algebra CPU, Placeholder memory
+
+\subsubsection{Software}
+
+The programming language used for the work is Python with the development environment PyCharm locally
+and and Jupyter Notebooks on a remote machine. The machine learning framework Tensorflow was used which
+is developed by Google and offers cross-platform support, running on most CPUs and GPUs \parencite{tensorflow}.
+Whenever possible Tensorflows implementation of the Keras API specification was used which is a high level API
+for training machine learning models.
+
+\subsection{Datasets}
+
+The available data are 1024x1024 images of the two United States cities Jacksonville
+in Florida and Omaha in Nebraska taken from the US3D Dataset that
+was partially published to provide research data for the problem
+of 3D reconstruction \parencite{2019-bosch-semantic}.
+The images for each recorded area cover one square kilometer and can be divided 
+into four categories with the first one being multispectral satellite images with eight channels (MSI). 
+From the MSI data three channels were extracted and used as red, green and blue intensities (RGB). 
+Thirdly there are digital surface models (DSM) and Lastly semantic labeling with five different categories. \\
+
+The MSI data was collected by the WorldView-3 satellite of Digital Globe from 2014 to 2016.
+Thereby the images were taken in different seasons and times of day leading to great differences
+in their appearance regarding for instance shadows, reflections, overall brightness or clouds.
+This is an advantage for training models that are capable of processing data with similar differences in 
+appearance.
+In the MSI dataset a single picture consists of eight channels for eight different bands of the spectrum with
+a ground sample distance of 1.3 meters. The eight channels of the imagery correspond to the following wavelengths:
+
+\begin{tabular} {c c}
+    \parbox{5cm}{
+        \begin{itemize}
+            \item Coastal: 400 - 450 nm 			
+            \item Blue: 450 - 510 nm			
+            \item Green: 510 - 580 nm 			
+            \item Yellow: 585 - 625 nm
+        \end{itemize}
+    }
+    \parbox{5cm}{
+        \begin{enumerate} 			
+            \item Red: 630 - 690 nm
+            \item Red Edge: 705 - 745 nm
+            \item Near-IR1: 770 - 895 nm
+            \item Near-IR2: 860 - 1040 nm
+        \end{enumerate}
+    }
+\end{tabular}
+\bigskip
+
+Three of those channels were extracted and used as RGB data. 
+Each pixel of an image is described by three bytes representing the intensity of the wavelengths of the 
+reflected light corresponding to either red, green or blue.
+
+The DSM data was collected using light detection and ranging technology (Lidar) which measures the 
+distance to points of earths surface. This distance is proportional to the value of the single channel
+that each pixel of the DSM has.
+
+Lastly there are semantic labeled pictures with one channel of a single byte that encodes one of five 
+different topographic classes. Those classes are vegetation, water, ground, building and clutter. 
+The semantic labeling was done automatically from lidar data but manually checked and corrected afterwards.
+
+Those four categories of data all cover one square kilometer in each image.
+Additionally they contain a lot of oblique view on buildings and other valuable
+features like clear shadows making the data ideal for training models that should 
+detect those features.
+
+
+
+\subsection{Architecture}
+
+The first general structure of the vanilla autoencoder and the variational autoencoder is a combination 
+of the convolutional autoencoder and the variational autoencoder presented in Hans-On Machine Learning
+\parencite{2019-geron-homl}. That model is adjusted to work with $128\times 128$ RGB images
+
+\subsubsection{The Loss Function}
+
+Intuitively the loss function defines a goal that the model should reach when training by minimizing
+the loss function. In the variational autoencoder one of those goals is that the distribution of the 
+latent space is similar to a normal distribution since that makes it possible to sample latent 
+variables from a normal distribution. From those sampled variables the decoder can generate an output
+that resembles the real distribution.
+
+To define that goal in a loss function Kullback-Leibler divergence is used to force the distribution
+of the latent space to resemble a normal distribution.
+%TODO D_{KL}(P\parallel Q) von latent  und normal wird minimiert
+
+The second goal is of course that the output of the variational autoencoder is similar to the input.
+The loss function used for this purpose is the sum of the absolute differences between each input and
+each output pixel.
+
+The final loss function is the sum of both, the Kullback-Leibler divergence and the sum of the absolute
+errors.
+
+\subsection{Latent Space}
