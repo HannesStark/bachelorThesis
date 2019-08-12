@@ -73,7 +73,29 @@
       \field{pages}{1524\bibrangedash 1532}
       \range{pages}{9}
     \endentry
-    \entry{1005-chrislb-artificial-neuron}{misc}{}
+    \entry{2015-Chervinskii-autoencoder}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=db86a178e8cdb5816adb7da5ff853297}{%
+           family={Chervinskii},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{db86a178e8cdb5816adb7da5ff853297}
+      \strng{fullhash}{db86a178e8cdb5816adb7da5ff853297}
+      \strng{bibnamehash}{db86a178e8cdb5816adb7da5ff853297}
+      \strng{authorbibnamehash}{db86a178e8cdb5816adb7da5ff853297}
+      \strng{authornamehash}{db86a178e8cdb5816adb7da5ff853297}
+      \strng{authorfullhash}{db86a178e8cdb5816adb7da5ff853297}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed August 09, 2019][CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{title}{Schematic picture of an autoencoder architecture}
+      \field{year}{2015}
+    \endentry
+    \entry{2005-chrislb-artificial-neuron}{misc}{}
       \name{author}{1}{}{%
         {{hash=c0a5747c199d2e51d4c9734b011ea01d}{%
            family={Chrislb},
@@ -120,6 +142,64 @@
       \field{isbn}{9781492032649}
       \field{title}{Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow}
     \endentry
+    \entry{2013-glosser-ann}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=048c472d6a269e71e462431ed5482a7b}{%
+           family={Glosser.ca},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{048c472d6a269e71e462431ed5482a7b}
+      \strng{fullhash}{048c472d6a269e71e462431ed5482a7b}
+      \strng{bibnamehash}{048c472d6a269e71e462431ed5482a7b}
+      \strng{authorbibnamehash}{048c472d6a269e71e462431ed5482a7b}
+      \strng{authornamehash}{048c472d6a269e71e462431ed5482a7b}
+      \strng{authorfullhash}{048c472d6a269e71e462431ed5482a7b}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed August 08, 2019][CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{title}{Artificial neural network with layer coloring}
+      \field{year}{2013}
+    \endentry
+    \entry{2016-goodfellow-deep}{book}{}
+      \name{author}{3}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorbibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deep learning}
+      \field{year}{2016}
+    \endentry
     \entry{tensorflow}{online}{}
       \name{author}{1}{}{%
         {{hash=8b36e9207c24c76e6719268e49201d94}{%
@@ -138,6 +218,42 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Tensorflow}
+    \endentry
+    \entry{2012-krizhevsky-imagenet}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
+           family={Krizhevsky},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d569d1d5b8b5a7836017a98b430f959}{%
+           family={Sutskever},
+           familyi={S\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=813bd95fe553e6079cd53a567b238287}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey\bibnamedelima E},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd291871bfa8ee64447232f1cca429aa}
+      \strng{fullhash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{bibnamehash}{dd291871bfa8ee64447232f1cca429aa}
+      \strng{authorbibnamehash}{dd291871bfa8ee64447232f1cca429aa}
+      \strng{authornamehash}{dd291871bfa8ee64447232f1cca429aa}
+      \strng{authorfullhash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in neural information processing systems}
+      \field{title}{Imagenet classification with deep convolutional neural networks}
+      \field{year}{2012}
+      \field{pages}{1097\bibrangedash 1105}
+      \range{pages}{9}
     \endentry
   \enddatalist
 \endrefsection

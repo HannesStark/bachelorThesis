@@ -10,6 +10,7 @@ import time
 K = tf.keras.backend
 
 file_tag = os.path.splitext(os.path.basename(__file__))[0]
+#file_tag = "16x16x32TRAINEDON178000"
 latent_dim = 1024
 batch_size = 128
 epochs = 50
@@ -166,6 +167,7 @@ def predictions_and_generations():
 #variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+
 
 variational_ae.summary()
 

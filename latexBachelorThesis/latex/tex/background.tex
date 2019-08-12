@@ -20,26 +20,126 @@ and after that passed through a non-linear function called activation function. 
 of a biological neuron to which other biological neurons can connect via their dendrites which is similar
 to an artificial neuron using the output of another artificial neuron as its input. 
 By adjusting the separate weights of the inputs a single neuron is able to model
-simple functions like the logic $and$ or the logic $or$.
+simple functions like the logic $and$ or the logic $or$ but it is not abled to solve other trivial problems
+like the exclusive or (XOR).
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{images/figures/artificial_neuronHOML.png}
-    \caption{An artificial neuron. Image taken from \parencite{1005-chrislb-artificial-neuron}}
+    \caption{An artificial neuron. Image taken from \parencite{2005-chrislb-artificial-neuron}}
 \end{figure}
 
 
 \subsection{Artificial Neural Network}
 
+By taking layers of multiple artificial neurons and connecting the outputs of the layers to the inputs of the
+next layer, functions $f(x) = y$ with input and output vectors of any size can be modeled.
+The layers between the input and output layer are called hidden layers. Arbitrarily complex functions
+could be modeled by three layers if they may contain arbitrarily many neurons but in practice most of the time
+deep neural networks with two or more hidden layers are used \parencite{2019-geron-homl}. 
+If all the neurons of a previous layers are connected to each neuron in the following layer the layers are
+called fully connected which is the case for every layer in the artificial neural network depicted
+in Figure 2.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/figures/artificial_neural_network.png}
+    \caption{An artificial neural network with three fully connected layers.
+    Image taken from \parencite{2013-glosser-ann}}
+\end{figure}
+
+The process of learning an artificial neural networks $n(w, x)=z$, with weights $w$, refers to the process
+of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
+that should be learned $f(x)$. This can be achieved by taking possible inputs $x_{i}$ for which the 
+desired outputs $\hat{z_{i}}$ are known and optimizing a loss function $l(n(w,x_{i}),\hat{z_{i}})$ for $w$
+and repeating this process with each input $x_{i}$ and desired output $\hat{z_{i}}$. The set of pairs of
+those inputs and desired outputs is called the training set. 
+Intuitively the optimized loss function can be seen as the goal of how the output of the artificial neural
+network should resemble the known desired outputs.
+
+The optimization is most commonly done via gradient descent or adjusted versions of gradient descent
+which involves calculating the partial derivatives for each component of $w$.
+For this reason the activation functions of the artificial neurons and the loss function have to be
+differentiable. More detailed information about gradient descent can be read in Deep Learning
+\parencite{2016-goodfellow-deep} and information about the commonly used optimizers that improve 
+gradient descent can be found in Hands-On Machine Learning \parencite{2019-geron-homl}.
 
 \subsection{Convolutional Neural Networks}
 
+When working with neural networks that should model a function with data like images as inputs, most
+of the time convolutional neural networks (CNNs) are used that contain convolutional layers. A 
+convolutional layer is not connected to every neuron of the previous layer but instead only to small
+rectangle of neurons of the previous layer. For images this means that in the first convolutional layer
+the neurons do not take every pixel of the image as input but instead only a small piece of the image.
+This way a hierarchical structure is created where the first hidden layer learns lower level features
+and the following layers learn ever higher level features. Also by only connecting a neuron to a few
+neurons of the previous layer the number of weights is far lower which means there is much less memory
+and time needed for training the network.
+
+The rectangle a neuron in a convolutional layer takes its inputs from is called kernel and has a
+kernel size specifying the height and width of the kernel. If the kernel of a neuron laps over the edge
+of the input space different kinds of padding can be used for the values of the kernel where there
+are no input values. These kernels, also called filters, are basically maps of weights that are
+adjusted while training which way they learn features of the input. In practice multiple neurons have
+the same input space leading to the ability to extract multiple features that can be processed
+further in the following layer. The amount of neurons with the same input space is referred to as
+the number of filters since each one of those neurons has its own filter with its respective
+weights and all those filters are applied to the same piece of the input. This is visualized in
+Figure 3.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/figures/convolutional_net_multiple_filters.png}
+    \caption{A convolutional network with 12 filters in the first convolutional layer and 7
+    filters in the second convolutional layer. Each filters can learn different features and an
+    RGB image is depicted as the input here.
+    Image taken from \parencite{2019-geron-homl}}
+\end{figure}
+
+Instead of having a kernel in each possible area of the input there can also be a distance between
+each kernel which is called stride. This can be used to decrease the dimensionality of the output
+of a layer. For example with strides of 2 the output dimensions are halve that of the input
+dimensions.
+
+\paragraph{Pooling}
+A pooling layer replaces the value of an output with a summary of the nearby outputs. For instance
+max pooling only takes the maximum output of all outputs in a surrounding rectangle. Note that
+the pooling layers just perform an operation on multiple outputs of a previous layer and therefore
+do not have weights. The use of pooling layers increases the networks tolerance to small changes in
+the inputs \parencite{2016-goodfellow-deep} which is most of the time desired since the network should
+learn features instead of exact pixel locations. Many popular CNN architectures like 
+AlexNet \parencite{2012-krizhevsky-imagenet} use pooling layers between the convolutional layers.
+In these CNNs the pooling layers also often are used to reduce the dimension of the layers.
 
 
 \subsection{Autoencoders}
 
+An autoencoder is an artificial neural network that aims to reproduce its input. The first part
+of an autoencoder is the Encoder $f(x)=z$ that takes an input $x$ and maps it to a latent code $z$.
+The second part is the decoder $g(z)=x'$ that tries to generate a reproduction $x'$ similar to the
+input $x$ that the latent code $z$ was produced from. Since the output of the neural network should
+be the same as the input there is no need for labeled data and the network can be learned unsupervised.
+Just having a network that is the identity function would be useless but by constraining the autoencoder
+in specific ways it can be forced to learn useful traits leading to possibilities in pretraining 
+networks or randomly generating content similar to the content the autoencoder was trained with.
 
+One common constraint for autoencoders is choosing a dimension for the latent code that is smaller
+than the dimension of the input. This means that the encoder is forced to learn to extract only the
+most important features from the input and the latent code is a representation of those most
+important features in a lower dimensionality than the input. Such an autoencoder, called
+undercomplete autoencoder, is visualized in Figure 4.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/figures/Autoencoder_structure.png}
+    \caption{An undercomplete autoencoder has a latent code $z$ whose dimension is smaller than the 
+    dimension of the input $x$.
+    Image taken from \parencite{2015-Chervinskii-autoencoder}}
+\end{figure}
+
+Undercomplete autoencoders can be used for pretraining by taking the trained Encoder that has 
+learned the most important features of the input and using it for the actual desired task like 
+classification. Another obvious application would be dimensionality reduction.
 
 \subsection{Kullback-Leibler Divergence}
 
