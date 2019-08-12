@@ -158,14 +158,14 @@ def predictions_and_generations():
         plt.savefig(generation_path + "generated" + str(i))
 
 
-#start_time = time.time()
-#train()
-#f = open(log_file, "a")
-#f.write(str(time.time() - start_time))
-#f.close()
-#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+start_time = time.time()
+train()
+f = open(log_file, "a")
+f.write(str(time.time() - start_time))
+f.close()
+variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+#variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 

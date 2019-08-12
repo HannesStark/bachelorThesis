@@ -1,14 +1,49 @@
 \section{Background}
 
-\subsection{Artificial Neural Networks}
+This section contains basic knowledge that is necessary for the understanding of the rest of the thesis.
+It briefly touches on artificial neural networks and convolutional neural networks in the beginning.
+The subsection after that goes on to describe autoencoders in general. Next up, Kullback-Leibler divergence
+is explained in detail as it is an essential part for the variational autoencoders as they are used in this
+work. The difference between those variational autoencoders and the standard autoencoder is covered in the 
+next subsection. At last, the dimensionality reduction methods principal component analysis and 
+t-distributed stochastic neighbor embedding is brought up since they are used in this work to gain an 
+understanding of the high dimensional latent space of the autoencoders.
+
+\subsection{Remote Sensing Imagery}
+
+
+
+\subsection{Artificial Neuron}
+
+Inspired by biological neurons an artificial neuron has one or more weighted inputs that are summed together
+and after that passed through a non-linear function called activation function. The output models the axon
+of a biological neuron to which other biological neurons can connect via their dendrites which is similar
+to an artificial neuron using the output of another artificial neuron as its input. 
+By adjusting the separate weights of the inputs a single neuron is able to model
+simple functions like the logic $and$ or the logic $or$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/figures/artificial_neuronHOML.png}
+    \caption{An artificial neuron. Image taken from \parencite{1005-chrislb-artificial-neuron}}
+\end{figure}
+
+
+\subsection{Artificial Neural Network}
+
+
 
 \subsection{Convolutional Neural Networks}
 
+
+
 \subsection{Autoencoders}
+
+
 
 \subsection{Kullback-Leibler Divergence}
 
-\paragraph{Entropy}\mbox{}\\
+\subsubsection{Entropy}
 
 A part of the loss function used in the variational autoencoder is based on Kullback-Leibler divergence.
 To understand Kullback-Leibler divergence it seems necessary to explain entropy from
@@ -71,7 +106,7 @@ one can be confident that the system is in a certain state like in the previous 
 
 %wie muss hier der fall P(x) = 0 abgesichert werden weil log(0) und 1/0 ?
 
-\paragraph{Cross Entropy} \mbox{}\\
+\subsubsection{Cross Entropy}
 
 If the real distribution $P$ of a system is unknown an estimate distribution $Q$ could be guessed
 and encoding sizes $-log_{2}Q(x)$ can be produced which will not be optimal for the true distribution
@@ -85,7 +120,7 @@ label of a piece of data gives us a distribution $P$ with absolute certainty and
 inaccurate distribution $Q$ that the model estimates $H(P,Q)$ will be greater than zero unless
 $P=Q$ where $H(P,Q)=H(P,P)=H(P)=0$. So the learning algorithm can try to minimize $H(P,Q)$.
 
-\paragraph{Kullback-Leibler Divergence}\mbox{}\\
+\subsubsection{Kullback-Leibler Divergence}
 
 Having computed the entropy $H(P)$ and cross-entropy $H(P,Q)$ of two distributions $P,\ Q$ it is 
 possible to compare those distributions by comparing $H(P)$ and $H(P,Q)$ through subtraction
@@ -106,3 +141,11 @@ In summary Kullback-Leibler divergence is a measure of how different two probabi
 are that is zero if they are the same and greater than zero if not.
 
 \subsection{Variational Autoencoders}
+
+
+
+\subsection{Principal Component Analysis}
+
+
+
+\subsection{t-Distributed Stochastic Neighbor Embedding}

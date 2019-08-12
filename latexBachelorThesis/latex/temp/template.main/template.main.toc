@@ -14,46 +14,54 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Background}{2}{section.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Artificial Neural Networks}{2}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.1}Remote Sensing Imagery}{2}{subsection.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Convolutional Neural Networks}{2}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.2}Artificial Neuron}{2}{subsection.5.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Autoencoders}{2}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.3}Artificial Neural Network}{3}{subsection.5.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Kullback-Leibler Divergence}{2}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.4}Convolutional Neural Networks}{3}{subsection.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Entropy}{2}{section*.2}% 
+\contentsline {subsection}{\numberline {5.5}Autoencoders}{3}{subsection.5.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Cross Entropy}{3}{section*.3}% 
+\contentsline {subsection}{\numberline {5.6}Kullback-Leibler Divergence}{3}{subsection.5.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Kullback-Leibler Divergence}{4}{section*.4}% 
+\contentsline {subsubsection}{\numberline {5.6.1}Entropy}{3}{subsubsection.5.6.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Variational Autoencoders}{4}{subsection.5.5}% 
+\contentsline {subsubsection}{\numberline {5.6.2}Cross Entropy}{4}{subsubsection.5.6.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Related Work}{4}{section.6}% 
+\contentsline {subsubsection}{\numberline {5.6.3}Kullback-Leibler Divergence}{5}{subsubsection.5.6.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Methodology}{4}{section.7}% 
+\contentsline {subsection}{\numberline {5.7}Variational Autoencoders}{5}{subsection.5.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Environment}{5}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {5.8}Principal Component Analysis}{5}{subsection.5.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}Hardware}{5}{subsubsection.7.1.1}% 
+\contentsline {subsection}{\numberline {5.9}t-Distributed Stochastic Neighbor Embedding}{5}{subsection.5.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Personal Computer}{5}{section*.5}% 
+\contentsline {section}{\numberline {6}Related Work}{5}{section.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Personal Computer}{5}{section*.6}% 
+\contentsline {section}{\numberline {7}Methodology}{5}{section.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Software}{5}{subsubsection.7.1.2}% 
+\contentsline {subsection}{\numberline {7.1}Environment}{6}{subsection.7.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Datasets}{5}{subsection.7.2}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Hardware}{6}{subsubsection.7.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Architecture}{6}{subsection.7.3}% 
+\contentsline {paragraph}{Personal Computer}{6}{section*.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.1}The Loss Function}{7}{subsubsection.7.3.1}% 
+\contentsline {paragraph}{Remote Machine}{6}{section*.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Latent Space}{7}{subsection.7.4}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Software}{6}{subsubsection.7.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Conclusion and Future Work}{7}{section.8}% 
+\contentsline {subsection}{\numberline {7.2}Datasets}{6}{subsection.7.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion}{7}{section.9}% 
+\contentsline {subsection}{\numberline {7.3}Architecture}{7}{subsection.7.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Future Work}{7}{section.10}% 
+\contentsline {subsubsection}{\numberline {7.3.1}The Loss Function}{8}{subsubsection.7.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.4}Latent Space}{8}{subsection.7.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Conclusion and Future Work}{8}{section.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}Conclusion}{8}{section.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10}Future Work}{8}{section.10}% 
