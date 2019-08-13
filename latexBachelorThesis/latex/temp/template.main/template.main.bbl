@@ -117,6 +117,30 @@
       \field{title}{Diagram of an artificial neuron.}
       \field{year}{2005}
     \endentry
+    \entry{2016-doersch-tutorial}{article}{}
+      \name{author}{1}{}{%
+        {{hash=96b67cea31d7dd5c10af974faba91947}{%
+           family={Doersch},
+           familyi={D\bibinitperiod},
+           given={Carl},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{96b67cea31d7dd5c10af974faba91947}
+      \strng{fullhash}{96b67cea31d7dd5c10af974faba91947}
+      \strng{bibnamehash}{96b67cea31d7dd5c10af974faba91947}
+      \strng{authorbibnamehash}{96b67cea31d7dd5c10af974faba91947}
+      \strng{authornamehash}{96b67cea31d7dd5c10af974faba91947}
+      \strng{authorfullhash}{96b67cea31d7dd5c10af974faba91947}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1606.05908}
+      \field{title}{Tutorial on variational autoencoders}
+      \field{year}{2016}
+    \endentry
     \entry{2019-geron-homl}{book}{}
       \name{author}{1}{}{%
         {{hash=fb48b65407d03cee0c164d17c1ea7eac}{%

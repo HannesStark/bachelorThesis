@@ -1,15 +1,15 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
-[0] Config.pm:307> INFO - Logfile is 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.blg'
-[27] biber-MSWIN64:315> INFO - === 
-[51] Biber.pm:371> INFO - Reading 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
-[137] Biber.pm:889> INFO - Found 8 citekeys in bib section 0
-[152] Biber.pm:4093> INFO - Processing section 0
-[165] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
-[185] bibtex.pm:1523> INFO - LaTeX decoding ...
+[1] Config.pm:307> INFO - Logfile is 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.blg'
+[40] biber-MSWIN64:315> INFO - === 
+[64] Biber.pm:371> INFO - Reading 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
+[159] Biber.pm:889> INFO - Found 9 citekeys in bib section 0
+[173] Biber.pm:4093> INFO - Processing section 0
+[186] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
+[202] bibtex.pm:1523> INFO - LaTeX decoding ...
 [319] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
-[406] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[406] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[406] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[406] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[414] bbl.pm:636> INFO - Writing 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
-[418] bbl.pm:739> INFO - Output to F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl
+[410] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[410] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[410] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[410] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[419] bbl.pm:636> INFO - Writing 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
+[424] bbl.pm:739> INFO - Output to F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl

@@ -4,9 +4,10 @@ This section contains basic knowledge that is necessary for the understanding of
 It briefly touches on artificial neural networks and convolutional neural networks in the beginning.
 The subsection after that goes on to describe autoencoders in general. Next up, Kullback-Leibler divergence
 is explained in detail as it is an essential part for the variational autoencoders as they are used in this
-work. The difference between those variational autoencoders and the standard autoencoder is covered in the 
-next subsection. At last, the dimensionality reduction methods principal component analysis and 
-t-distributed stochastic neighbor embedding is brought up since they are used in this work to gain an 
+work. Kullback-Leibler divergence also plays an important role in t-distributed stochastic neighbor embedding.
+The difference between variational autoencoders and the standard undercomplete autoencoder is covered in the 
+next subsection. At last, the dimensionality reduction method 
+t-distributed stochastic neighbor embedding is brought up since it is used in this work to gain an 
 understanding of the high dimensional latent space of the autoencoders.
 
 \subsection{Remote Sensing Imagery}
@@ -141,7 +142,7 @@ Undercomplete autoencoders can be used for pretraining by taking the trained Enc
 learned the most important features of the input and using it for the actual desired task like 
 classification. Another obvious application would be dimensionality reduction.
 
-\subsection{Kullback-Leibler Divergence}
+\subsection{Kullback-Leibler Divergence} \label{KL-Divergence}
 
 \subsubsection{Entropy}
 
@@ -242,10 +243,44 @@ are that is zero if they are the same and greater than zero if not.
 
 \subsection{Variational Autoencoders}
 
+Standard autoencoders are fairly limited in their generative capabilities or in their capabilities
+to interpolate in the latent space and the problem lies
+in their latent code. For generation tasks a random latent code $z$ is sampled from the space of
+possible latent codes. But with a standard autoencoder this space of possible latent codes is most
+likely not continuous and chances are high that the sampled $z$ is intuitively speaking
+from a gap in the latent space that the decoder has not been trained for. Therefore it will not
+produce realistic outputs. This discontinuous latent space also means that interpolation in it
+does not work well.
 
+To solve this in a variational autoencoder the encoder does not produce discrete values but rather
+probability distributions $p_{i}$ by generating two vectors of the same size as $z$ where one vector $\mu$
+contains means and the other vector $\sigma$ contains standard deviations.
+Then each $z_{i}$ is determined by sampling it from $p_{i}=N(\mu_{i},\sigma_{i})$.
+As a result the decoder is forced to not 
+only just learn how to decode single, discrete latent codes but also the possible variations
+introduced by the random sampling. This leads to the desired continuous decodable latent space.
+However, the encoder could still produce $\sigma$ sigma that are very small and $\mu$ that are far apart.
+To prevent this the encoder is forced to produce distributions that are similar to a normal
+distribution with standard deviation 1 and mean 0 by adding a second loss function next to the
+loss $L(x,x')$ between the input and output.
 
-\subsection{Principal Component Analysis}
+As discussed in \ref{KL-Divergence} Kullback-Leibler divergence can be seen as a measure for the
+difference of two probability distributions. This means that it can be used as the second loss
+function for the variational autoencoder that should now also minimize the sum
+of all the Kullback-Leibler divergences between the output distribution. The total resulting loss
+function is the following equation.
 
+\begin{equation} \label{vae_loss}
+    L(x,x') + \sum_{i} D_{KL}(p_{i}\parallel N(0,1))
+\end{equation}
 
+To achieve the goal of generating new content that is similar to the input that the variational 
+autoencoder was trained with, one can sample each component for a latent code from $N(0,1)$ and
+use it as the input for the decoder.
+Also smooth interpolation in the latent space is possible leading to possibilities for combining
+content in interesting ways.
+
+Further details about variational autoencoders can be found here \parencite{2016-doersch-tutorial}.
 
 \subsection{t-Distributed Stochastic Neighbor Embedding}
+

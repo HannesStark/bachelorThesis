@@ -2016,9 +2016,10 @@
     <bcf:citekey order="11">2012-krizhevsky-imagenet</bcf:citekey>
     <bcf:citekey order="12">2015-Chervinskii-autoencoder</bcf:citekey>
     <bcf:citekey order="13">2015-Chervinskii-autoencoder</bcf:citekey>
-    <bcf:citekey order="14">tensorflow</bcf:citekey>
-    <bcf:citekey order="15">2019-bosch-semantic</bcf:citekey>
-    <bcf:citekey order="16">2019-geron-homl</bcf:citekey>
+    <bcf:citekey order="14">2016-doersch-tutorial</bcf:citekey>
+    <bcf:citekey order="15">tensorflow</bcf:citekey>
+    <bcf:citekey order="16">2019-bosch-semantic</bcf:citekey>
+    <bcf:citekey order="17">2019-geron-homl</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

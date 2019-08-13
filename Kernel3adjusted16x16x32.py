@@ -9,9 +9,10 @@ import time
 
 K = tf.keras.backend
 
-file_tag = os.path.splitext(os.path.basename(__file__))[0]
-#file_tag = "16x16x32TRAINEDON178000"
-latent_dim = 1024
+latent_dim = 50
+# file_tag = "16x16x32TRAINEDON178000"
+file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
+#file_tag = "test_with_unscaled_latent_loss16x16x32"
 batch_size = 128
 epochs = 50
 num_examples_to_generate = 16
@@ -56,7 +57,7 @@ variational_ae = tf.keras.Model(inputs=[inputs], outputs=[reconstructions])
 latent_loss = -0.5 * K.sum(
     1 + codings_log_var - K.exp(codings_log_var) - K.square(codings_mean),
     axis=-1)
-variational_ae.add_loss(K.mean(latent_loss) / 196608.)
+variational_ae.add_loss(K.mean(latent_loss) / (128. * 128. * 3.))
 variational_ae.compile(loss=losses.mean_absolute_error, optimizer="rmsprop", metrics=['accuracy'])
 
 
@@ -95,7 +96,9 @@ log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"
 if not os.path.exists("log"):
     os.mkdir("log")
 
+
 def train():
+    last_epoch_mean = []
     for epoch in range(1, epochs + 1):
         for iteration in range(train_iterations):
             first_index = iteration * batch_size
@@ -109,6 +112,13 @@ def train():
             f = open(log_file, "a")
             f.write(result)
             f.close()
+            if epoch == epochs:
+                last_epoch_mean.append(history)
+    last_epoch_mean = np.mean(last_epoch_mean, 0)
+    print(last_epoch_mean)
+    f = open(log_file, "a")
+    f.write(str(last_epoch_mean))
+    f.close()
 
 
 if not os.path.exists(generation_path):
@@ -159,14 +169,14 @@ def predictions_and_generations():
         plt.savefig(generation_path + "generated" + str(i))
 
 
-#start_time = time.time()
-#train()
-#f = open(log_file, "a")
-#f.write(str(time.time() - start_time))
-#f.close()
-#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+start_time = time.time()
+train()
+f = open(log_file, "a")
+f.write(str(time.time() - start_time))
+f.close()
+variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 
 variational_ae.summary()

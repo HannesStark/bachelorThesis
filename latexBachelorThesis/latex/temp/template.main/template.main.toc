@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4}Convolutional Neural Networks}{4}{subsection.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Pooling}{5}{section*.5}% 
+\contentsline {paragraph}{Pooling}{4}{section*.5}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.5}Autoencoders}{5}{subsection.5.5}% 
 \defcounter {refsection}{0}\relax 
@@ -36,34 +36,32 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.7}Variational Autoencoders}{8}{subsection.5.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8}Principal Component Analysis}{8}{subsection.5.8}% 
+\contentsline {subsection}{\numberline {5.8}t-Distributed Stochastic Neighbor Embedding}{9}{subsection.5.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.9}t-Distributed Stochastic Neighbor Embedding}{8}{subsection.5.9}% 
+\contentsline {section}{\numberline {6}Related Work}{9}{section.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Related Work}{8}{section.6}% 
+\contentsline {section}{\numberline {7}Methodology}{9}{section.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Methodology}{8}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Environment}{10}{subsection.7.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Environment}{9}{subsection.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Hardware}{10}{subsubsection.7.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}Hardware}{9}{subsubsection.7.1.1}% 
+\contentsline {paragraph}{Personal Computer}{10}{section*.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Personal Computer}{9}{section*.7}% 
+\contentsline {paragraph}{Remote Machine}{10}{section*.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Remote Machine}{9}{section*.8}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Software}{10}{subsubsection.7.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Software}{9}{subsubsection.7.1.2}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Datasets}{9}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.2}Datasets}{10}{subsection.7.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.3}Architecture}{11}{subsection.7.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.1}The Loss Function}{11}{subsubsection.7.3.1}% 
+\contentsline {subsubsection}{\numberline {7.3.1}The Loss Function}{12}{subsubsection.7.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Latent Space}{11}{subsection.7.4}% 
+\contentsline {subsection}{\numberline {7.4}Latent Space}{12}{subsection.7.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Conclusion and Future Work}{11}{section.8}% 
+\contentsline {section}{\numberline {8}Conclusion and Future Work}{12}{section.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion}{11}{section.9}% 
+\contentsline {section}{\numberline {9}Conclusion}{12}{section.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Future Work}{11}{section.10}% 
+\contentsline {section}{\numberline {10}Future Work}{12}{section.10}% 
