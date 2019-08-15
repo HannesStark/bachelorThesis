@@ -141,30 +141,36 @@
       \field{title}{Tutorial on variational autoencoders}
       \field{year}{2016}
     \endentry
-    \entry{2019-geron-homl}{book}{}
+    \entry{2017-geron-homl}{book}{}
       \name{author}{1}{}{%
-        {{hash=fb48b65407d03cee0c164d17c1ea7eac}{%
-           family={Geron},
+        {{hash=e54e6c9ce5d233c7046a00f7b3faa6c0}{%
+           family={Géron},
            familyi={G\bibinitperiod},
-           given={Aurelien},
+           given={Aurélien},
            giveni={A\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {O'Reilly UK Ltd.}%
+      \list{location}{1}{%
+        {Sebastopol, CA}%
       }
-      \strng{namehash}{fb48b65407d03cee0c164d17c1ea7eac}
-      \strng{fullhash}{fb48b65407d03cee0c164d17c1ea7eac}
-      \strng{bibnamehash}{fb48b65407d03cee0c164d17c1ea7eac}
-      \strng{authorbibnamehash}{fb48b65407d03cee0c164d17c1ea7eac}
-      \strng{authornamehash}{fb48b65407d03cee0c164d17c1ea7eac}
-      \strng{authorfullhash}{fb48b65407d03cee0c164d17c1ea7eac}
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{fullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{bibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorbibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authornamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorfullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
       \field{sortinit}{G}
       \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9781492032649}
-      \field{title}{Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow}
+      \field{isbn}{978-1491962299}
+      \field{title}{Hands-on machine learning with Scikit-Learn and TensorFlow : concepts, tools, and techniques to build intelligent systems}
+      \field{year}{2017}
+      \keyw{2017 book machine-learning oreilly tensorflow textbook}
     \endentry
     \entry{2013-glosser-ann}{misc}{}
       \name{author}{1}{}{%
@@ -278,6 +284,41 @@
       \field{year}{2012}
       \field{pages}{1097\bibrangedash 1105}
       \range{pages}{9}
+    \endentry
+    \entry{2008-vanDerMaaten-visualizing}{article}{}
+      \name{author}{2}{}{%
+        {{hash=47fbe2837893a84fb516e9e85ba7aa36}{%
+           family={Maaten},
+           familyi={M\bibinitperiod},
+           given={Laurens},
+           giveni={L\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{41756af101b5de89a3e97976ac11fdfb}
+      \strng{fullhash}{07df37c1f29fdfb7765c821206be824a}
+      \strng{bibnamehash}{41756af101b5de89a3e97976ac11fdfb}
+      \strng{authorbibnamehash}{41756af101b5de89a3e97976ac11fdfb}
+      \strng{authornamehash}{41756af101b5de89a3e97976ac11fdfb}
+      \strng{authorfullhash}{07df37c1f29fdfb7765c821206be824a}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{title}{Visualizing Data using {t-SNE}}
+      \field{volume}{9}
+      \field{year}{2008}
+      \field{pages}{2579\bibrangedash 2605}
+      \range{pages}{27}
+      \keyw{dimensionality_reduction tSNE visualization}
     \endentry
   \enddatalist
 \endrefsection

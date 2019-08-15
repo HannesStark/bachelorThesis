@@ -37,8 +37,8 @@ By taking layers of multiple artificial neurons and connecting the outputs of th
 next layer, functions $f(x) = y$ with input and output vectors of any size can be modeled.
 The layers between the input and output layer are called hidden layers. Arbitrarily complex functions
 could be modeled by three layers if they may contain arbitrarily many neurons but in practice most of the time
-deep neural networks with two or more hidden layers are used \parencite{2019-geron-homl}. 
-If all the neurons of a previous layers are connected to each neuron in the following layer the layers are
+deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
+If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
 in Figure 2.
 
@@ -53,17 +53,17 @@ The process of learning an artificial neural networks $n(w, x)=z$, with weights 
 of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
 that should be learned $f(x)$. This can be achieved by taking possible inputs $x_{i}$ for which the 
 desired outputs $\hat{z_{i}}$ are known and optimizing a loss function $l(n(w,x_{i}),\hat{z_{i}})$ for $w$
-and repeating this process with each input $x_{i}$ and desired output $\hat{z_{i}}$. The set of pairs of
+and repeating this process with each pair of inputs $x_{i}$ wit desired outputs $\hat{z_{i}}$. The set of pairs of
 those inputs and desired outputs is called the training set. 
 Intuitively the optimized loss function can be seen as the goal of how the output of the artificial neural
 network should resemble the known desired outputs.
 
-The optimization is most commonly done via gradient descent or adjusted versions of gradient descent
-which involves calculating the partial derivatives for each component of $w$.
+The optimization is most commonly done via gradient descent or adjusted versions of gradient descent.
+This involves calculating the partial derivatives for each component of $w$.
 For this reason the activation functions of the artificial neurons and the loss function have to be
 differentiable. More detailed information about gradient descent can be read in Deep Learning
 \parencite{2016-goodfellow-deep} and information about the commonly used optimizers that improve 
-gradient descent can be found in Hands-On Machine Learning \parencite{2019-geron-homl}.
+gradient descent can be found in Hands-On Machine Learning \parencite{2017-geron-homl}.
 
 \subsection{Convolutional Neural Networks}
 
@@ -94,7 +94,7 @@ Figure 3.
     \caption{A convolutional network with 12 filters in the first convolutional layer and 7
     filters in the second convolutional layer. Each filters can learn different features and an
     RGB image is depicted as the input here.
-    Image taken from \parencite{2019-geron-homl}}
+    Image taken from \parencite{2017-geron-homl}}
 \end{figure}
 
 Instead of having a kernel in each possible area of the input there can also be a distance between
@@ -267,12 +267,7 @@ loss $L(x,x')$ between the input and output.
 As discussed in \ref{KL-Divergence} Kullback-Leibler divergence can be seen as a measure for the
 difference of two probability distributions. This means that it can be used as the second loss
 function for the variational autoencoder that should now also minimize the sum
-of all the Kullback-Leibler divergences between the output distribution. The total resulting loss
-function is the following equation.
-
-\begin{equation} \label{vae_loss}
-    L(x,x') + \sum_{i} D_{KL}(p_{i}\parallel N(0,1))
-\end{equation}
+of all the Kullback-Leibler divergences between the output distribution and $N(0,1)$.
 
 To achieve the goal of generating new content that is similar to the input that the variational 
 autoencoder was trained with, one can sample each component for a latent code from $N(0,1)$ and
@@ -282,5 +277,36 @@ content in interesting ways.
 
 Further details about variational autoencoders can be found here \parencite{2016-doersch-tutorial}.
 
-\subsection{t-Distributed Stochastic Neighbor Embedding}
+\subsection{t-Distributed Stochastic Neighbor Embedding} \label{t-sne}
 
+The method t-distributed stochastic neighbor embedding (t-SNE) is a machine learning technique for reducing
+dimensionality. It was first 
+introduced by Laurens van der Maaten and Geoffrey Hinton \parencite{2008-vanDerMaaten-visualizing} who
+claim that t-SNE would be especially well suited for creating single visualizations that reveal the 
+structure of the high dimensional data. Their paper is also where most of the information for this 
+subsection is drawn from.
+
+The method generates an initial embedding in the low dimensional space by sampling from a normal distribution 
+centered around the origin. The learning process improves this embedding by first calculating a 
+representation of the similarities between all points in the high dimensional space. For the similarity of point
+$x_{i}$ to $x_{j}$ this representation is a conditional probability $p_{ij}=\frac{r_{i|j} + r_{j|i}}{2N}$,
+so the conditionals are symmetric, with 
+$r_{i|j}$ given by the following.
+
+\begin{equation} \label{pij}
+    r_{i|j}=\frac{exp(-|x_{i}-x_{j}|^2/2\sigma_{i}^2)}{\sum_{k}\sum_{l\neq k} exp(-|x_{k}-x_{l}|^2/2\sigma_{i}^2)}
+\end{equation}
+
+For the similarity of points $y_{i}$ and $y_{j}$ from the low dimensional space the representation is a conditional
+probability $q_{ij}$ given by the following.
+
+\begin{equation} \label{qij}
+    q_{ij}=\frac{(1 + -|x_{i}-x_{j}|^2)^{-1}}{\sum_{k}\sum_{l\neq k} (1 + -|x_{i}-x_{j}|^2)^{-1}}
+\end{equation}
+
+Then the mistake between the representation in high dimensional space and in low dimensional space is
+given by the Kullback-Leibler divergence \ref{KL-Divergence} of high dimensional and low dimensional
+conditionals which is $\sum_{i}\sum_{j\neq i}p_{ij}log \frac{p_{ij}}{q_{ij}}$.
+
+The Kullback-Leibler divergence is then minimized with gradient descent, moving the points in the embedding to
+a more optimal position.

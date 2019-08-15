@@ -2005,21 +2005,23 @@
   <bcf:section number="0">
     <bcf:citekey order="1">2005-chrislb-artificial-neuron</bcf:citekey>
     <bcf:citekey order="2">2005-chrislb-artificial-neuron</bcf:citekey>
-    <bcf:citekey order="3">2019-geron-homl</bcf:citekey>
+    <bcf:citekey order="3">2017-geron-homl</bcf:citekey>
     <bcf:citekey order="4">2013-glosser-ann</bcf:citekey>
     <bcf:citekey order="5">2013-glosser-ann</bcf:citekey>
     <bcf:citekey order="6">2016-goodfellow-deep</bcf:citekey>
-    <bcf:citekey order="7">2019-geron-homl</bcf:citekey>
-    <bcf:citekey order="8">2019-geron-homl</bcf:citekey>
-    <bcf:citekey order="9">2019-geron-homl</bcf:citekey>
+    <bcf:citekey order="7">2017-geron-homl</bcf:citekey>
+    <bcf:citekey order="8">2017-geron-homl</bcf:citekey>
+    <bcf:citekey order="9">2017-geron-homl</bcf:citekey>
     <bcf:citekey order="10">2016-goodfellow-deep</bcf:citekey>
     <bcf:citekey order="11">2012-krizhevsky-imagenet</bcf:citekey>
     <bcf:citekey order="12">2015-Chervinskii-autoencoder</bcf:citekey>
     <bcf:citekey order="13">2015-Chervinskii-autoencoder</bcf:citekey>
     <bcf:citekey order="14">2016-doersch-tutorial</bcf:citekey>
-    <bcf:citekey order="15">tensorflow</bcf:citekey>
-    <bcf:citekey order="16">2019-bosch-semantic</bcf:citekey>
-    <bcf:citekey order="17">2019-geron-homl</bcf:citekey>
+    <bcf:citekey order="15">2008-vanDerMaaten-visualizing</bcf:citekey>
+    <bcf:citekey order="16">tensorflow</bcf:citekey>
+    <bcf:citekey order="17">2019-bosch-semantic</bcf:citekey>
+    <bcf:citekey order="18">2017-geron-homl</bcf:citekey>
+    <bcf:citekey order="19">2008-vanDerMaaten-visualizing</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

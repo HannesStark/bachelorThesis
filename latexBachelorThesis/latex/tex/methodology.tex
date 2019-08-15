@@ -101,8 +101,9 @@ are more likely to have a dominant feature like containing mainly shadows or onl
 \subsection{Architecture}
 
 The first general structure of the vanilla autoencoder and the variational autoencoder is a combination 
-of the convolutional autoencoder and the variational autoencoder presented in Hans-On Machine Learning
-\parencite{2019-geron-homl}. That model is adjusted to work with $128\times 128$ RGB images
+of the convolutional autoencoder and the variational autoencoder presented in the second edition of
+Hans-On Machine Learning \parencite{2017-geron-homl}.
+That model is adjusted to work with $128\times 128$ RGB images
 
 \subsubsection{The Loss Function}
 
@@ -124,3 +125,24 @@ The final loss function is the sum of both, the Kullback-Leibler divergence and 
 errors.
 
 \subsection{Latent Space}
+
+To understand and work with the latent space learned by the variational autoencoder is problematic and
+difficult since it is a very high dimensional space and it is not known what information of the input the
+autoencoder learns. For the understanding and visualization of the latent space its dimensionality needs
+to be reduced while preserving the underlying structure of the latent space. Then the low dimensional
+codes can be visualized in a way that allows humans to comprehend what the autoencoder learned.
+One dimensionality reduction method that could be used here is principal component analysis (PCA).
+
+However,
+t-distributed stochastic neighbor embedding (t-SNE), as presented in \ref{t-sne}, is the technique used in this work.
+The reason for this choice is that PCA focuses on preserving large distances, so dissimilar points in the
+high dimensional space appear far apart in a low dimensionality visualization. For visualization though
+it may be more interesting to keep more of the underlying structure which is accomplished by t-SNE as its
+focus is on preserving the context of points to their neighbors \parencite{2008-vanDerMaaten-visualizing}.
+That behavior is caused by the asymmetry of the used Kullback-Leibler divergence \ref{KL-Divergence}.
+In the training process it penalizes a lot if large probabilities, i. e. far apart points, in high dimensional
+space are represented by small probabilities, i. e. close together points, in low dimensional space. Meanwhile, the 
+penalty is little if small probabilities in high dimensional space are represented by large probabilities in
+low dimensional space, leading to the claimed focus on local similarities.
+
+%TODO wie werden jetzt die 2D Punkte visualisiert?

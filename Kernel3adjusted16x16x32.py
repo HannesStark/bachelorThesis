@@ -1,4 +1,3 @@
-import errno
 import tensorflow as tf
 from keras import losses
 import numpy as np
