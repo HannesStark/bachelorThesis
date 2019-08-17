@@ -13,9 +13,6 @@ images works particularly well if the CNN is trained to find the semantic labels
 *"The US3D dataset currently includes approximately 100 square kilometer coverage for the United States cities of Jacksonville, Florida and Omaha, Nebraska"*\
 In Track1 there is data of Jacksonvill (JAX) and Omaha (OMA)
 
-**Airborne LIDAR**\
-Point clouds:\
-aggregate nominal pulsing spacing: 80 cm\
 
 **Semantic Labels**\
 Figure 4 and 5 explain the Data very well\

@@ -56,5 +56,4 @@ def plot_normal_distribution():
         plt.show()
 
 
-# specify path of 1024x1024 RGB images and run script to split images into 128x128 RGB images
-split_images("Track1-RGB", 8)
+split_images("Track1-Truth", 8)

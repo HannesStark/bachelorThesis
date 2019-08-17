@@ -2018,10 +2018,12 @@
     <bcf:citekey order="13">2015-Chervinskii-autoencoder</bcf:citekey>
     <bcf:citekey order="14">2016-doersch-tutorial</bcf:citekey>
     <bcf:citekey order="15">2008-vanDerMaaten-visualizing</bcf:citekey>
-    <bcf:citekey order="16">tensorflow</bcf:citekey>
-    <bcf:citekey order="17">2019-bosch-semantic</bcf:citekey>
-    <bcf:citekey order="18">2017-geron-homl</bcf:citekey>
-    <bcf:citekey order="19">2008-vanDerMaaten-visualizing</bcf:citekey>
+    <bcf:citekey order="16">2015-springenberg-striving</bcf:citekey>
+    <bcf:citekey order="17">2016-mishkin-systematic</bcf:citekey>
+    <bcf:citekey order="18">tensorflow</bcf:citekey>
+    <bcf:citekey order="19">2019-bosch-semantic</bcf:citekey>
+    <bcf:citekey order="20">2017-geron-homl</bcf:citekey>
+    <bcf:citekey order="21">2008-vanDerMaaten-visualizing</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

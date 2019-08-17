@@ -17,17 +17,18 @@
 \BOOKMARK [2][-]{subsection.5.7}{Variational Autoencoders}{section.5}% 17
 \BOOKMARK [2][-]{subsection.5.8}{t-Distributed Stochastic Neighbor Embedding}{section.5}% 18
 \BOOKMARK [1][-]{section.6}{Related Work}{}% 19
-\BOOKMARK [1][-]{section.7}{Methodology}{}% 20
-\BOOKMARK [2][-]{subsection.7.1}{Environment}{section.7}% 21
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Hardware}{subsection.7.1}% 22
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Software}{subsection.7.1}% 23
-\BOOKMARK [2][-]{subsection.7.2}{Datasets}{section.7}% 24
-\BOOKMARK [2][-]{subsection.7.3}{Architecture}{section.7}% 25
-\BOOKMARK [3][-]{subsubsection.7.3.1}{The Loss Function}{subsection.7.3}% 26
-\BOOKMARK [2][-]{subsection.7.4}{Latent Space}{section.7}% 27
-\BOOKMARK [1][-]{section.8}{Experiments}{}% 28
-\BOOKMARK [2][-]{subsection.8.1}{Variational Autoencoder Architecture}{section.8}% 29
-\BOOKMARK [2][-]{subsection.8.2}{Latent Space}{section.8}% 30
-\BOOKMARK [1][-]{section.9}{Conclusion and Future Work}{}% 31
-\BOOKMARK [2][-]{subsection.9.1}{Conclusion}{section.9}% 32
-\BOOKMARK [2][-]{subsection.9.2}{Future Work}{section.9}% 33
+\BOOKMARK [2][-]{subsection.6.1}{Convolutional Network Architecture}{section.6}% 20
+\BOOKMARK [1][-]{section.7}{Methodology}{}% 21
+\BOOKMARK [2][-]{subsection.7.1}{Environment}{section.7}% 22
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Hardware}{subsection.7.1}% 23
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Software}{subsection.7.1}% 24
+\BOOKMARK [2][-]{subsection.7.2}{Datasets}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.3}{Architecture}{section.7}% 26
+\BOOKMARK [3][-]{subsubsection.7.3.1}{The Loss Function}{subsection.7.3}% 27
+\BOOKMARK [2][-]{subsection.7.4}{Understanding Latent Space}{section.7}% 28
+\BOOKMARK [1][-]{section.8}{Experiments}{}% 29
+\BOOKMARK [2][-]{subsection.8.1}{Variational Autoencoder Architecture}{section.8}% 30
+\BOOKMARK [2][-]{subsection.8.2}{Latent Space}{section.8}% 31
+\BOOKMARK [1][-]{section.9}{Conclusion and Future Work}{}% 32
+\BOOKMARK [2][-]{subsection.9.1}{Conclusion}{section.9}% 33
+\BOOKMARK [2][-]{subsection.9.2}{Future Work}{section.9}% 34

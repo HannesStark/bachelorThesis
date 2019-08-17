@@ -37,7 +37,7 @@ is developed by Google and offers cross-platform support, running on most CPUs a
 Whenever possible Tensorflows implementation of the Keras API specification was used which is a high level API
 for training machine learning models.
 
-\subsection{Datasets}
+\subsection{Datasets} \label{datasets}
 
 The available data are 1024x1024 images of the two United States cities Jacksonville
 in Florida and Omaha in Nebraska taken from the US3D Dataset that
@@ -98,7 +98,7 @@ be able to distinguish between categories like shadows and vegetation each image
 $128\times 128$ pictures resulting in $178,112$ total training images. Those smaller picture sections
 are more likely to have a dominant feature like containing mainly shadows or only vegetation.
 
-\subsection{Architecture}
+\subsection{Architecture} \label{architecture}
 
 The first general structure of the vanilla autoencoder and the variational autoencoder is a combination 
 of the convolutional autoencoder and the variational autoencoder presented in the second edition of
@@ -124,7 +124,7 @@ each output pixel.
 The final loss function is the sum of both, the Kullback-Leibler divergence and the sum of the absolute
 errors.
 
-\subsection{Latent Space}
+\subsection{Understanding Latent Space}
 
 To understand and work with the latent space learned by the variational autoencoder is problematic and
 difficult since it is a very high dimensional space and it is not known what information of the input the
@@ -145,4 +145,21 @@ space are represented by small probabilities, i. e. close together points, in lo
 penalty is little if small probabilities in high dimensional space are represented by large probabilities in
 low dimensional space, leading to the claimed focus on local similarities.
 
-%TODO wie werden jetzt die 2D Punkte visualisiert?
+After t-SNE is used to reduce the dimensions of the latent code to 2, the low dimensional representation can be
+plotted in a scatter plot. That way it becomes evident if the autoencoder has learned any distinct clusters.
+To recap, every point in those plots is a low dimensional representation of a latent code that corresponds to
+a $128 \times 128$ section of an RGB satellite image. 
+Now the goal is to find out what features the learned clusters in the plots correspond to. For that purpose the
+semantic labeling and digital surface models \ref{datasets} are used. In the first type of plot the points
+are colored according to the most dominant class in the corresponding image. Those classes are building, vegetation,
+water, ground and clutter. In the second kind of plot the points have a gray value equal to the average pixel
+values in the digital surface models meaning that points for images, that have on average more heights, are brighter
+than points representing images with less heights.
+In both types of plots the points are squares if the related image is from Jacksonville or circles if it is from
+Omaha.
+
+In those plots it can be observed if the clusters correlate to one of the visualized features which would mean that
+the autoencoder has learned to cluster that feature.
+This method is repeated for different coding sizes for the two architectures presented in \ref{architecture}.
+That process gives insight into what coding sizes yield the best unsupervised clustering. The specific experiments
+and results are found in the experiments section \ref{latent_space_experiments}.

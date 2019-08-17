@@ -320,6 +320,80 @@
       \range{pages}{27}
       \keyw{dimensionality_reduction tSNE visualization}
     \endentry
+    \entry{2016-mishkin-systematic}{article}{}
+      \name{author}{3}{}{%
+        {{hash=29e1b1482079fb6b3102d6b605b54d84}{%
+           family={Mishkin},
+           familyi={M\bibinitperiod},
+           given={Dmytro},
+           giveni={D\bibinitperiod}}}%
+        {{hash=28819488a3a47e67001dfd2101d6e782}{%
+           family={Sergievskiy},
+           familyi={S\bibinitperiod},
+           given={Nikolay},
+           giveni={N\bibinitperiod}}}%
+        {{hash=7df17ebc3cfb4cf295bff60b579d5638}{%
+           family={Matas},
+           familyi={M\bibinitperiod},
+           given={Jiri},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{856798fbaf102ed2fc88390bfa8effc4}
+      \strng{fullhash}{90151c57cc35223be015dfcaa1abd229}
+      \strng{bibnamehash}{856798fbaf102ed2fc88390bfa8effc4}
+      \strng{authorbibnamehash}{856798fbaf102ed2fc88390bfa8effc4}
+      \strng{authornamehash}{856798fbaf102ed2fc88390bfa8effc4}
+      \strng{authorfullhash}{90151c57cc35223be015dfcaa1abd229}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{Systematic evaluation of {CNN} advances on the ImageNet}
+      \field{volume}{abs/1606.02228}
+      \field{year}{2016}
+    \endentry
+    \entry{2015-springenberg-striving}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=d52162d1c5497f647e12128f74d58da4}{%
+           family={Springenberg},
+           familyi={S\bibinitperiod},
+           given={Jost\bibnamedelima Tobias},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=72308762399d6ab62bbd9391c64c7bfd}{%
+           family={Dosovitskiy},
+           familyi={D\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b452a32296958371572717940f900884}{%
+           family={Brox},
+           familyi={B\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=68b220d4f198482a4deb1b6d84caffed}{%
+           family={Riedmiller},
+           familyi={R\bibinitperiod},
+           given={Martin\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8e774f5cb5e44357cb13922f43399da5}
+      \strng{fullhash}{e1febc816c503b677dd64d393b081083}
+      \strng{bibnamehash}{8e774f5cb5e44357cb13922f43399da5}
+      \strng{authorbibnamehash}{8e774f5cb5e44357cb13922f43399da5}
+      \strng{authornamehash}{8e774f5cb5e44357cb13922f43399da5}
+      \strng{authorfullhash}{e1febc816c503b677dd64d393b081083}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ICLR} (Workshop)}
+      \field{title}{Striving for Simplicity: The All Convolutional Net}
+      \field{year}{2015}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

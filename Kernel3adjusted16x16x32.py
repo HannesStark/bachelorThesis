@@ -1,5 +1,6 @@
 import tensorflow as tf
 from keras import losses
+from sklearn.manifold import TSNE
 import numpy as np
 import os
 import tifffile as tiff
@@ -9,18 +10,20 @@ import time
 K = tf.keras.backend
 
 latent_dim = 50
-# file_tag = "16x16x32TRAINEDON178000"
-file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
-#file_tag = "test_with_unscaled_latent_loss16x16x32"
+#file_tag = "16x16x32TRAINEDON178000"
+file_tag = "16x16x32TRAINEDON178000" + "_dim" + str(latent_dim)
+#file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
+# file_tag = "test_with_unscaled_latent_loss16x16x32"
 batch_size = 128
 epochs = 50
 num_examples_to_generate = 16
 test_train_ratio = 1 / 8  # is only used if test_size is null
 test_size = 200  # if test_size is null the test_train_ratio will be used
-# data_source_dir = "Track1-RGB/Track1-RGB128x128"
 generation_path = "generatedImages/" + file_tag + "/"
 
+# data_source_dir = "Track1-RGB/Track1-RGB128x128"
 data_source_dir = "test-RGB128x128split8"
+truth_source_dir = "Track1-Truth"
 
 
 class Sampling(tf.keras.layers.Layer):
@@ -167,17 +170,61 @@ def predictions_and_generations():
         plt.imshow(images_generated[i])
         plt.savefig(generation_path + "generated" + str(i))
 
+def get_predominant_class_as_color(img):
+    flat = img.flatten()
+    most_common = np.bincount(flat).argmax()
+    if most_common == 2: #ground
+        return 'gray'
+    elif most_common == 5: #vegetation
+        return 'g'
+    elif most_common == 6: #building
+        return 'r'
+    elif most_common == 9: #water
+        return 'b'
+    elif most_common == 65: #clutter
+        return 'y'
+def tsne_vis():
+    predominant_classes = []
+    locations = []
+    average_heights = []
+    images = []
+    file_names = os.listdir("RGB-From-Track1128x128split8")
+    for filename in file_names[1000:2000]:
+        image = tiff.imread("RGB-From-Track1128x128split8/" + filename)
+        cls = tiff.imread("Track1-Truth128x128split8/" + filename.replace("RGB", "CLS"))
+        predominant_classes.append(get_predominant_class_as_color(cls))
+        images.append(image)
+        if "OMA" in filename:
+            locations.append('.')
+        else:
+            locations.append('s')
 
-start_time = time.time()
-train()
-f = open(log_file, "a")
-f.write(str(time.time() - start_time))
-f.close()
-variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+    images = np.array(images, dtype=np.float32)
+    images /= 255.
+
+    latent_log_var, latent_mean, latent_vars = variational_encoder.predict(images)
+    predictions = variational_decoder.predict(latent_vars)
+
+    print("t-SNE started with: " + str(latent_vars.shape))
+    embedded = TSNE(perplexity=15, n_iter=4000).fit_transform(latent_vars)
+    print("t-SNE finished")
+
+    plt.clf()
+    plt.scatter(embedded[:, 0], embedded[:, 1], s=1, c=predominant_classes)
+    plt.show()
 
 
-variational_ae.summary()
+# start_time = time.time()
+# train()
+# f = open(log_file, "a")
+# f.write(str(time.time() - start_time))
+# f.close()
+# variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+
+variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 predictions_and_generations()
+
+tsne_vis()
+
