@@ -4,20 +4,6 @@ from matplotlib import pyplot as plt
 import numpy as np
 import sys
 
-cls = cv2.imread("Track1-Truth/JAX_004_006_CLS.tif")
+test = [1,2,3,4,5,6,7,8,9,10]
 
-print(cls.shape)
-
-for i in range(0, len(cls)):
-    for j in range(0, len(cls[0])):
-        if 9 in cls[i, j]:
-            cls[i, j] = [255, 255, 255]
-plt.imshow(cls)
-plt.show()
-
-
-#vegetation 5
-# building 6
-#ground 2
-# water 9
-# clutter 65
+print(test[5:10])

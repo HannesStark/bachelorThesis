@@ -41,14 +41,14 @@ could be modeled by three layers if they may contain arbitrarily many neurons bu
 deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
-in Figure 2.
+in Figure \ref{figure_fully_connected_nn}.
 
-\begin{figure}[ht]
+\begin{figure}[ht] 
     \centering
     \includegraphics[width=0.3\textwidth]{images/figures/artificial_neural_network.png}
     \caption{An artificial neural network with three fully connected layers.
-    Image taken from \parencite{2013-glosser-ann}}
-\end{figure}
+    Image taken from \parencite{2013-glosser-ann}} \label{figure_fully_connected_nn}
+\end{figure} 
 
 The process of learning an artificial neural networks $n(w, x)=z$, with weights $w$, refers to the process
 of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
@@ -87,7 +87,7 @@ the same input space leading to the ability to extract multiple features that ca
 further in the following layer. The amount of neurons with the same input space is referred to as
 the number of filters since each one of those neurons has its own filter with its respective
 weights and all those filters are applied to the same piece of the input. This is visualized in
-Figure 3.
+Figure \ref{figure_cnn_filter}.
 
 \begin{figure}[h]
     \centering
@@ -95,7 +95,7 @@ Figure 3.
     \caption{A convolutional network with 12 filters in the first convolutional layer and 7
     filters in the second convolutional layer. Each filters can learn different features and an
     RGB image is depicted as the input here.
-    Image taken from \parencite{2017-geron-homl}}
+    Image taken from \parencite{2017-geron-homl}} \label{figure_cnn_filter}
 \end{figure}
 
 Instead of having a kernel in each possible area of the input there can also be a distance between
@@ -129,14 +129,14 @@ One common constraint for autoencoders is choosing a dimension for the latent co
 than the dimension of the input. This means that the encoder is forced to learn to extract only the
 most important features from the input and the latent code is a representation of those most
 important features in a lower dimensionality than the input. Such an autoencoder, called
-undercomplete autoencoder, is visualized in Figure 4.
+undercomplete autoencoder, is visualized in Figure \ref{figure_undercomplete_ae}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{images/figures/Autoencoder_structure.png}
     \caption{An undercomplete autoencoder has a latent code $z$ whose dimension is smaller than the 
     dimension of the input $x$.
-    Image taken from \parencite{2015-Chervinskii-autoencoder}}
+    Image taken from \parencite{2015-Chervinskii-autoencoder}} \label{figure_undercomplete_ae}
 \end{figure}
 
 Undercomplete autoencoders can be used for pretraining by taking the trained Encoder that has 
@@ -242,7 +242,7 @@ the KL divergence is greater than zero proportional to how different $Q$ and $P$
 In summary Kullback-Leibler divergence is a measure of how different two probability distributions
 are that is zero if they are the same and greater than zero if not.
 
-\subsection{Variational Autoencoders}
+\subsection{Variational Autoencoders} \label{vae_background}
 
 Standard autoencoders are fairly limited in their generative capabilities or in their capabilities
 to interpolate in the latent space and the problem lies

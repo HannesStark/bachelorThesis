@@ -12,8 +12,22 @@ the authors find that including pooling layers such as max pooling into a convol
 necessarily mean an improvement. When using a large enough network the invariances that should be
 introduced by pooling layers can also be learned in a network with convolutional layers only. Thus, in certain cases,
 convolutional layers with strides of two can be used to reduce dimensionality in a CNN instead of pooling layers
-which is why both options are explored in this work.\\
+which is why both options are explored in this work.
+\\
 
 The paper \textit{Systematic evaluation of CNN advances on the ImageNet} \parencite{2016-mishkin-systematic} analyzes
 the impact of multiple learning parameter and architecture choices on the performance of convolutional neural networks.
-One conclusion it reaches is the suggestion to use batch sizes around 128 or 256. 
+One conclusion it reaches is the suggestion to use batch sizes around 128 or 256.
+
+\subsection{Variational Autoencoders and Generative Networks}
+
+In \textit{A Note on the Evaluation of Generative Models} \parencite{2015-theis-generative}
+it is made clear that there are many difficulties in
+measuring the optimization and performance of generative models. A clear conclusion is that there is no 
+one fits all metric for the quality of models like variational autoencoders. While the intuitive evaluation
+of visual results favors overfitted models, pure reliance on numerical measures is not appropriate when the
+goal is image synthesis. Overall the quality of evaluation measure is largely dependent on the application
+and goal.\\
+
+
+

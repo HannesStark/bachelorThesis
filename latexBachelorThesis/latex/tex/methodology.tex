@@ -31,11 +31,14 @@ Lenovo Legion Y520T-25IKL, Intel i7-7700, 8GB RAM, NVIDIA GeForce GTX 1060 3GB
 
 \subsubsection{Software}
 
-The programming language used for the work is Python with the development environment PyCharm locally
+The programming language used for the work is Python \parencite{1995-rossum-python} with the development
+environment PyCharm locally
 and and Jupyter Notebooks on a remote machine. The machine learning framework Tensorflow was used which
-is developed by Google and offers cross-platform support, running on most CPUs and GPUs \parencite{tensorflow}.
+is developed by Google and offers cross-platform support, running on most CPUs and GPUs 
+\parencite{2015-martin-tensorflow}.
 Whenever possible Tensorflows implementation of the Keras API specification was used which is a high level API
-for training machine learning models.
+for training machine learning models. For dimensionality reduction of the latent space, Scikit-Learn was used
+\parencite{2011-pedregosa-scikit}.
 
 \subsection{Datasets} \label{datasets}
 
@@ -95,34 +98,73 @@ detect those features.
 
 In the dataset there are $2,783$ $1024\times 1024$ RGB images available. Since the autoencoder should
 be able to distinguish between categories like shadows and vegetation each image is split into $64$
-$128\times 128$ pictures resulting in $178,112$ total training images. Those smaller picture sections
-are more likely to have a dominant feature like containing mainly shadows or only vegetation.
+$128\times 128$ pictures resulting in $178,112$ total training images. 
+Experimentation with larger image dimensions never produced reconstructions of acceptable
+quality regarding pure visual inspection.
+Another option would be to resize larger sections of the original images to $128\times 128$. However,
+smaller picture sections
+are more likely to have a dominant feature like containing mainly shadows, buildings or vegetation.
+This is desirable since the variational autoencoder should learn to distinguish those features and to cluster
+them in an unsupervised manner.
+
 
 \subsection{Architecture} \label{architecture}
 
 The first general structure of the vanilla autoencoder and the variational autoencoder is a combination 
 of the convolutional autoencoder and the variational autoencoder presented in the second edition of
 Hans-On Machine Learning \parencite{2017-geron-homl}.
-That model is adjusted to work with $128\times 128$ RGB images
+That model is adjusted to work with $128\times 128$ RGB images and various different architectural
+changes are tested. These experiments are first conducted with only $3000$ training images and $200$ validation
+images since the training should be fast to allow testing many different architectures. The best performing
+models are then evaluated and compared after training with all $178,122$ pictures. 
+Here the performance is measured regarding the quality of the reconstruction and not the quality of the latent space.
+In all these test the dimension
+of the latent code is $1024$ while the architectures allow to alter the coding size for the experiments regarding
+the latent space \ref{latent_space_experiments}. The described experiments regarding the architecture and their
+evaluation can be found
+in section \ref{architecture_experiments}.
 
-\subsubsection{The Loss Function}
+The results were that a purely convolutional network without pooling performed the best. However, to inspect the 
+effects of pooling on the latent code an architecture with pooling is used as the second model in the latent space
+experiments. This model yields results that are only a little worse than the ones from the purely convolutional
+network but the training times were almost twice as long.\\
 
-Intuitively the loss function defines a goal that the model should reach when training by minimizing
-the loss function. In the variational autoencoder one of those goals is that the distribution of the 
-latent space is similar to a normal distribution since that makes it possible to sample latent 
-variables from a normal distribution. From those sampled variables the decoder can generate an output
-that resembles the real distribution.
+The following are choices that apply to both architectures. The RGB input values between 0 and 255 are first 
+normalized. Each value is divided by $255$ which way there are only floats between $0$ and $1$.
+The last deconvolutional layer in the decoder network (Figure \ref{figure_decoder}) uses the sigmoid activation
+function $S(x) = \frac{e^x}{e^x+1}$. This guarantees that the values in the output image are all 
+between $0$ and $1$ and can be interpreted as RGB values. 
+Every other layer uses a scaled exponential linear unit (SELU) as activation function with the standard scale
+$\lambda = 1.05070098$ and $\alpha = 1.67326324$ as they were calculated in \parencite{2017-klambauer-selu}.
 
-To define that goal in a loss function Kullback-Leibler divergence is used to force the distribution
-of the latent space to resemble a normal distribution.
-%TODO D_{KL}(P\parallel Q) von latent  und normal wird minimiert
+\begin{equation}
+    selu(x) = \lambda \begin{cases}
+        x & if x > 0 \\
+        \alpha e^x- \alpha & if x \leq 0
+    \end{cases}
+\end{equation}
 
-The second goal is of course that the output of the variational autoencoder is similar to the input.
-The loss function used for this purpose is the sum of the absolute differences between each input and
-each output pixel.
+\subsubsection{Pure Convolutional Architecture}
 
-The final loss function is the sum of both, the Kullback-Leibler divergence and the sum of the absolute
-errors.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/figures/encoder_neural_network.png}
+    \caption{Encoder network architecture with an encoding size of 1024.
+    The kernel size is $3\times 3$ in every layer. The 
+    reparameterization trick in the last layer
+    refers to the sampling as described in section \ref{vae_background}.} \label{figure_pure_convolutional_encoder}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/figures/decoder_neural_network.png}
+    \caption{Decoder network architecture with an encoding size of 1024.
+    The kernel size is $3\times 3$ in every layer. The last deconvolutional layer has a sigmoid activation
+    function } \label{figure_decoder}
+\end{figure}
+
+\subsubsection{Max Pooling Architecture}
 
 \subsection{Understanding Latent Space}
 
@@ -155,8 +197,8 @@ are colored according to the most dominant class in the corresponding image. Tho
 water, ground and clutter. In the second kind of plot the points have a gray value equal to the average pixel
 values in the digital surface models meaning that points for images, that have on average more heights, are brighter
 than points representing images with less heights.
-In both types of plots the points are squares if the related image is from Jacksonville or circles if it is from
-Omaha.
+In these two types of plots the points are squares if the related image is from Jacksonville or circles if it is from
+Omaha. In a third type of plot the points are represented by the corresponding images themselves 
 
 In those plots it can be observed if the clusters correlate to one of the visualized features which would mean that
 the autoencoder has learned to cluster that feature.

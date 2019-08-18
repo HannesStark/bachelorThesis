@@ -2020,10 +2020,14 @@
     <bcf:citekey order="15">2008-vanDerMaaten-visualizing</bcf:citekey>
     <bcf:citekey order="16">2015-springenberg-striving</bcf:citekey>
     <bcf:citekey order="17">2016-mishkin-systematic</bcf:citekey>
-    <bcf:citekey order="18">tensorflow</bcf:citekey>
-    <bcf:citekey order="19">2019-bosch-semantic</bcf:citekey>
-    <bcf:citekey order="20">2017-geron-homl</bcf:citekey>
-    <bcf:citekey order="21">2008-vanDerMaaten-visualizing</bcf:citekey>
+    <bcf:citekey order="18">2015-theis-generative</bcf:citekey>
+    <bcf:citekey order="19">1995-rossum-python</bcf:citekey>
+    <bcf:citekey order="20">2015-martin-tensorflow</bcf:citekey>
+    <bcf:citekey order="21">2011-pedregosa-scikit</bcf:citekey>
+    <bcf:citekey order="22">2019-bosch-semantic</bcf:citekey>
+    <bcf:citekey order="23">2017-geron-homl</bcf:citekey>
+    <bcf:citekey order="24">2017-klambauer-selu</bcf:citekey>
+    <bcf:citekey order="25">2008-vanDerMaaten-visualizing</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

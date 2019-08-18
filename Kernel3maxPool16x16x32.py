@@ -10,8 +10,8 @@ import time
 K = tf.keras.backend
 
 latent_dim = 50
-# file_tag = "16x16x32TRAINEDON178000" + "_dim" + str(latent_dim)
-file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
+file_tag = "16x16x32maxPoolTRAINEDON178000" + "_dim" + str(latent_dim)
+#file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
 batch_size = 128
 epochs = 50
 num_examples_to_generate = 16
@@ -171,14 +171,14 @@ def predictions_and_generations():
         plt.savefig(generation_path + "generated" + str(i))
 
 
-start_time = time.time()
-train()
-f = open(log_file, "a")
-f.write(str(time.time() - start_time))
-f.close()
-variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+#start_time = time.time()
+#train()
+#f = open(log_file, "a")
+#f.write(str(time.time() - start_time))
+#f.close()
+#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 
