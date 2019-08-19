@@ -5,7 +5,7 @@ divided into two subsections. The first one, being convolutional network archite
 hyper parameters and other choices for convolutional models while the second subsection focuses on generative aspects
 and autoencoders.
 
-\subsection{Convolutional Network Architecture}
+\subsection{General and Convolutional Network Architecture} \label{related_work_general_architecture}
 
 In their paper \textit{Striving for simplicity: The All Convolutional Net} \parencite{2015-springenberg-striving}
 the authors find that including pooling layers such as max pooling into a convolutional architecture does not 
@@ -17,7 +17,16 @@ which is why both options are explored in this work.
 
 The paper \textit{Systematic evaluation of CNN advances on the ImageNet} \parencite{2016-mishkin-systematic} analyzes
 the impact of multiple learning parameter and architecture choices on the performance of convolutional neural networks.
-One conclusion it reaches is the suggestion to use batch sizes around 128 or 256.
+One conclusion it reaches is the suggestion to use batch sizes around 128 or 256.\\
+
+In the work \textit{Self-Normalizing Neural Networks} \parencite{2017-klambauer-selu} the authors show that using
+a scaled exponential linear unit (SELU) as activation function leads to self normalizing networks. These networks 
+eliminate the problem of vanishing or exploding gradients. Additionally the authors prove superiority of SELU 
+over other normalization techniques in their benchmarks. 
+
+This is in line with the results of \textit{Comparison of non-linear activation functions for deep neural networks on
+MNIST classification task} \parencite{2018-Pedamonti-comparison}. This paper reaches the conclusion that SELU leads
+to faster learning rates than other activation functions like ReLU or Leaky ReLU.
 
 \subsection{Variational Autoencoders and Generative Networks}
 

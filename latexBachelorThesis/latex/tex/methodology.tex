@@ -136,6 +136,7 @@ function $S(x) = \frac{e^x}{e^x+1}$. This guarantees that the values in the outp
 between $0$ and $1$ and can be interpreted as RGB values. 
 Every other layer uses a scaled exponential linear unit (SELU) as activation function with the standard scale
 $\lambda = 1.05070098$ and $\alpha = 1.67326324$ as they were calculated in \parencite{2017-klambauer-selu}.
+This choice is made based on the insights from related work \ref{related_work_general_architecture}.
 
 \begin{equation}
     selu(x) = \lambda \begin{cases}
@@ -144,7 +145,15 @@ $\lambda = 1.05070098$ and $\alpha = 1.67326324$ as they were calculated in \par
     \end{cases}
 \end{equation}
 
-\subsubsection{Pure Convolutional Architecture}
+\subsubsection{Pure Convolutional Architecture} \label{section_pure_convolutional_architecture}
+
+Figure \ref{figure_pure_convolutional_encoder} visualizes the used encoder network. It has an example size for the
+latent code of $1024$ which is not fixed. There are three convolutional
+layers with kernels of the dimension $3\times 3$ and strides of two. The output of the last convolutional layer
+is flattened to a single vector which means that it has the size of the depth times the height times the width of
+the last convolutional layer, i. e. $32*16*16 = 8,192$. This flattened vector is the input for two fully connected
+dense layers that produce the means and standard deviations with the chosen size of the latent code. The final step
+is to sample the latent code from the means and deviations.
 
 \begin{figure}[h]
     \centering
@@ -152,19 +161,43 @@ $\lambda = 1.05070098$ and $\alpha = 1.67326324$ as they were calculated in \par
     \caption{Encoder network architecture with an encoding size of 1024.
     The kernel size is $3\times 3$ in every layer. The 
     reparameterization trick in the last layer
-    refers to the sampling as described in section \ref{vae_background}.} \label{figure_pure_convolutional_encoder}
+    refers to the sampling as described in section \ref{vae_background}.
+    Dimensions are specified as $depth@height\times width$.} \label{figure_pure_convolutional_encoder}
 \end{figure}
 
+The decoder, as visualized in Figure \ref{figure_decoder}, takes the latent code produced by the encoder and 
+first passes it through a dense layer with a $32*16*16=8,192$ output. This way it is possible to reshape that
+output vector to $32\times 16\times 16$ as the next step. After that three deconvolutions are applied.
+These deconvolutional layers are symmetrical to the convolutional layers in the first network resulting in an 
+output with the same dimensions as the input of the encoder. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{images/figures/decoder_neural_network.png}
     \caption{Decoder network architecture with an encoding size of 1024.
     The kernel size is $3\times 3$ in every layer. The last deconvolutional layer has a sigmoid activation
-    function } \label{figure_decoder}
+    function. Dimensions are specified as $depth@height\times width$.} \label{figure_decoder}
 \end{figure}
 
 \subsubsection{Max Pooling Architecture}
+
+The used encoder with max pooling is depicted in Figure \ref{figure_encoder_pooling}. It contains three
+convolutional and three pooling layers with a pooling layer following every convolutional layer. The convolutional
+kernels have size $3\times3$ and the convolution is done with strides of one which means that they do not reduce
+height and width of their input. Instead each pooling layer quarters the dimension with a pooling window of size
+$2\times 2$. This produces and output of size $32\times16\times16$ that is processed further in the same way
+as in the pure convolutional encoder \ref{section_pure_convolutional_architecture}.
+The decoder is also equivalent to the one in the pure convolutional architecture.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/figures/encoder_pooling.png}
+    \caption{Part of the encoder network architecture with pooling and an encoding size of 1024.
+    The convolutional kernel always has size $3\times 3$. The pooling window always has size $2\times 2$.
+    The rest of the encoder that generates the latent code is the same as in the fully convolutional encoder
+    \ref{section_pure_convolutional_architecture}.
+    Dimensions are specified as $depth@height\times width$.} \label{figure_encoder_pooling}
+\end{figure}
 
 \subsection{Understanding Latent Space}
 

@@ -517,6 +517,31 @@
       \field{volume}{abs/1606.02228}
       \field{year}{2016}
     \endentry
+    \entry{2018-Pedamonti-comparison}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9b540b856d45386c67d739a36e874d68}{%
+           family={Pedamonti},
+           familyi={P\bibinitperiod},
+           given={Dabal},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b540b856d45386c67d739a36e874d68}
+      \strng{fullhash}{9b540b856d45386c67d739a36e874d68}
+      \strng{bibnamehash}{9b540b856d45386c67d739a36e874d68}
+      \strng{authorbibnamehash}{9b540b856d45386c67d739a36e874d68}
+      \strng{authornamehash}{9b540b856d45386c67d739a36e874d68}
+      \strng{authorfullhash}{9b540b856d45386c67d739a36e874d68}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{Comparison of non-linear activation functions for deep neural networks on {MNIST} classification task}
+      \field{volume}{abs/1804.02763}
+      \field{year}{2018}
+    \endentry
     \entry{2011-pedregosa-scikit}{article}{}
       \name{author}{16}{}{%
         {{hash=6e96fec0d63277626bb324bd28cdecb7}{%

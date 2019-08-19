@@ -40,7 +40,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Related Work}{10}{section.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Convolutional Network Architecture}{10}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.1}General and Convolutional Network Architecture}{10}{subsection.6.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.2}Variational Autoencoders and Generative Networks}{11}{subsection.6.2}% 
 \defcounter {refsection}{0}\relax 
@@ -50,9 +50,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.1.1}Hardware}{11}{subsubsection.7.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Personal Computer}{11}{section*.7}% 
+\contentsline {paragraph}{Personal Computer}{12}{section*.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Remote Machine}{11}{section*.8}% 
+\contentsline {paragraph}{Remote Machine}{12}{section*.8}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.1.2}Software}{12}{subsubsection.7.1.2}% 
 \defcounter {refsection}{0}\relax 
@@ -62,18 +62,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.1}Pure Convolutional Architecture}{14}{subsubsection.7.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.2}Max Pooling Architecture}{15}{subsubsection.7.3.2}% 
+\contentsline {subsubsection}{\numberline {7.3.2}Max Pooling Architecture}{14}{subsubsection.7.3.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.4}Understanding Latent Space}{15}{subsection.7.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Experiments}{16}{section.8}% 
+\contentsline {section}{\numberline {8}Experiments}{17}{section.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Variational Autoencoder Architecture}{16}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.1}Variational Autoencoder Architecture}{17}{subsection.8.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Latent Space}{16}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.2}Latent Space}{17}{subsection.8.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion and Future Work}{16}{section.9}% 
+\contentsline {section}{\numberline {9}Conclusion and Future Work}{17}{section.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Conclusion}{16}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.1}Conclusion}{17}{subsection.9.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Future Work}{16}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.2}Future Work}{17}{subsection.9.2}% 
