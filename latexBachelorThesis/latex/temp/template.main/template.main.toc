@@ -14,7 +14,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Background}{2}{section.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Remote Sensing Imagery}{3}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.1}Remote Sensing}{2}{subsection.5.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.2}Artificial Neuron}{3}{subsection.5.2}% 
 \defcounter {refsection}{0}\relax 
@@ -22,13 +22,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4}Convolutional Neural Networks}{4}{subsection.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Pooling}{5}{section*.5}% 
+\contentsline {paragraph}{Pooling}{6}{section*.5}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.5}Autoencoders}{6}{subsection.5.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6}Kullback-Leibler Divergence}{7}{subsection.5.6}% 
+\contentsline {subsection}{\numberline {5.6}Kullback-Leibler Divergence}{6}{subsection.5.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.6.1}Entropy}{7}{subsubsection.5.6.1}% 
+\contentsline {subsubsection}{\numberline {5.6.1}Entropy}{6}{subsubsection.5.6.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.6.2}Cross Entropy}{8}{subsubsection.5.6.2}% 
 \defcounter {refsection}{0}\relax 
@@ -40,7 +40,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Related Work}{10}{section.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}General and Convolutional Network Architecture}{10}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.1}General and Convolutional Network Architecture}{11}{subsection.6.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.2}Variational Autoencoders and Generative Networks}{11}{subsection.6.2}% 
 \defcounter {refsection}{0}\relax 
@@ -58,7 +58,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2}Datasets}{12}{subsection.7.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Architecture}{13}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.3}Architecture}{14}{subsection.7.3}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.1}Pure Convolutional Architecture}{14}{subsubsection.7.3.1}% 
 \defcounter {refsection}{0}\relax 
