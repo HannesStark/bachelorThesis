@@ -1,17 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.12
-[0] Config.pm:307> INFO - Logfile is 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.blg'
-[38] biber-MSWIN64:315> INFO - === 
-[60] Biber.pm:371> INFO - Reading 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
-[157] Biber.pm:889> INFO - Found 16 citekeys in bib section 0
-[172] Biber.pm:4093> INFO - Processing section 0
-[184] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
-[197] bibtex.pm:1523> INFO - LaTeX decoding ...
-[336] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
-[555] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[555] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[555] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[555] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[573] bbl.pm:636> INFO - Writing 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
-[583] Utils.pm:193> WARN - The entry '2015-martin-tensorflow' has characters which cannot be encoded in 'latin1'. Recoding problematic characters into macros.
-[586] bbl.pm:739> INFO - Output to F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl
-[587] Biber.pm:110> INFO - WARNINGS: 1
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'A:\Dropbox\Repositories\VAE\latexBachelorThesis\latex\temp\template.main\template.main.blg'
+[32] biber-MSWIN32:313> INFO - === 
+[79] Biber.pm:371> INFO - Reading 'A:\Dropbox\Repositories\VAE\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
+[216] Biber.pm:857> INFO - Found 16 citekeys in bib section 0
+[235] Biber.pm:3976> INFO - Processing section 0
+[253] Biber.pm:4136> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
+[268] bibtex.pm:1500> INFO - LaTeX decoding ...
+[433] bibtex.pm:1316> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
+[636] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[636] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[636] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[636] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[655] bbl.pm:617> INFO - Writing 'A:\Dropbox\Repositories\VAE\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
+[666] Utils.pm:193> WARN - The entry '2015-martin-tensorflow' has characters which cannot be encoded in 'latin1'. Recoding problematic characters into macros.
+[671] bbl.pm:720> INFO - Output to A:\Dropbox\Repositories\VAE\latexBachelorThesis\latex\temp\template.main\template.main.bbl
+[676] Biber.pm:110> INFO - WARNINGS: 1

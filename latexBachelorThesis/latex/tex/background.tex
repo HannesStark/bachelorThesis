@@ -15,12 +15,17 @@ understanding of the high dimensional latent space of the autoencoders.
 %What are the challenges of remote sensing. The images are very big and high resolution and there is not a lot 
 % of labeled data such as there is for common object for example COCO dataset
 
-\subsection{Artificial Neuron}
+\textcolor{red}{Logic:} \textcolor{cyan}{" [\dots]"}\textcolor{blue}{}
 
-Inspired by biological neurons an artificial neuron has one or more weighted inputs that are summed together
-and after that passed through a non-linear function called activation function. The output models the axon
+\subsection{Artificial Neuron}\label{ssec:an}
+
+\textcolor{red}{Logic:} \textcolor{cyan}{"Inspired by biological neurons an artificial neuron has one or more [\dots]"}\textcolor{blue}{The sentence has to be split into two different statements: Firstly, artificial neurons are inspired by [\dots]. Secondly, in computer science the artificial neurons are seen as functions with input parameter [\dots]. The following brief explanation of the function is good.} 
+% weighted inputs that are summed together and after that passed through a non-linear function called activation function.
+
+ The output models the \textcolor{red}{Prior knowledge:} \textcolor{cyan}{"axon"}\textcolor{blue}{The reader has certainly to browse the terms axon and dendrites?! That complies not with the demand of continuously reading. Do you need really these terms without a graphic?}
 of a biological neuron to which other biological neurons can connect via their dendrites which is similar
-to an artificial neuron using the output of another artificial neuron as its input. 
+to an artificial neuron using the output of another  \textcolor{red}{Repetition:} \textcolor{cyan}{"artificial neuron"} artificial neuron as its input. 
+
 By adjusting the separate weights of the inputs a single neuron is able to model
 simple functions like the logic $and$ or the logic $or$ but it is not abled to solve other trivial problems
 like the exclusive or (XOR).
@@ -32,13 +37,21 @@ like the exclusive or (XOR).
 \end{figure}
 
 
-\subsection{Artificial Neural Network}
+\subsection{Artificial Neural Network}\label{ssec:artnn}
 
-By taking layers of multiple artificial neurons and connecting the outputs of the layers to the inputs of the
-next layer, functions $f(x) = y$ with input and output vectors of any size can be modeled.
-The layers between the input and output layer are called hidden layers. Arbitrarily complex functions
-could be modeled by three layers if they may contain arbitrarily many neurons but in practice most of the time
-deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
+\textcolor{red}{Global:} \textcolor{cyan}{Paragraph} \textcolor{blue}{Please adapt the order of the following paragraph to the last: Firstly, the functional model can be written as $f(x) = y$. Moreover the weights and the bias has to be introduced in a corresponding function. After that you can present the idea of layers.}
+
+\textcolor{red}{Logic:} \textcolor{cyan}{"By taking layers of multiple artificial neurons [\dots]"} \textcolor{blue}{In the last paragraph you wrote about single neurons, then we need a halfsentence that a layer consists of multiple [\dots]. A verb is missing here?}
+next layer, functions $f(x) = y$ with input and output vectors \textcolor{red}{$x$ and $y$} of any size can be modeled.
+\textcolor{red}{Prior Knowlege:} \textcolor{cyan}{"The layers between the input and output layer are called hidden layers."}  \textcolor{blue}{Before introducing hidden lyers refer to the multilayer perceptron! A MLP consists of at least three layers of nodes. The term "at least" is highly informative} 
+Arbitrarily complex functions
+\textcolor{red}{Prior Knowlege:} \textcolor{cyan}{"could"} \textcolor{blue}{"can" or "may", it is not as hypothetical as it sounds} 
+be modeled by 
+\textcolor{red}{Prior Knowlege:} \textcolor{cyan}{"three layers"} \textcolor{blue}{only three layers?} 
+\textcolor{red}{Grammar:} \textcolor{cyan}{"if they mays"} \textcolor{blue}{could, if, may: that sounds totally hypothetical. But besides that, I would not combine if and may in that way.} 
+contain arbitrarily many neurons 
+\textcolor{red}{Sentence:} \textcolor{cyan}{but in practice most of the time
+deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}.} \textcolor{blue}{Breaking sentence into two parts.} 
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
 in Figure \ref{figure_fully_connected_nn}.
@@ -50,35 +63,52 @@ in Figure \ref{figure_fully_connected_nn}.
     Image taken from \parencite{2013-glosser-ann}} \label{figure_fully_connected_nn}
 \end{figure} 
 
-The process of learning an artificial neural networks $n(w, x)=z$, with weights $w$, refers to the process
-of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
-that should be learned $f(x)$. This can be achieved by taking possible inputs $x_{i}$ for which the 
-desired outputs $\hat{z_{i}}$ are known and optimizing a loss function $l(n(w,x_{i}),\hat{z_{i}})$ for $w$
-and repeating this process with each pair of inputs $x_{i}$ wit desired outputs $\hat{z_{i}}$. The set of pairs of
-those inputs and desired outputs is called the training set. 
-Intuitively the optimized loss function can be seen as the goal of how the output of the artificial neural
-network should resemble the known desired outputs.
+\textcolor{red}{Figure:} \textcolor{blue}{Please refer in \ref{ssec:artnn} slighlty more to that graphic as well as to that of \ref{ssec:an}} 
 
-The optimization is most commonly done via gradient descent or adjusted versions of gradient descent.
+\textcolor{red}{Notation:} \textcolor{cyan}{} \textcolor{blue}{In \ref{ssec:artnn} you used function $f$. Is function $n$ a fundamentally new model? Moreover you did not introduced $w$ in your formula. In future you might work with higly complex functions, which have to be exactly initiated.}
+
+The process of learning an artificial neural networks $n(w, x)=z$, \textcolor{red}{Order:} \textcolor{cyan}{"with weights $w$"}\textcolor{blue}{introduce weigths in \ref{ssec:artnn}}, 
+
+\textcolor{red}{Order:} \textcolor{cyan}{"refers to the process
+of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
+that should be learned $f(x)$."}\textcolor{blue}{Firstly your formula describes not an iterative process, you have to build a nested function to achieve an iteratice process. Secondly, I don't know what you want to express with "desired function", might it be the desired function (output) of the function "model". I think, the term "function" can be missunderstood.}
+
+\textcolor{red}{Reference:} \textcolor{cyan}{"This can be achieved"} \textcolor{blue}{What can be achieved?}by taking possible inputs $x_{i}$ for which the 
+desired outputs\textcolor{red}{Notation:} \textcolor{cyan}{$\hat{z_{i}}$} \textcolor{blue}{in \ref{ssec:artnn} you introduced $y$ as output. Furthermore you present the idear of ground truth, or rather ideal data but only in your formula } are known and optimizing a \textcolor{red}{Prior Knowledge} \textcolor{cyan}{"loss function} \textcolor{blue}{What is a loss function}$l(n(w,x_{i}),\hat{z_{i}})$ for $w$
+\textcolor{red}{Logic:} \textcolor{cyan}{"and repeating this process with each pair of inputs $x_{i}$ with desired outputs $\hat{z_{i}}$."} \textcolor{blue}{Firstly, why have I to repeat that process. That is a slightly complicated way to introduce the concept of learning without the use of the terms "training" or "learning". Secondly, the ground truth dat is not desired, they are merely given. I think, you want to say the desired output are very similar. Thirdly, the output is commonly not presented by the hat?  }. 
+The set of pairs of
+those inputs and desired outputs is called the training set. 
+Intuitively the optimized loss function can be seen as the \textcolor{red}{Term:} \textcolor{cyan}{"goal"} \textcolor{blue}{"objective"?} of how the output of the artificial neural
+network should resemble  \textcolor{red}{Term:} \textcolor{cyan}{"the known desired outputs."} \textcolor{blue}{"ground truth?"}  
+\textcolor{red}{Repetition:} \textcolor{cyan}{"desired"} 
+
+\textcolor{red}{Prior Knowledge:} \textcolor{cyan}{"The optimization is most commonly done via gradient descent or adjusted versions of gradient descent."} \textcolor{blue}{The objevtive (is there a representable general objective?) can be seen as an optimization problem. What is the gradient descent for?}
 This involves calculating the partial derivatives for each component of $w$.
 For this reason the activation functions of the artificial neurons and the loss function have to be
 differentiable. More detailed information about gradient descent can be read in Deep Learning
 \parencite{2016-goodfellow-deep} and information about the commonly used optimizers that improve 
-gradient descent can be found in Hands-On Machine Learning \parencite{2017-geron-homl}.
+gradient descent can be found in Hands-On Machine Learning \parencite{2017-geron-homl}.\textcolor{green}{Nice!}
 
 \subsection{Convolutional Neural Networks}
 
-When working with neural networks that should model a function with data like images as inputs, most
+\textcolor{red}{Global:} \textcolor{cyan}{} \textcolor{blue}{You need an example. Please use any example, show a simple picture and introduce a function with simple objective without formula but refering to that of the last subsection. This subsection suffers from sparsely describing figurative. Hence, there are several possible misconceptions.}
+
+\textcolor{red}{Global:}\textcolor{blue}{The next two paragraphy might briefly introduce the concept of convolutional neural nets, but I can still not really understand why it brings a clear added value. You have to explain it. Addiotionally the specification of an potentially use of convolutional neural nets involves architecture issues (kernels, padding). You are introducing such concepts but it is rather not clear why you do this.}
+
+
+When working with neural networks that should model a function with data like images as inputs,\textcolor{red}{Term:} \textcolor{cyan}{"most of the time."} \textcolor{blue}{"mostly"}
 of the time convolutional neural networks (CNNs) are used that contain convolutional layers. A 
 convolutional layer is not connected to every neuron of the previous layer but instead only to small
 rectangle of neurons of the previous layer. For images this means that in the first convolutional layer
 the neurons do not take every pixel of the image as input but instead only a small piece of the image.
 This way a hierarchical structure is created where the first hidden layer learns lower level features
-and the following layers learn ever higher level features. Also by only connecting a neuron to a few
+and the following layers learn \textcolor{red}{Term:} \textcolor{cyan}{"ever"} \textcolor{blue}{??} higher level features.  \textcolor{red}{Term:} \textcolor{cyan}{Also by only connecting a neuron to a few
 neurons of the previous layer the number of weights is far lower which means there is much less memory
-and time needed for training the network.
+and time needed for training the network}.\textcolor{blue}{In opposite to [\dots]}
 
-The rectangle a neuron in a convolutional layer takes its inputs from is called kernel and has a
+\textcolor{red}{Sentences} \textcolor{blue}{Is the next paragraph to be seen as a kind of brainstorming? Your wealth of expressions is massively reduced?}
+
+\textcolor{red}{Sentence:} \textcolor{cyan}{"The rectangle a neuron in a convolutional layer takes its inputs from is called kernel"} \textcolor{blue}{That is not really a sentence...??} and has a
 kernel size specifying the height and width of the kernel. If the kernel of a neuron laps over the edge
 of the input space different kinds of padding can be used for the values of the kernel where there
 are no input values. These kernels, also called filters, are basically maps of weights that are
@@ -102,6 +132,8 @@ Instead of having a kernel in each possible area of the input there can also be 
 each kernel which is called stride. This can be used to decrease the dimensionality of the output
 of a layer. For example with strides of 2 the output dimensions are halve that of the input
 dimensions.
+
+\textcolor{green}{I really appreciate your work!! From an autistic point of view there is a lot to do, but at the moment the aspiration is somewhat higher than required. You can include the questions and comments into your work, but you can also focus on programming. Good luck.}
 
 \paragraph{Pooling}
 A pooling layer replaces the value of an output with a summary of the nearby outputs. For instance
