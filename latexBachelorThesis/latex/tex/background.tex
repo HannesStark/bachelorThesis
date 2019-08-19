@@ -17,10 +17,11 @@ understanding of the high dimensional latent space of the autoencoders.
 
 \subsection{Artificial Neuron}
 
-Inspired by biological neurons an artificial neuron has one or more weighted inputs that are summed together
-and after that passed through a non-linear function called activation function. The output models the axon
-of a biological neuron to which other biological neurons can connect via their dendrites which is similar
-to an artificial neuron using the output of another artificial neuron as its input. 
+The concept of neurons in computer science is inspired by biological neurons. An artificial neuron has one or
+more weighted inputs that are summed together
+and after that passed through a non-linear function called activation function. The output can then be used as
+the input of another neuron similarly to how stronger or weaker connections can be formed in the biological
+world.
 By adjusting the separate weights of the inputs a single neuron is able to model
 simple functions like the logic $and$ or the logic $or$ but it is not abled to solve other trivial problems
 like the exclusive or (XOR).
@@ -34,10 +35,13 @@ like the exclusive or (XOR).
 
 \subsection{Artificial Neural Network}
 
-By taking layers of multiple artificial neurons and connecting the outputs of the layers to the inputs of the
-next layer, functions $f(x) = y$ with input and output vectors of any size can be modeled.
-The layers between the input and output layer are called hidden layers. Arbitrarily complex functions
-could be modeled by three layers if they may contain arbitrarily many neurons but in practice most of the time
+An artificial neural network (ANN) can model functions $f(x) = y$ with input and output vectors of any size.
+This is done by assigning each value of the input vector $x$ to a single neuron. All those neurons together make
+up the input layer of the ANN. The output layer of the ANN also has a single neuron for every value of the
+output vector $y$. Between these input and output layers there can be multiple additional layers which are called
+hidden layers. If there is at least one hidden layer, i.e. at least three layers in total, the ANN is abled to 
+model arbitrarily complex functions given that the hidden layer can contain arbitrarily many neurons.
+However, in practice most of the time
 deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
@@ -50,13 +54,15 @@ in Figure \ref{figure_fully_connected_nn}.
     Image taken from \parencite{2013-glosser-ann}} \label{figure_fully_connected_nn}
 \end{figure} 
 
-The process of learning an artificial neural networks $n(w, x)=z$, with weights $w$, refers to the process
-of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired function
-that should be learned $f(x)$. This can be achieved by taking possible inputs $x_{i}$ for which the 
-desired outputs $\hat{z_{i}}$ are known and optimizing a loss function $l(n(w,x_{i}),\hat{z_{i}})$ for $w$
-and repeating this process with each pair of inputs $x_{i}$ wit desired outputs $\hat{z_{i}}$. The set of pairs of
+The process of learning an artificial neural networks $n(w, x)=\hat{y}$, with weights $w$, refers to the process
+of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired mapping  $f(x)=y$
+that should be learned. This can be achieved by taking possible inputs $x_{i}$ for which the 
+desired outputs $y_{i}$ are known and optimizing a so called loss function $l(n(w,x_{i}),y_{i})$ for $w$.
+This loss function measures a difference between the desired output and the predictions for that output produced
+by the ANN.
+This process is then repeated with each pair of inputs $x_{i}$ and desired outputs $y_{i}$. The set of pairs of
 those inputs and desired outputs is called the training set. 
-Intuitively the optimized loss function can be seen as the goal of how the output of the artificial neural
+Intuitively the optimized loss function can be seen as the objective of how the output of the artificial neural
 network should resemble the known desired outputs.
 
 The optimization is most commonly done via gradient descent or adjusted versions of gradient descent.
@@ -68,20 +74,25 @@ gradient descent can be found in Hands-On Machine Learning \parencite{2017-geron
 
 \subsection{Convolutional Neural Networks}
 
-When working with neural networks that should model a function with data like images as inputs, most
-of the time convolutional neural networks (CNNs) are used that contain convolutional layers. A 
-convolutional layer is not connected to every neuron of the previous layer but instead only to small
+CNNs are especially good where the input has values that have to be interpreted in context to the other
+inputs. This is for example the case in computer vision where the inputs are images whose
+single pixel values have little
+meaning if they are not in the context of their position relative to the other pixels. An example for
+such a task, where CNNs perform well, is the classification of images of cats and dogs.
+The difference of CNNs and fully connected networks is the use of convolutional layers.
+A convolutional layer is not connected to every neuron of the previous layer but instead only to small
 rectangle of neurons of the previous layer. For images this means that in the first convolutional layer
 the neurons do not take every pixel of the image as input but instead only a small piece of the image.
 This way a hierarchical structure is created where the first hidden layer learns lower level features
 and the following layers learn ever higher level features. Also by only connecting a neuron to a few
 neurons of the previous layer the number of weights is far lower which means there is much less memory
-and time needed for training the network.
+and time needed for training the network. That way computational expenditure is reduced in comparison
+to fully connected layers.
 
-The rectangle a neuron in a convolutional layer takes its inputs from is called kernel and has a
-kernel size specifying the height and width of the kernel. If the kernel of a neuron laps over the edge
-of the input space different kinds of padding can be used for the values of the kernel where there
-are no input values. These kernels, also called filters, are basically maps of weights that are
+The kernel of a layer is intuitively speaking the field of vision where a neuron takes its inputs from
+the previous layer. If the kernel of a neuron laps over the edge
+of the input space different kinds of padding can be used for the missing input values.
+These kernels, also called filters, are basically matrices of weights that are
 adjusted while training which way they learn features of the input. In practice multiple neurons have
 the same input space leading to the ability to extract multiple features that can be processed
 further in the following layer. The amount of neurons with the same input space is referred to as
