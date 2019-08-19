@@ -1,13 +1,13 @@
 \section{Methodology}
 
-In this section the subsection environment will explain what tools were used to program the autoencoders
-and what hardware the developed models were trained and written on. The subsection Datasets 
+In this section the subsection environment will explain which tools were used to program the autoencoders
+and which hardware the developed models were trained and written on. The subsection Datasets 
 contains information about the remote sensing image data that was analyzed using the autoencoders. 
 The architecture subsection lays out 
-the design of the different models regarding the layers and loss functions. In the last subsection 
-latent space there are the techniques used to visualize and understand the latent code between the 
-encoder and decoder with comparisons of the latent space between normal autoencoders and variational
-autoencoders.
+the design of the different models regarding the layers and loss functions. The last subsection, 
+Latent Space, explains the technique used to visualize and understand the latent code between the 
+encoder and decoder with comparisons of the latent space between different architectures and varying
+sizes of the latent code.
 
 \subsection{Environment}
 
@@ -36,7 +36,7 @@ environment PyCharm locally
 and and Jupyter Notebooks on a remote machine. The machine learning framework Tensorflow was used which
 is developed by Google and offers cross-platform support, running on most CPUs and GPUs 
 \parencite{2015-martin-tensorflow}.
-Whenever possible Tensorflows implementation of the Keras API specification was used which is a high level API
+Whenever possible Tensorflow's implementation of the Keras API specification was used which is a high level API
 for training machine learning models. For dimensionality reduction of the latent space, Scikit-Learn was used
 \parencite{2011-pedregosa-scikit}.
 
@@ -52,7 +52,7 @@ From the MSI data three channels were extracted and used as red, green and blue 
 Thirdly there are digital surface models (DSM) and Lastly semantic labeling with five different categories. \\
 
 The MSI data was collected by the WorldView-3 satellite of Digital Globe from 2014 to 2016.
-Thereby the images were taken in different seasons and times of day leading to great differences
+The images were taken in different seasons and times of day leading to great differences
 in their appearance regarding for instance shadows, reflections, overall brightness or clouds.
 This is an advantage for training models that are capable of processing data with similar differences in 
 appearance.
@@ -84,10 +84,10 @@ Each pixel of an image is described by three bytes representing the intensity of
 reflected light corresponding to either red, green or blue.
 
 The DSM data was collected using light detection and ranging technology (Lidar) which measures the 
-distance to points of earths surface. This distance is proportional to the value of the single channel
+distance to points of the earth's surface. This distance is proportional to the value of the single channel
 that each pixel of the DSM has.
 
-Lastly there are semantic labeled pictures with one channel of a single byte that encodes one of five 
+Lastly, there are semantically labeled pictures with one channel of a single byte that encodes one of five 
 different topographic classes. Those classes are vegetation, water, ground, building and clutter. 
 The semantic labeling was done automatically from lidar data but manually checked and corrected afterwards.
 
@@ -202,7 +202,7 @@ The decoder is also equivalent to the one in the pure convolutional architecture
 \subsection{Understanding Latent Space}
 
 To understand and work with the latent space learned by the variational autoencoder is problematic and
-difficult since it is a very high dimensional space and it is not known what information of the input the
+difficult since it is a very high dimensional space and it is not known which information of the input the
 autoencoder learns. For the understanding and visualization of the latent space its dimensionality needs
 to be reduced while preserving the underlying structure of the latent space. Then the low dimensional
 codes can be visualized in a way that allows humans to comprehend what the autoencoder learned.
@@ -215,9 +215,9 @@ high dimensional space appear far apart in a low dimensionality visualization. F
 it may be more interesting to keep more of the underlying structure which is accomplished by t-SNE as its
 focus is on preserving the context of points to their neighbors \parencite{2008-vanDerMaaten-visualizing}.
 That behavior is caused by the asymmetry of the used Kullback-Leibler divergence \ref{KL-Divergence}.
-In the training process it penalizes a lot if large probabilities, i. e. far apart points, in high dimensional
+During the training process it penalizes a lot if large probabilities, i. e. far apart points, in high dimensional
 space are represented by small probabilities, i. e. close together points, in low dimensional space. Meanwhile, the 
-penalty is little if small probabilities in high dimensional space are represented by large probabilities in
+penalty is negligible if small probabilities in high dimensional space are represented by large probabilities in
 low dimensional space, leading to the claimed focus on local similarities.
 
 After t-SNE is used to reduce the dimensions of the latent code to 2, the low dimensional representation can be

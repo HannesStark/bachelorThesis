@@ -2,12 +2,12 @@
 
 This section contains basic knowledge that is necessary for the understanding of the rest of the thesis.
 It briefly touches on artificial neural networks and convolutional neural networks in the beginning.
-The subsection after that goes on to describe autoencoders in general. Next up, Kullback-Leibler divergence
+The subsection after that goes on to describe autoencoders in general. Next, Kullback-Leibler divergence
 is explained in detail as it is an essential part for the variational autoencoders as they are used in this
 work. Kullback-Leibler divergence also plays an important role in t-distributed stochastic neighbor embedding.
 The difference between variational autoencoders and the standard undercomplete autoencoder is covered in the 
-next subsection. At last, the dimensionality reduction method 
-t-distributed stochastic neighbor embedding is brought up since it is used in this work to gain an 
+following subsection. Lastly, the dimensionality reduction method 
+t-distributed stochastic neighbor embedding is discussed since it is used in this work to gain an 
 understanding of the high dimensional latent space of the autoencoders.
 
 \subsection{Remote Sensing Imagery}
@@ -40,7 +40,7 @@ This is done by assigning each value of the input vector $x$ to a single neuron.
 up the input layer of the ANN. The output layer of the ANN also has a single neuron for every value of the
 output vector $y$. Between these input and output layers there can be multiple additional layers which are called
 hidden layers. If there is at least one hidden layer, i.e. at least three layers in total, the ANN is abled to 
-model arbitrarily complex functions given that the hidden layer can contain arbitrarily many neurons.
+model arbitrarily complex functions given that the hidden layer can contain as many neurons as necessary.
 However, in practice most of the time
 deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
@@ -62,7 +62,7 @@ This loss function measures a difference between the desired output and the pred
 by the ANN.
 This process is then repeated with each pair of inputs $x_{i}$ and desired outputs $y_{i}$. The set of pairs of
 those inputs and desired outputs is called the training set. 
-Intuitively the optimized loss function can be seen as the objective of how the output of the artificial neural
+Intuitively, the optimized loss function can be seen as the objective of how the output of the artificial neural
 network should resemble the known desired outputs.
 
 The optimization is most commonly done via gradient descent or adjusted versions of gradient descent.
@@ -117,12 +117,12 @@ dimensions.
 \paragraph{Pooling}
 A pooling layer replaces the value of an output with a summary of the nearby outputs. For instance
 max pooling only takes the maximum output of all outputs in a surrounding rectangle. Note that
-the pooling layers just perform an operation on multiple outputs of a previous layer and therefore
+the pooling layers only perform an operation on multiple outputs of a previous layer and therefore
 do not have weights. The use of pooling layers increases the networks tolerance to small changes in
 the inputs \parencite{2016-goodfellow-deep} which is most of the time desired since the network should
 learn features instead of exact pixel locations. Many popular CNN architectures like 
 AlexNet \parencite{2012-krizhevsky-imagenet} use pooling layers between the convolutional layers.
-In these CNNs the pooling layers also often are used to reduce the dimension of the layers.
+In these CNNs the pooling layers are also often used to reduce the dimension of the layers.
 
 
 \subsection{Autoencoders}
@@ -150,7 +150,7 @@ undercomplete autoencoder, is visualized in Figure \ref{figure_undercomplete_ae}
     Image taken from \parencite{2015-Chervinskii-autoencoder}} \label{figure_undercomplete_ae}
 \end{figure}
 
-Undercomplete autoencoders can be used for pretraining by taking the trained Encoder that has 
+Undercomplete autoencoders can be used for pretraining by taking the trained encoder that has 
 learned the most important features of the input and using it for the actual desired task like 
 classification. Another obvious application would be dimensionality reduction.
 
@@ -201,8 +201,8 @@ bits that encode a state $x$, that turns out to be $P(a)f(a)+P(b)f(b)+P(c)f(c)+P
 That means for $S2$ on average you only need $1.75$ bits to encode a state and since that is also the
 minimum $1.75$ is the entropy of $S2$.
 
-In general in an optimal encoding $f(x)$ is the same as $\log_{2} \frac{1}{P(x)}$. For $S1$ $P(x)$ is $1/4$
-so the number of bits for $x$ is $\log_{2} (4)=2$ what matches the two bits the first encoding uses 
+In general, when the encoding is optimal, $f(x)$ is the same as $\log_{2} \frac{1}{P(x)}$. For $S1$ $P(x)$ is $1/4$
+so the number of bits for $x$ is $\log_{2} (4)=2$ which matches the two bits the first encoding uses 
 for the states of $S1$.
 
 The entropy $H$ of a system with a set of discrete events $X$ and the probability distribution $P(x)$
@@ -215,7 +215,7 @@ This is often written as the expectation for a  given state $x$ under the distri
 Intuitively if a system has high entropy, the size of the encodings are high on average and many states
 have small probabilities. This means it is hard to predict what state the system will be in at a given time
 since there is no state that can be guessed with high confidence. If entropy is low, zero for example,
-one can be confident that the system is in a certain state like in the previous example with $P(a)=1$.
+one can be confident that the system is in a certain state as in the previous example with $P(a)=1$.
 
 %wie muss hier der fall P(x) = 0 abgesichert werden weil log(0) und 1/0 ?
 
@@ -251,7 +251,7 @@ because $D_{KL}(P\parallel Q)$ is zero if $Q$ and $P$ are the same since that me
 On the opposite if $Q$ is different from $P$ then $H(P,Q)$ is greater than $H(P)$ and therefore 
 the KL divergence is greater than zero proportional to how different $Q$ and $P$ are.
 In summary Kullback-Leibler divergence is a measure of how different two probability distributions
-are that is zero if they are the same and greater than zero if not.
+are. The divergence is zero if the distributions are the same and greater than zero if not.
 
 \subsection{Variational Autoencoders} \label{vae_background}
 
