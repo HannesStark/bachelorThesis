@@ -65,7 +65,8 @@ in Figure \ref{figure_fully_connected_nn}.
 The process of learning an artificial neural networks $n(w, x)=\hat{y}$, with weights $w$, refers to the process
 of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired mapping  $f(x)=y$
 that should be learned. This can be achieved by taking possible inputs $x_{i}$ for which the 
-desired outputs $y_{i}$ are known and optimizing a so called loss function $l(n(w,x_{i}),y_{i})$ for $w$.
+desired outputs $y_{i}$, called ground truth,
+are known and optimizing a so called loss function $l(n(w,x_{i}),y_{i})$ for $w$.
 This loss function measures a difference between the desired output and the predictions for that output produced
 by the ANN.
 This process is then repeated with each pair of inputs $x_{i}$ and desired outputs $y_{i}$. The set of pairs of
