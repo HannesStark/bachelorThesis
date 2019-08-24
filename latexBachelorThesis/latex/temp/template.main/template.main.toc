@@ -74,14 +74,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {8.1.2}Number of Filters}{20}{subsubsection.8.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.3}Kernel Size}{21}{subsubsection.8.1.3}% 
+\contentsline {subsubsection}{\numberline {8.1.3}Kernel Size}{22}{subsubsection.8.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.4}Pooling}{21}{subsubsection.8.1.4}% 
+\contentsline {subsubsection}{\numberline {8.1.4}Pooling}{24}{subsubsection.8.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Latent Space}{21}{subsection.8.2}% 
+\contentsline {subsubsection}{\numberline {8.1.5}Best Architectures}{26}{subsubsection.8.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion and Future Work}{21}{section.9}% 
+\contentsline {subsection}{\numberline {8.2}Latent Space}{27}{subsection.8.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Conclusion}{21}{subsection.9.1}% 
+\contentsline {section}{\numberline {9}Conclusion and Future Work}{27}{section.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Future Work}{21}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.1}Conclusion}{27}{subsection.9.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.2}Future Work}{27}{subsection.9.2}% 

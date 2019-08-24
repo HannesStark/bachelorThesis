@@ -13,10 +13,8 @@ import time
 K = tf.keras.backend
 
 latent_dim = 1024
-# file_tag = "16x16x32TRAINEDON178000_dim1024"
-# file_tag = "16x16x32TRAINEDON178000_dim1024" + "_dim" + str(latent_dim)
-file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
-# file_tag = "test_with_unscaled_latent_loss16x16x32"
+file_tag = "16x16x32TRAINEDON178000" + "_dim" + str(latent_dim)
+#file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
 batch_size = 128
 epochs = 50
 test_train_ratio = 1 / 8  # is only used if test_size is null
