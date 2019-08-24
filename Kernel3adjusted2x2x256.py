@@ -103,6 +103,7 @@ log_file = "log/" + file_tag + "{}.log".format(time.strftime("%d_%m_%Y_%H_%M_%S"
 if not os.path.exists("log"):
     os.mkdir("log")
 
+
 def train():
     epoch_means = []
     for epoch in range(1, epochs + 1):
@@ -128,8 +129,8 @@ def train():
         f.close()
     epoch_means = np.array(epoch_means)
     plt.clf()
-    plt.plot(epoch_means[:,0])
-    plt.ylim([0.06,0.2])
+    plt.plot(epoch_means[:, 0])
+    plt.ylim([0.06, 0.2])
     plt.ylabel("Loss")
     plt.xlabel("Epochs")
     plt.savefig(generation_path + "loss_graph" + file_tag, bbox_inches='tight', pad_inches=0)
@@ -141,7 +142,7 @@ def train():
     plt.savefig(generation_path + "accuracy_graph" + file_tag, bbox_inches='tight', pad_inches=0)
     plt.clf()
     plt.plot(epoch_means[:, 2])
-    plt.ylim([0.06,0.2])
+    plt.ylim([0.06, 0.2])
     plt.ylabel("Reconstruction Loss MAE")
     plt.xlabel("Epochs")
     plt.savefig(generation_path + "mae_graph" + file_tag, bbox_inches='tight', pad_inches=0)
@@ -163,19 +164,33 @@ def predictions_and_generations():
     predictions = variational_decoder.predict(latent_vars)
 
     number_predictions = len(predictions)
-    fig1, axs1 = plt.subplots(1, number_predictions, gridspec_kw={'wspace': 0, 'hspace': 0})
-    for i in range(0, number_predictions):
+    fig1, axs1 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions/2)):
         axs1[i].imshow(pred_on[i])
         axs1[i].axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig(generation_path + "inputs" + file_tag, bbox_inches='tight', pad_inches=0)
+    plt.savefig(generation_path + "inputsCol1" + file_tag, bbox_inches='tight', pad_inches=0)
 
-    fig2, axs2 = plt.subplots(1, number_predictions, gridspec_kw={'wspace': 0, 'hspace': 0})
-    for i in range(0, number_predictions):
+    fig1, axs1 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions/2)):
+        axs1[i].imshow(pred_on[int(number_predictions/2) + i])
+        axs1[i].axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig(generation_path + "inputsCol2" + file_tag, bbox_inches='tight', pad_inches=0)
+
+    fig2, axs2 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions/2)):
         axs2[i].imshow(predictions[i])
         axs2[i].axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig(generation_path + "reconstructions" + file_tag, bbox_inches='tight', pad_inches=0)
+    plt.savefig(generation_path + "reconstructionsCol1" + file_tag, bbox_inches='tight', pad_inches=0)
+
+    fig2, axs2 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions / 2)):
+        axs2[i].imshow(predictions[int(number_predictions/2) + i])
+        axs2[i].axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig(generation_path + "reconstructionsCol2" + file_tag, bbox_inches='tight', pad_inches=0)
 
     codings = tf.random.normal(shape=[12, latent_dim])
     images_generated = variational_decoder.predict(codings, steps=1)
@@ -251,14 +266,15 @@ def tsne_vis():
 
     plt.show()
 
-start_time = time.time()
-train()
-f = open(log_file, "a")
-f.write(str(time.time() - start_time))
-f.close()
-variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
-# variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
+#start_time = time.time()
+#train()
+#f = open(log_file, "a")
+#f.write(str(time.time() - start_time))
+#f.close()
+#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+
+variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.summary()
 

@@ -27,9 +27,11 @@ algorithms find ever more applications in the field of remote sensing and enable
 
 The concept of neurons in computer science is inspired by biological neurons. An artificial neuron has one or
 more weighted inputs that are summed together
-and after that passed through a non-linear function called activation function. The output can then be used as
+and after that passed through a non-linear function called activation function. 
+The output can then be used as
 the input of another neuron similarly to how stronger or weaker connections can be formed in the biological
 world.
+If a neurons activation function has a binary value range it is called a perceptron.
 By adjusting the separate weights of the inputs a single neuron is able to model
 simple functions like the logic $and$ or the logic $or$ but it is not abled to solve other trivial problems
 like the exclusive or (XOR).
@@ -50,7 +52,7 @@ output vector $y$. Between these input and output layers there can be multiple a
 hidden layers. If there is at least one hidden layer, i.e. at least three layers in total, the ANN is abled to 
 model arbitrarily complex functions given that the hidden layer can contain as many neurons as necessary.
 However, in practice most of the time
-deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}. 
+deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}.
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
 in Figure \ref{figure_fully_connected_nn}.
@@ -62,6 +64,8 @@ in Figure \ref{figure_fully_connected_nn}.
     Image taken from \parencite{2013-glosser-ann}} \label{figure_fully_connected_nn}
 \end{figure} 
 
+An ANN with at least three layers, consisting of perceptrons only, is called a multilayer perceptron (MLP).
+A lot of the theory about ANNs was built on the foundation of MLPs, including the learning process.
 The process of learning an artificial neural network $n(w, x)=\hat{y}$, with weights $w$, refers to the process
 of iteratively adjusting $w$ in such a way that $n(w, x )$ more closely resembles the desired mapping  $f(x)=y$
 that should be learned. This can be achieved by taking possible inputs $x_{i}$ for which the 
