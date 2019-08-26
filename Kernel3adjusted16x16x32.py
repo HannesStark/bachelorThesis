@@ -1,5 +1,6 @@
 import tensorflow as tf
 from keras import losses
+from matplotlib.colors import rgb2hex
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 from matplotlib.image import BboxImage
@@ -7,14 +8,14 @@ from matplotlib.transforms import Bbox, TransformedBbox
 import numpy as np
 import os
 import tifffile as tiff
-from matplotlib import pyplot as plt, gridspec
+from matplotlib import pyplot as plt, gridspec, cm
 import time
 
 K = tf.keras.backend
 
-latent_dim = 1024
+latent_dim = 50
 file_tag = "16x16x32TRAINEDON178000" + "_dim" + str(latent_dim)
-#file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
+# file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
 batch_size = 128
 epochs = 50
 test_train_ratio = 1 / 8  # is only used if test_size is null
@@ -124,8 +125,8 @@ def train():
         f.close()
     epoch_means = np.array(epoch_means)
     plt.clf()
-    plt.plot(epoch_means[:,0])
-    plt.ylim([0.06,0.2])
+    plt.plot(epoch_means[:, 0])
+    plt.ylim([0.06, 0.2])
     plt.ylabel("Loss")
     plt.xlabel("Epochs")
     plt.savefig(generation_path + "loss_graph" + file_tag, bbox_inches='tight', pad_inches=0)
@@ -137,7 +138,7 @@ def train():
     plt.savefig(generation_path + "accuracy_graph" + file_tag, bbox_inches='tight', pad_inches=0)
     plt.clf()
     plt.plot(epoch_means[:, 2])
-    plt.ylim([0.06,0.2])
+    plt.ylim([0.06, 0.2])
     plt.ylabel("Reconstruction Loss MAE")
     plt.xlabel("Epochs")
     plt.savefig(generation_path + "mae_graph" + file_tag, bbox_inches='tight', pad_inches=0)
@@ -159,30 +160,30 @@ def predictions_and_generations():
     predictions = variational_decoder.predict(latent_vars)
 
     number_predictions = len(predictions)
-    fig1, axs1 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
-    for i in range(0, int(number_predictions/2)):
+    fig1, axs1 = plt.subplots(int(number_predictions / 2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions / 2)):
         axs1[i].imshow(pred_on[i])
         axs1[i].axis('off')
     plt.tight_layout(pad=0)
     plt.savefig(generation_path + "inputsCol1" + file_tag, bbox_inches='tight', pad_inches=0)
 
-    fig1, axs1 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
-    for i in range(0, int(number_predictions/2)):
-        axs1[i].imshow(pred_on[int(number_predictions/2) + i])
+    fig1, axs1 = plt.subplots(int(number_predictions / 2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions / 2)):
+        axs1[i].imshow(pred_on[int(number_predictions / 2) + i])
         axs1[i].axis('off')
     plt.tight_layout(pad=0)
     plt.savefig(generation_path + "inputsCol2" + file_tag, bbox_inches='tight', pad_inches=0)
 
-    fig2, axs2 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
-    for i in range(0, int(number_predictions/2)):
+    fig2, axs2 = plt.subplots(int(number_predictions / 2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    for i in range(0, int(number_predictions / 2)):
         axs2[i].imshow(predictions[i])
         axs2[i].axis('off')
     plt.tight_layout(pad=0)
     plt.savefig(generation_path + "reconstructionsCol1" + file_tag, bbox_inches='tight', pad_inches=0)
 
-    fig2, axs2 = plt.subplots(int(number_predictions/2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
+    fig2, axs2 = plt.subplots(int(number_predictions / 2), 1, gridspec_kw={'wspace': 0, 'hspace': 0})
     for i in range(0, int(number_predictions / 2)):
-        axs2[i].imshow(predictions[int(number_predictions/2) + i])
+        axs2[i].imshow(predictions[int(number_predictions / 2) + i])
         axs2[i].axis('off')
     plt.tight_layout(pad=0)
     plt.savefig(generation_path + "reconstructionsCol2" + file_tag, bbox_inches='tight', pad_inches=0)
@@ -213,64 +214,99 @@ def get_predominant_class_as_color(img):
         return 'y'
 
 
-def tsne_vis():
+def tsne_vis(image_plot=False):
     predominant_classes = []
-    locations = []
     average_heights = []
     images = []
     file_names = os.listdir("RGB-From-Track1128x128split8")
     print(len(file_names))
-    for filename in file_names[0:5000]:
+    for filename in file_names[1000:5000]:
         image = tiff.imread("RGB-From-Track1128x128split8/" + filename)
         cls = tiff.imread("Track1-Truth128x128split8/" + filename.replace("RGB", "CLS"))
-        predominant_classes.append(get_predominant_class_as_color(cls))
+        dsm = tiff.imread("Track1-Truth128x128split8/" + filename.replace("RGB", "AGL"))
         images.append(image)
-        if "OMA" in filename:
-            locations.append('.')
-        else:
-            locations.append('s')
+        predominant_classes.append(get_predominant_class_as_color(cls))
+        mean_row = np.average(image, axis=0)
+        average_heights.append(np.mean(dsm))
 
     images = np.array(images, dtype=np.float32)
     images /= 255.
 
     latent_log_var, latent_mean, latent_vars = variational_encoder.predict(images)
-    predictions = variational_decoder.predict(latent_vars)
+    # predictions = variational_decoder.predict(latent_vars)
 
     print("t-SNE started with: " + str(latent_vars.shape))
-    embedded = TSNE(perplexity=15, n_iter=5000).fit_transform(latent_vars)
-    # embedded = PCA(n_components=2).fit_transform(latent_vars)
+    embedded = TSNE(perplexity=20, n_iter=5000).fit_transform(latent_vars)
     print("t-SNE finished")
+    embedded_PCA = PCA(n_components=2).fit_transform(latent_vars)
+    average_heights = np.array(average_heights)
+
+    average_heights[0] -= 10
+
+    print(np.min(average_heights))
+    print(np.max(average_heights))
+
+    if image_plot:
+        plt.clf()
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        for i in range(0, len(embedded)):
+            x = embedded[i, 0]
+            y = embedded[i, 1]
+            bb = Bbox.from_bounds(x, y, 2, 2)
+            bb2 = TransformedBbox(bb, ax.transData)
+            bbox_image = BboxImage(bb2,
+                                   norm=None,
+                                   origin=None,
+                                   clip_on=False)
+            bbox_image.set_data(images[i])
+            ax.add_artist(bbox_image)
+        plt.show()
 
     plt.clf()
-    # plt.scatter(embedded[:, 0], embedded[:, 1], s=1, c=predominant_classes)
+    plt.scatter(embedded[:, 0], embedded[:, 1], s=7, marker="o", c=predominant_classes)
+    plt.show()
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-
-    for i in range(0, len(embedded)):
-        x = embedded[i, 0]
-        y = embedded[i, 1]
-        bb = Bbox.from_bounds(x, y, 1, 1)
-        bb2 = TransformedBbox(bb, ax.transData)
-        bbox_image = BboxImage(bb2,
-                               norm=None,
-                               origin=None,
-                               clip_on=False)
-        bbox_image.set_data(images[i])
-        ax.add_artist(bbox_image)
-
+    plt.clf()
+    plt.scatter(embedded[:, 0], embedded[:, 1], s=7, marker="o", c=average_heights, cmap=cm.Greys)
     plt.show()
 
 
-#start_time = time.time()
-#train()
-#f = open(log_file, "a")
-#f.write(str(time.time() - start_time))
-#f.close()
-#variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
+    if image_plot:
+        plt.clf()
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        for i in range(0, len(embedded_PCA)):
+            x = embedded_PCA[i, 0]
+            y = embedded_PCA[i, 1]
+            bb = Bbox.from_bounds(x, y, 0.5, 0.5)
+            bb2 = TransformedBbox(bb, ax.transData)
+            bbox_image = BboxImage(bb2,
+                                   norm=None,
+                                   origin=None,
+                                   clip_on=False)
+            bbox_image.set_data(images[i])
+            ax.add_artist(bbox_image)
+        plt.show()
+
+    plt.clf()
+    plt.scatter(embedded_PCA[:, 0], embedded_PCA[:, 1], s=7, marker="o", c=predominant_classes)
+    plt.show()
+
+    plt.clf()
+    plt.scatter(embedded_PCA[:, 0], embedded_PCA[:, 1], s=7, marker="o", c=average_heights, cmap=cm.Greys)
+    plt.show()
+
+
+# start_time = time.time()
+# train()
+# f = open(log_file, "a")
+# f.write(str(time.time() - start_time))
+# f.close()
+# variational_ae.save_weights("./savedModels/" + file_tag + ".h5")
 
 variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
-predictions_and_generations()
+# predictions_and_generations()
 
-# tsne_vis()
+tsne_vis(True)

@@ -7,12 +7,12 @@ from matplotlib.transforms import Bbox, TransformedBbox
 import numpy as np
 import os
 import tifffile as tiff
-from matplotlib import pyplot as plt, gridspec
+from matplotlib import pyplot as plt, gridspec, cm
 import time
 
 K = tf.keras.backend
 
-latent_dim = 1024
+latent_dim = 50
 file_tag = "16x16x32maxPoolTRAINEDON178000" + "_dim" + str(latent_dim)
 #file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
 batch_size = 128
@@ -216,52 +216,87 @@ def get_predominant_class_as_color(img):
         return 'y'
 
 
-def tsne_vis():
+def tsne_vis(image_plot=False):
     predominant_classes = []
-    locations = []
     average_heights = []
     images = []
     file_names = os.listdir("RGB-From-Track1128x128split8")
     print(len(file_names))
-    for filename in file_names[0:5000]:
+    for filename in file_names[1000:5000]:
         image = tiff.imread("RGB-From-Track1128x128split8/" + filename)
         cls = tiff.imread("Track1-Truth128x128split8/" + filename.replace("RGB", "CLS"))
-        predominant_classes.append(get_predominant_class_as_color(cls))
+        dsm = tiff.imread("Track1-Truth128x128split8/" + filename.replace("RGB", "AGL"))
         images.append(image)
-        if "OMA" in filename:
-            locations.append('.')
-        else:
-            locations.append('s')
+        predominant_classes.append(get_predominant_class_as_color(cls))
+        mean_row = np.average(image, axis=0)
+        average_heights.append(np.mean(dsm))
 
     images = np.array(images, dtype=np.float32)
     images /= 255.
 
     latent_log_var, latent_mean, latent_vars = variational_encoder.predict(images)
-    predictions = variational_decoder.predict(latent_vars)
+    # predictions = variational_decoder.predict(latent_vars)
 
     print("t-SNE started with: " + str(latent_vars.shape))
     embedded = TSNE(perplexity=15, n_iter=5000).fit_transform(latent_vars)
-    # embedded = PCA(n_components=2).fit_transform(latent_vars)
     print("t-SNE finished")
+    embedded_PCA = PCA(n_components=2).fit_transform(latent_vars)
+    average_heights = np.array(average_heights)
+
+    average_heights[0] -= 10
+
+    print(np.min(average_heights))
+    print(np.max(average_heights))
+
+    if image_plot:
+        plt.clf()
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        for i in range(0, len(embedded)):
+            x = embedded[i, 0]
+            y = embedded[i, 1]
+            bb = Bbox.from_bounds(x, y, 2, 2)
+            bb2 = TransformedBbox(bb, ax.transData)
+            bbox_image = BboxImage(bb2,
+                                   norm=None,
+                                   origin=None,
+                                   clip_on=False)
+            bbox_image.set_data(images[i])
+            ax.add_artist(bbox_image)
+        plt.show()
 
     plt.clf()
-    # plt.scatter(embedded[:, 0], embedded[:, 1], s=1, c=predominant_classes)
+    plt.scatter(embedded[:, 0], embedded[:, 1], s=7, marker="o", c=predominant_classes)
+    plt.show()
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+    plt.clf()
+    plt.scatter(embedded[:, 0], embedded[:, 1], s=7, marker="o", c=average_heights, cmap=cm.Greys)
+    plt.show()
 
-    for i in range(0, len(embedded)):
-        x = embedded[i, 0]
-        y = embedded[i, 1]
-        bb = Bbox.from_bounds(x, y, 1, 1)
-        bb2 = TransformedBbox(bb, ax.transData)
-        bbox_image = BboxImage(bb2,
-                               norm=None,
-                               origin=None,
-                               clip_on=False)
-        bbox_image.set_data(images[i])
-        ax.add_artist(bbox_image)
 
+    if image_plot:
+        plt.clf()
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        for i in range(0, len(embedded_PCA)):
+            x = embedded_PCA[i, 0]
+            y = embedded_PCA[i, 1]
+            bb = Bbox.from_bounds(x, y, 0.5, 0.5)
+            bb2 = TransformedBbox(bb, ax.transData)
+            bbox_image = BboxImage(bb2,
+                                   norm=None,
+                                   origin=None,
+                                   clip_on=False)
+            bbox_image.set_data(images[i])
+            ax.add_artist(bbox_image)
+        plt.show()
+
+    plt.clf()
+    plt.scatter(embedded_PCA[:, 0], embedded_PCA[:, 1], s=7, marker="o", c=predominant_classes)
+    plt.show()
+
+    plt.clf()
+    plt.scatter(embedded_PCA[:, 0], embedded_PCA[:, 1], s=7, marker="o", c=average_heights, cmap=cm.Greys)
     plt.show()
 
 #start_time = time.time()
@@ -273,6 +308,8 @@ def tsne_vis():
 
 variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
-variational_ae.summary()
+#variational_ae.summary()
 
-predictions_and_generations()
+#predictions_and_generations()
+
+tsne_vis(True)

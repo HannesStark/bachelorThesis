@@ -124,9 +124,9 @@ the latent space \ref{latent_space_experiments}. The described experiments regar
 evaluation can be found
 in section \ref{architecture_experiments}.
 
-The results were that a purely convolutional network without pooling performed the best. However, to inspect the 
+The results were that a fully convolutional network without pooling performed the best. However, to inspect the 
 effects of pooling on the latent code an architecture with pooling is used as the second model in the latent space
-experiments. This model yields results that are only a little worse than the ones from the purely convolutional
+experiments. This model yields results that are only a little worse than the ones from the fully convolutional
 network but the training times were almost twice as long.\\
 
 The following are choices that apply to both architectures. The RGB input values between 0 and 255 are first 
@@ -145,7 +145,7 @@ This choice is made based on the insights from related work \ref{related_work_ge
     \end{cases}
 \end{equation}
 
-\subsubsection{Pure Convolutional Architecture} \label{section_pure_convolutional_architecture}
+\subsubsection{Fully Convolutional Architecture} \label{section_pure_convolutional_architecture}
 
 Figure \ref{figure_pure_convolutional_encoder} visualizes the used encoder network. It has an example size for the
 latent code of $1024$ which is not fixed. There are three convolutional
@@ -186,8 +186,8 @@ convolutional and three pooling layers with a pooling layer following every conv
 kernels have size $3\times3$ and the convolution is done with strides of one which means that they do not reduce
 height and width of their input. Instead each pooling layer quarters the dimension with a pooling window of size
 $2\times 2$. This produces and output of size $32\times16\times16$ that is processed further in the same way
-as in the pure convolutional encoder \ref{section_pure_convolutional_architecture}.
-The decoder is also equivalent to the one in the pure convolutional architecture.
+as in the fully convolutional encoder \ref{section_pure_convolutional_architecture}.
+The decoder is also equivalent to the one in the fully convolutional architecture.
 
 \begin{figure}[h]
     \centering
@@ -199,7 +199,7 @@ The decoder is also equivalent to the one in the pure convolutional architecture
     Dimensions are specified as $depth@height\times width$.} \label{figure_encoder_pooling}
 \end{figure}
 
-\subsection{Understanding Latent Space}
+\subsection{Understanding Latent Space} \label{section_understanding_latent_space}
 
 To understand and work with the latent space learned by the variational autoencoder is problematic and
 difficult since it is a very high dimensional space and it is not known which information of the input the
@@ -209,7 +209,8 @@ codes can be visualized in a way that allows humans to comprehend what the autoe
 One dimensionality reduction method that could be used here is principal component analysis (PCA).
 
 However,
-t-distributed stochastic neighbor embedding (t-SNE), as presented in \ref{t-sne}, is the technique used in this work.
+t-distributed stochastic neighbor embedding (t-SNE), as presented in \ref{t-sne}, is used in addition
+to PCA in this work.
 The reason for this choice is that PCA focuses on preserving large distances, so dissimilar points in the
 high dimensional space appear far apart in a low dimensionality visualization. For visualization though
 it may be more interesting to keep more of the underlying structure which is accomplished by t-SNE as its
@@ -220,21 +221,7 @@ space are represented by small probabilities, i. e. close together points, in lo
 penalty is negligible if small probabilities in high dimensional space are represented by large probabilities in
 low dimensional space, leading to the claimed focus on local similarities.
 
-After t-SNE is used to reduce the dimensions of the latent code to 2, the low dimensional representation can be
-plotted in a scatter plot. That way it becomes evident if the autoencoder has learned any distinct clusters.
-To recap, every point in those plots is a low dimensional representation of a latent code that corresponds to
-a $128 \times 128$ section of an RGB satellite image. 
-Now the goal is to find out what features the learned clusters in the plots correspond to. For that purpose the
-semantic labeling and digital surface models \ref{datasets} are used. In the first type of plot the points
-are colored according to the most dominant class in the corresponding image. Those classes are building, vegetation,
-water, ground and clutter. In the second kind of plot the points have a gray value equal to the average pixel
-values in the digital surface models meaning that points for images, that have on average more heights, are brighter
-than points representing images with less heights.
-In these two types of plots the points are squares if the related image is from Jacksonville or circles if it is from
-Omaha. In a third type of plot the points are represented by the corresponding images themselves 
+In the experiments section \ref{latent_space_experiments} this lower dimensional space is visualized
+for different coding sizes for the two architectures presented in \ref{architecture}.
+This gives insight into what coding sizes yield the best unsupervised clustering.
 
-In those plots it can be observed if the clusters correlate to one of the visualized features which would mean that
-the autoencoder has learned to cluster that feature.
-This method is repeated for different coding sizes for the two architectures presented in \ref{architecture}.
-That process gives insight into what coding sizes yield the best unsupervised clustering. The specific experiments
-and results are found in the experiments section \ref{latent_space_experiments}.
