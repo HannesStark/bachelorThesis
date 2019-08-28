@@ -91,7 +91,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online; accessed August 09, 2019][CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
       \field{title}{Schematic picture of an autoencoder architecture}
       \field{year}{2015}
     \endentry
@@ -113,7 +113,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online; accessed August 08, 2019][CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
       \field{title}{Diagram of an artificial neuron.}
       \field{year}{2005}
     \endentry
@@ -190,7 +190,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online; accessed August 08, 2019][CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
       \field{title}{Artificial neural network with layer coloring}
       \field{year}{2013}
     \endentry
@@ -229,6 +229,86 @@
       \field{labeltitlesource}{title}
       \field{title}{Deep learning}
       \field{year}{2016}
+    \endentry
+    \entry{2016-jegou-the}{article}{}
+      \name{author}{5}{}{%
+        {{hash=9371d72626904a59bf14d1d77e742826}{%
+           family={J{é}gou},
+           familyi={J\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=902af2d2b9bbdbecea0288d8304e10ef}{%
+           family={Drozdzal},
+           familyi={D\bibinitperiod},
+           given={Michal},
+           giveni={M\bibinitperiod}}}%
+        {{hash=576225bc4e1a56be44a647b3e0064953}{%
+           family={V{á}zquez},
+           familyi={V\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8e0f06556535de7b7d9d04d390dc4ac3}{%
+           family={Romero},
+           familyi={R\bibinitperiod},
+           given={Adriana},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b8693abc0966fd8ff8878fd8289202e}
+      \strng{fullhash}{f70592bbdf6e06c708239c5beae29bb3}
+      \strng{bibnamehash}{9b8693abc0966fd8ff8878fd8289202e}
+      \strng{authorbibnamehash}{9b8693abc0966fd8ff8878fd8289202e}
+      \strng{authornamehash}{9b8693abc0966fd8ff8878fd8289202e}
+      \strng{authorfullhash}{f70592bbdf6e06c708239c5beae29bb3}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation}
+      \field{volume}{abs/1611.09326}
+      \field{year}{2016}
+    \endentry
+    \entry{2018-kendall-multi}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=4b1053f4ffb69cd61c1f122cc435c884}{%
+           family={Kendall},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d4f394bd4030e20e7b1399e0abe7dc6a}{%
+           family={Gal},
+           familyi={G\bibinitperiod},
+           given={Yarin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=95c5bd0a1d6e6649ed56043a63268bfa}{%
+           family={Cipolla},
+           familyi={C\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{67fae8c7b2d9ca45db463bbf1488d262}
+      \strng{fullhash}{ad7ca9344d220338e46d70dee0ed52e1}
+      \strng{bibnamehash}{67fae8c7b2d9ca45db463bbf1488d262}
+      \strng{authorbibnamehash}{67fae8c7b2d9ca45db463bbf1488d262}
+      \strng{authornamehash}{67fae8c7b2d9ca45db463bbf1488d262}
+      \strng{authorfullhash}{ad7ca9344d220338e46d70dee0ed52e1}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics}
+      \field{year}{2018}
     \endentry
     \entry{2017-klambauer-selu}{article}{}
       \name{author}{4}{}{%
@@ -675,6 +755,88 @@
       \field{type}{techreport}
       \field{year}{1995}
     \endentry
+    \entry{2019-schmitz-semantic}{article}{}
+      \name{author}{3}{}{%
+        {{hash=6167c267873396617eba8e34cb26cf1e}{%
+           family={Schmitz},
+           familyi={S\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+        {{hash=622fa86547296d2eeb0e0828972c9c35}{%
+           family={Brandenburger},
+           familyi={B\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d93cdfd4422cedabd4b43480f70da170}{%
+           family={Mayer},
+           familyi={M\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{3bab0462bff7166824720400e28f9b53}
+      \strng{fullhash}{b13ded6206d78518edc644584373cfa6}
+      \strng{bibnamehash}{3bab0462bff7166824720400e28f9b53}
+      \strng{authorbibnamehash}{3bab0462bff7166824720400e28f9b53}
+      \strng{authornamehash}{3bab0462bff7166824720400e28f9b53}
+      \strng{authorfullhash}{b13ded6206d78518edc644584373cfa6}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Semantic Segmentation of Airbourne Images and Corresponding Digital Surface Models - Additional Input Data or Additional Task?}
+      \field{year}{2019}
+    \endentry
+    \entry{2017-shelhamer-fully}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4ce499f8943cac7cba0a73388d289a2e}{%
+           family={Shelhamer},
+           familyi={S\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod}}}%
+        {{hash=17faae490b91366d25e0e2d774e7b6b1}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=90180e1a30742e0d15328bfe637c2ef4}{%
+           family={Darrell},
+           familyi={D\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington, DC, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{ef12dd54e0b3abd0b9ab77291e0e30d4}
+      \strng{fullhash}{d070d0f5bba90c7ab76c10afeebb7698}
+      \strng{bibnamehash}{ef12dd54e0b3abd0b9ab77291e0e30d4}
+      \strng{authorbibnamehash}{ef12dd54e0b3abd0b9ab77291e0e30d4}
+      \strng{authornamehash}{ef12dd54e0b3abd0b9ab77291e0e30d4}
+      \strng{authorfullhash}{d070d0f5bba90c7ab76c10afeebb7698}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0162-8828}
+      \field{journaltitle}{IEEE Trans. Pattern Anal. Mach. Intell.}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{Fully Convolutional Networks for Semantic Segmentation}
+      \field{volume}{39}
+      \field{year}{2017}
+      \field{pages}{640\bibrangedash 651}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/TPAMI.2016.2572683
+      \endverb
+    \endentry
     \entry{2015-springenberg-striving}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=d52162d1c5497f647e12128f74d58da4}{%
@@ -714,42 +876,77 @@
       \field{title}{Striving for Simplicity: The All Convolutional Net}
       \field{year}{2015}
     \endentry
-    \entry{2015-theis-generative}{article}{}
+    \entry{2015-theis-generative}{inproceedings}{}
       \name{author}{3}{}{%
-        {{hash=5314c7da92c0dd8f017ad76fc7a24e02}{%
+        {{hash=1cd7b0068122dce286cfdff1630de9b3}{%
            family={Theis},
            familyi={T\bibinitperiod},
-           given={Lucas},
+           given={L.},
            giveni={L\bibinitperiod}}}%
-        {{hash=3e7eea5b5273e04183476429e622cf52}{%
+        {{hash=18aeef2879ed21c9f1bab349e30a6ab0}{%
            family={Oord},
            familyi={O\bibinitperiod},
-           given={AÃ¤ron},
+           given={A.},
            giveni={A\bibinitperiod},
            prefix={van\bibnamedelima den},
            prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
-        {{hash=653ad8c2337d9615a186b743cc8d69a5}{%
+        {{hash=5b7bb605cc9683f9af2b9d933c6a9cb9}{%
            family={Bethge},
            familyi={B\bibinitperiod},
-           given={Matthias},
+           given={M.},
            giveni={M\bibinitperiod}}}%
       }
-      \strng{namehash}{0c15bce287f483d6b9e7820f6784a554}
-      \strng{fullhash}{573e30a463fdc318de8908a01bf36430}
-      \strng{bibnamehash}{0c15bce287f483d6b9e7820f6784a554}
-      \strng{authorbibnamehash}{0c15bce287f483d6b9e7820f6784a554}
-      \strng{authornamehash}{0c15bce287f483d6b9e7820f6784a554}
-      \strng{authorfullhash}{573e30a463fdc318de8908a01bf36430}
+      \strng{namehash}{a48ee0bc0a1884df775b492d5e107783}
+      \strng{fullhash}{24f6ca5fac4833f25d31689c9df68d1b}
+      \strng{bibnamehash}{a48ee0bc0a1884df775b492d5e107783}
+      \strng{authorbibnamehash}{a48ee0bc0a1884df775b492d5e107783}
+      \strng{authornamehash}{a48ee0bc0a1884df775b492d5e107783}
+      \strng{authorfullhash}{24f6ca5fac4833f25d31689c9df68d1b}
       \field{sortinit}{T}
       \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{11}
+      \field{booktitle}{International Conference on Learning Representations}
+      \field{note}{arXiv:1511.01844}
       \field{title}{A note on the evaluation of generative models}
-      \field{year}{2015}
-      \keyw{generative,evaluation,metrics}
+      \field{year}{2016}
+    \endentry
+    \entry{2019-vandenhende-branched}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8366514841cca3b7ed038c0422a0177f}{%
+           family={Vandenhende},
+           familyi={V\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cab1ebf7b8ffdde85032284b684ae7b9}{%
+           family={Brabandere},
+           familyi={B\bibinitperiod},
+           given={Bert\bibnamedelima De},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=4e3c4333156c93f2e568db6387d4c7f1}{%
+           family={Gool},
+           familyi={G\bibinitperiod},
+           given={Luc\bibnamedelima Van},
+           giveni={L\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b7eb4a0c533ec235e6adacc2a5388ba}
+      \strng{fullhash}{b00db2c4c1f750b76265ba180927c6c3}
+      \strng{bibnamehash}{9b7eb4a0c533ec235e6adacc2a5388ba}
+      \strng{authorbibnamehash}{9b7eb4a0c533ec235e6adacc2a5388ba}
+      \strng{authornamehash}{9b7eb4a0c533ec235e6adacc2a5388ba}
+      \strng{authorfullhash}{b00db2c4c1f750b76265ba180927c6c3}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{Branched Multi-Task Networks: Deciding What Layers To Share}
+      \field{volume}{abs/1904.02920}
+      \field{year}{2019}
     \endentry
   \enddatalist
 \endrefsection

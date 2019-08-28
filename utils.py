@@ -56,4 +56,4 @@ def plot_normal_distribution():
         plt.show()
 
 
-split_images("test-RGB", 8)
+split_images("Track1-RGB", 8)

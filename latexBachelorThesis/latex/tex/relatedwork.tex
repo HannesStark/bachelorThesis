@@ -1,37 +1,32 @@
-\section{Related Work}
+\section{Related Work} \label{related_work_general_architecture}
 
-This section presents concrete insights from related literature that influenced the used methodology. It is 
-divided into two subsections. The first one, being convolutional network architecture, covers common practice about
-hyper parameters and other choices for convolutional models while the second subsection focuses on generative aspects
-and autoencoders.
+This section presents concrete insights from related literature that influenced the used methodology.
+It covers common practice about
+hyper parameters and other choices for convolutional models as well as information about 
+generative aspects models and autoencoders.\\
 
-\subsection{General and Convolutional Network Architecture} \label{related_work_general_architecture}
-
-In their paper \textit{Striving for simplicity: The All Convolutional Net} \parencite{2015-springenberg-striving}
-the authors find that including pooling layers such as max pooling into a convolutional architecture does not 
+\textcite{2015-springenberg-striving}
+find that including pooling layers such as max pooling into a convolutional architecture does not 
 necessarily mean an improvement. When using a large enough network the invariances that should be
 introduced by pooling layers can also be learned in a network with convolutional layers only. Thus, in certain cases,
 convolutional layers with strides of two can be used to reduce dimensionality in a CNN instead of pooling layers
 which is why both options are explored in this work.
 \\
 
-The paper \textit{Systematic evaluation of CNN advances on the ImageNet} \parencite{2016-mishkin-systematic} analyzes
+\textcite{2016-mishkin-systematic} analyze
 the impact of multiple learning parameter and architecture choices on the performance of convolutional neural networks.
 One conclusion it reaches is the suggestion to use batch sizes around 128 or 256.\\
 
-In the work \textit{Self-Normalizing Neural Networks} \parencite{2017-klambauer-selu} the authors show that using
+\textcite{2017-klambauer-selu} show that using
 a scaled exponential linear unit (SELU) as activation function leads to self normalizing networks. These networks 
 eliminate the problem of vanishing or exploding gradients. Additionally the authors prove superiority of SELU 
 over other normalization techniques in their benchmarks. 
 
-This is in line with the results of \textit{Comparison of non-linear activation functions for deep neural networks on
-MNIST classification task} \parencite{2018-Pedamonti-comparison}. This paper reaches the conclusion that SELU leads
-to faster learning rates than other activation functions like ReLU or Leaky ReLU.
+This is in line with the results of \textcite{2018-Pedamonti-comparison} reaching the conclusion that SELU leads
+to faster learning rates than other activation functions like ReLU or Leaky ReLU.\\
 
-\subsection{Variational Autoencoders and Generative Networks}
-
-In \textit{A Note on the Evaluation of Generative Models} \parencite{2015-theis-generative}
-it is made clear that there are many difficulties in
+\textcite{2015-theis-generative}
+conclude that there are many difficulties in
 measuring the optimization and performance of generative models. A clear conclusion is that there is no 
 one fits all metric for the quality of models like variational autoencoders. While the intuitive evaluation
 of visual results favors overfitted models, pure reliance on numerical measures is not appropriate when the
