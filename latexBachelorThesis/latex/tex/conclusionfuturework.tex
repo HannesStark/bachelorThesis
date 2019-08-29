@@ -5,7 +5,40 @@ The latent space of variational autoencoders for aerial images is investigated a
 which allows for an increased understanding of the performed unsupervised clustering and the 
 latent representation in general. For that purpose the thesis first offers a brief introduction
 into neural networks and convolutional architecture as well as a comprehensive explanation 
-of how VAEs improve standard autoencoders to generate a useful continuous latent space. 
+of how VAEs improve standard autoencoders to generate a useful continuous latent space.\\ 
+
+Experiments with different VAE architectures are conducted regarding their reconstruction quality where a fully
+convolutional architecture yielded the most accurate reconstructions and this VAE's latent space is analyzed.
+Using principle component analysis and t-stochastic neighbor embedding the dimension of the latent representations
+is reduced and the results are visualized. It becomes clear that the VAE clusters in an unsupervised manner.
+This means, up to the latent layer, it learned the features for which it clustered the inputs.\\
+
+The formed clusters are compared with available height and classification data revealing that the learned clusters
+correspond to different topographic classes to a reasonable degree which is not the case for the average height of
+an image. 
+
+While the VAE additionally groups the images by their average color it definitely also learns very complex features 
+like types or directions of roads.\\
+
+Thereby it is found that smaller latent dimensions lead to better visualizations of distinct clusters which suggests
+that the smaller encoding size forces better clustering to be learned. However, it is also possible that the 
+shorter latent representations are just easier to interpret and the visualization techniques just worked better.
+That being said, a smaller latent space also means worse reconstructions and there is a tradeoff to be made between
+an interpretable latent space on the one hand and reconstruction quality on the other hand.
 
 
 \subsection{Future Work}
+
+From the viewpoint of this thesis the next step in, in the regard of constructing a multi task taxonomy, is to apply
+the techniques used for understanding the latent space of VAEs to different layers in single task models. This insight
+about the latent information learned in the different layers of the single task model then opens possibilities
+to systematically determine optimal multi task architectures instead of relying on ad hoc testing.\\
+
+To more directly establish on this thesis it would be interesting to analyze the unsupervised clustering performed by
+the VAEs for additional topographic classes if semantic labeling data for those classes was available.
+Moreover, a normalization method for the classes should be employed since in the used dataset an aerial
+image is more likely to predominantly have pixels labeled as ground instead of pixels labeled as building.
+This normalization could take the overall occurrence of each class in the whole dataset into account and reveal
+additional learned features in the latent layer.
+
+
