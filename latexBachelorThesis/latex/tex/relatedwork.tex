@@ -3,7 +3,7 @@
 This section presents concrete insights from related literature that influenced the used methodology.
 It covers common practice about
 hyper parameters and other choices for convolutional models as well as information about 
-generative aspects models and autoencoders.\\
+generative models and explainability of neural networks.\\
 
 \textcite{2015-springenberg-striving}
 find that including pooling layers such as max pooling into a convolutional architecture does not 
@@ -32,6 +32,16 @@ one fits all metric for the quality of models like variational autoencoders. Whi
 of visual results favors overfitted models, pure reliance on numerical measures is not appropriate when the
 goal is image synthesis. Overall the quality of evaluation measure is largely dependent on the application
 and goal.\\
+
+\textcite{2018-zhang-visual} analyze CNN's representations of input images in the hidden layers by constructing 
+visualizations that can be used to interpret which layers learns which features. This knowledge can be used to
+detect inefficiencies in networks. Additionally the insights open possibilities for middle-to-end training
+networks where only little supervision is required to speed up the training process.
+The visualizations used to explain a layer for instance used the weights of the filters directly to understand
+the learned features. \textcite{2018-montavon-methods} on the other hand, altered the network inputs and observed 
+the impact of the changes to deduce the information learned by the network.\\
+
+
 
 
 

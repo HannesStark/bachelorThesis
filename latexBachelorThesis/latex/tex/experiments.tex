@@ -659,6 +659,18 @@ the autoencoder has learned to cluster that feature.
 All the plots in the following subsections display points for $4000$ images.
 
 \subsubsection{Fully convolutional Architecture}
+When observing the following two figures it first of all becomes evident that the VAEs have generated some clusters
+which is more clear in the visualizations produced with t-SNE than in those produced with PCA.
+
+Regarding the question of what features the learned clusters correspond to, the plots colored by dominant class
+reveal that the VAEs have learned to distinguish water (colored blue) and vegetation (colored green) from the rest 
+to a reasonable degree. Especially the t-SNE visualization for coding size $50$ shows a very distinct cluster
+with all water images and two close clusters for most of the vegetation images.
+However, the same can not be said for height information. The overall high and low images are almost all 
+evenly distributed across all clusters with only a single cluster appearing slightly darker, i.e. higher, than the
+rest. This suggests the VAEs have learned the topographic classes vegetation and water as features while not 
+distinguishing by height up to the latent layer. 
+
 
 \begin{figure}[H]
     \centering
@@ -698,11 +710,11 @@ All the plots in the following subsections display points for $4000$ images.
         \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim50_classes.png}
         \caption{Code size: $50$}
     \end{subfigure}
-    \caption{The top row shows two dimensional output points of PCA of $4000$ latent codes. 
-    The bottom row shows the outputs
-    of t-SNE. The coloring corresponds to the predominant classes in the input images with green for vegetation, 
+    \caption{PCA results in the top row. 
+    T-SNE results in the bottom row. 
+    The coloring corresponds to the predominant classes in the input images with green for vegetation, 
     grey for ground, blue for water, red for buildings and yellow for clutter.}
-\end{figure}
+\end{figure} \label{figure_classes_convolutional}
 
 \begin{figure}[H]
     \centering
@@ -742,37 +754,31 @@ All the plots in the following subsections display points for $4000$ images.
         \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim50_dsm.png}
         \caption{Code size: $50$}
     \end{subfigure}
-    \caption{The top row shows two dimensional output points of PCA of $4000$ latent codes. 
-    The bottom row shows the outputs
-    of t-SNE. The coloring corresponds to the average of the height values in the digital surface model for the
+    \caption{PCA results in the top row. 
+    T-SNE results in the bottom row.  
+    The coloring corresponds to the average of the height values in the digital surface model for the
     input image. Darker points represent a higher average height.}
-\end{figure}
+\end{figure} \label{figure_heights_convolutional}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim1024_PCA_images.png}
-        \caption{Code size: $1,024$}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim512_PCA_images.png}
-        \caption{Code size: $512$}
-    \end{subfigure}
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim1024_PCA_images.png}   
-        \caption{Code size: $128$}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/convolutional_dim50_PCA_images.png}
-        \caption{Code size: $50$}
-    \end{subfigure}
-    \caption{Two dimensional output points of PCA of $4000$ latent codes. The points are represented by the input
-    images that produced the latent code corresponding to the two dimensional representation.}
-\end{figure}
+The figure below only features the results of t-SNE since the PCA visualizations offer no additional insights.
+The most obvious of those insights is that the learned clusters correspond to the average color of the images.
+While this is rather easy to learn a closer inspection of the clusters show that the VAE has also learned far
+more complicated features which can be seen in Figure \ref{figure_closer_clusters}. The VAEs also seem to
+cluster by the direction of edges and higher level features like types of roads with images of different sections
+of the same road always being in the same cluster.\\
+
+The t-SNE visualizations also show much more distinct clusters for different high level features if the coding
+size is lower with the coding size $50$ yielding the most obvious clusters. This suggests that the smaller
+latent space forces the VAE to learn and cluster high level features in an increased fashion. However, 
+the reason for the better clustering might also simply be that the smaller latent representations are easier
+to interpret and therefore the t-SNE algorithm is abled to retain more of the structure in the high dimensional
+space.
+If the improved visualization is the result of the learning behavior of the VAE 
+it means that there is a tradeoff between a more interpretable latent space with 
+good clustering and the reconstruction quality. This is the case because a smaller latent dimension 
+means worse reconstructions
+since the VAE has to fit the same information into a smaller vector. This can also be seen in Figure
+\ref{figure_reconstructions_convolutional}.
 
 \begin{figure}[H]
     \centering
@@ -797,14 +803,100 @@ All the plots in the following subsections display points for $4000$ images.
         \caption{Code size: $50$}
     \end{subfigure}
     \caption{Two dimensional output points of t-SNE of $4000$ latent codes. The points are represented by the input
-    images that produced the latent code corresponding to the two dimensional representation.}
-\end{figure}
+    images that produced the latent code corresponding to the two dimensional representation.} 
+    \label{figure_images_convolutional_tsne}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{.19\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_architecture/inputsCol1Kernel3adjusted32x32x32_dim1024.png}\hfill
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_architecture/inputsCol2Kernel3adjusted32x32x32_dim1024.png}
+    \end{subfigure}%
+    \hspace*{0.1pt}
+    \begin{subfigure}[t]{.19\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_architecture/reconstructionsCol116x16x32TRAINEDON178000_dim1024.png}\hfill
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_architecture/reconstructionsCol216x16x32TRAINEDON178000_dim1024.png}
+        \caption{$1024$}
+    \end{subfigure}%
+    \hspace*{0.1pt}
+    \begin{subfigure}[t]{.19\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol116x16x32TRAINEDON178000_dim512.png}\hfill
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol216x16x32TRAINEDON178000_dim512.png}
+        \caption{$512$}
+    \end{subfigure}%
+    \hspace*{0.1pt}
+    \begin{subfigure}[t]{.19\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol116x16x32TRAINEDON178000_dim50.png}\hfill
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol216x16x32TRAINEDON178000_dim50.png}
+        \caption{$128$}
+    \end{subfigure}%
+    \hspace*{0.1pt}
+    \begin{subfigure}[t]{.19\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol116x16x32TRAINEDON178000_dim50.png}\hfill
+        \includegraphics[width=0.5\textwidth]
+        {images/figures/experiments_latent/reconstructionsCol216x16x32TRAINEDON178000_dim50.png}
+        \caption{$50$}
+    \end{subfigure}
+    \caption{The left column shows original images taken from a validation set that the VAE has not seen during
+    training. The other columns show the reconstructions produced by the VAEs with the different coding sizes.}
+    \label{figure_reconstructions_convolutional}
+\end{figure} 
+%todo richtige column einfügen
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]
+        {images/figures/experiments_latent/convolutional_dim50_images_sideways_street.png}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]
+        {images/figures/experiments_latent/convolutional_dim50_images_sideways_street3.png}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]
+        {images/figures/experiments_latent/convolutional_dim50_images_upwards_observation.png}  
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]
+        {images/figures/experiments_latent/convolutional_dim50_images_sideways_other_street.png}
+    \end{subfigure}
+    \caption{Clusters of VAE with coding size $50$}
+    \label{figure_closer_clusters}
+\end{figure} 
 
 
 
 
 
 \subsubsection{Pooling Architecture}
+
+The hypothesis is that the invariances introduced by the pooling layers force the VAE to learn more higher level
+features than the fully convolutional architecture. However, this does not seem to be the case since the 
+figures below show almost exactly the same results as the fully convolutional
+VAE in the previous subsection. This means that the tested pooling architecture offers no advantages with the
+quality of the latent space being equal while producing worse reconstructions as it was seen in Section 
+\ref{architecture_experiments}. The convolutional VAE seems to implicitly learn the invariances introduced by
+the pooling layers.
 
 \begin{figure}[H]
     \centering
@@ -844,11 +936,11 @@ All the plots in the following subsections display points for $4000$ images.
         \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim50_classes.png}
         \caption{Code size: $50$}
     \end{subfigure}
-    \caption{The top row shows two dimensional output points of PCA of $4000$ latent codes. 
-    The bottom row shows the outputs
-    of t-SNE. The coloring corresponds to the predominant classes in the input images with green for vegetation, 
+    \caption{ PCA results in the top row. 
+    T-SNE results in the bottom row. 
+    The coloring represents the predominant class in the input with green for vegetation, 
     grey for ground, blue for water, red for buildings and yellow for clutter.}
-\end{figure}
+\end{figure} \label{figure_classes_pooling}
 
 \begin{figure}[H]
     \centering
@@ -888,37 +980,12 @@ All the plots in the following subsections display points for $4000$ images.
         \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim50_dsm.png}
         \caption{Code size: $50$}
     \end{subfigure}
-    \caption{The top row shows two dimensional output points of PCA of $4000$ latent codes. 
-    The bottom row shows the outputs
-    of t-SNE. The coloring corresponds to the average of the height values in the digital surface model for the
+    \caption{PCA results in the top row. 
+    T-SNE results in the bottom row. 
+    The coloring corresponds to the average of the height values in the digital surface model for the
     input image. Darker points represent a higher average height.}
-\end{figure}
+\end{figure} \label{figure_heights_pooling}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim1024_PCA_images.png}
-        \caption{Code size: $1,024$}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim512_PCA_images.png}
-        \caption{Code size: $512$}
-    \end{subfigure}
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim1024_PCA_images.png}   
-        \caption{Code size: $128$}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/figures/experiments_latent/pooling_dim50_PCA_images.png}
-        \caption{Code size: $50$}
-    \end{subfigure}
-    \caption{Two dimensional output points of PCA of $4000$ latent codes. The points are represented by the input
-    images that produced the latent code corresponding to the two dimensional representation.}
-\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -944,4 +1011,4 @@ All the plots in the following subsections display points for $4000$ images.
     \end{subfigure}
     \caption{Two dimensional output points of t-SNE of $4000$ latent codes. The points are represented by the input
     images that produced the latent code corresponding to the two dimensional representation.}
-\end{figure}
+\end{figure} \label{figure_images_pooling_PCA}
