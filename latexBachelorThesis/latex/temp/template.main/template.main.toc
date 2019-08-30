@@ -1,85 +1,81 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Vorwort}{2}{section.1}% 
+\contentsline {section}{\numberline {1}Abstract}{2}{section.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Kurzfassung}{2}{section.2}% 
+\contentsline {section}{\numberline {2}Introduction}{2}{section.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Abstract}{2}{section.3}% 
+\contentsline {section}{\numberline {3}Background}{3}{section.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Introduction}{2}{section.4}% 
+\contentsline {subsection}{\numberline {3.1}Remote Sensing}{4}{subsection.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Background}{3}{section.5}% 
+\contentsline {subsection}{\numberline {3.2}Artificial Neuron}{4}{subsection.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Remote Sensing}{4}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {3.3}Artificial Neural Network}{5}{subsection.3.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Artificial Neuron}{4}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {3.4}Convolutional Neural Networks}{6}{subsection.3.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Artificial Neural Network}{4}{subsection.5.3}% 
+\contentsline {paragraph}{Pooling}{7}{section*.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Convolutional Neural Networks}{6}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {3.5}Autoencoders}{7}{subsection.3.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Pooling}{6}{section*.5}% 
+\contentsline {subsection}{\numberline {3.6}Kullback-Leibler Divergence}{8}{subsection.3.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Autoencoders}{7}{subsection.5.5}% 
+\contentsline {subsubsection}{\numberline {3.6.1}Entropy}{8}{subsubsection.3.6.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6}Kullback-Leibler Divergence}{8}{subsection.5.6}% 
+\contentsline {subsubsection}{\numberline {3.6.2}Cross Entropy}{10}{subsubsection.3.6.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.6.1}Entropy}{8}{subsubsection.5.6.1}% 
+\contentsline {subsubsection}{\numberline {3.6.3}Kullback-Leibler Divergence}{10}{subsubsection.3.6.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.6.2}Cross Entropy}{9}{subsubsection.5.6.2}% 
+\contentsline {subsection}{\numberline {3.7}Variational Autoencoders}{11}{subsection.3.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.6.3}Kullback-Leibler Divergence}{10}{subsubsection.5.6.3}% 
+\contentsline {subsection}{\numberline {3.8}t-Distributed Stochastic Neighbor Embedding}{11}{subsection.3.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.7}Variational Autoencoders}{10}{subsection.5.7}% 
+\contentsline {section}{\numberline {4}Related Work}{12}{section.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8}t-Distributed Stochastic Neighbor Embedding}{11}{subsection.5.8}% 
+\contentsline {section}{\numberline {5}Methodology}{13}{section.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Related Work}{12}{section.6}% 
+\contentsline {subsection}{\numberline {5.1}Environment}{13}{subsection.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Methodology}{13}{section.7}% 
+\contentsline {subsubsection}{\numberline {5.1.1}Hardware}{13}{subsubsection.5.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Environment}{13}{subsection.7.1}% 
+\contentsline {paragraph}{Personal Computer}{14}{section*.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}Hardware}{13}{subsubsection.7.1.1}% 
+\contentsline {paragraph}{Remote Machine}{14}{section*.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Personal Computer}{13}{section*.7}% 
+\contentsline {subsubsection}{\numberline {5.1.2}Software}{14}{subsubsection.5.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Remote Machine}{13}{section*.8}% 
+\contentsline {subsection}{\numberline {5.2}Datasets}{14}{subsection.5.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Software}{14}{subsubsection.7.1.2}% 
+\contentsline {subsection}{\numberline {5.3}Architecture}{15}{subsection.5.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Datasets}{14}{subsection.7.2}% 
+\contentsline {subsubsection}{\numberline {5.3.1}Fully Convolutional Architecture}{16}{subsubsection.5.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Architecture}{15}{subsection.7.3}% 
+\contentsline {subsubsection}{\numberline {5.3.2}Max Pooling Architecture}{17}{subsubsection.5.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.1}Fully Convolutional Architecture}{16}{subsubsection.7.3.1}% 
+\contentsline {subsection}{\numberline {5.4}Understanding Latent Space}{17}{subsection.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.2}Max Pooling Architecture}{17}{subsubsection.7.3.2}% 
+\contentsline {section}{\numberline {6}Experiments}{18}{section.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Understanding Latent Space}{17}{subsection.7.4}% 
+\contentsline {subsection}{\numberline {6.1}Variational Autoencoder Architecture}{19}{subsection.6.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Experiments}{18}{section.8}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Number of Convolutions}{19}{subsubsection.6.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Variational Autoencoder Architecture}{18}{subsection.8.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}Number of Filters}{22}{subsubsection.6.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.1}Number of Convolutions}{19}{subsubsection.8.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.3}Kernel Size}{24}{subsubsection.6.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.2}Number of Filters}{21}{subsubsection.8.1.2}% 
+\contentsline {subsubsection}{\numberline {6.1.4}Pooling}{25}{subsubsection.6.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.3}Kernel Size}{23}{subsubsection.8.1.3}% 
+\contentsline {subsubsection}{\numberline {6.1.5}Best Architectures}{27}{subsubsection.6.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.4}Pooling}{25}{subsubsection.8.1.4}% 
+\contentsline {subsection}{\numberline {6.2}Latent Space}{28}{subsection.6.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.5}Best Architectures}{27}{subsubsection.8.1.5}% 
+\contentsline {subsubsection}{\numberline {6.2.1}Fully convolutional Architecture}{29}{subsubsection.6.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Latent Space}{28}{subsection.8.2}% 
+\contentsline {subsubsection}{\numberline {6.2.2}Pooling Architecture}{33}{subsubsection.6.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.1}Fully convolutional Architecture}{29}{subsubsection.8.2.1}% 
+\contentsline {section}{\numberline {7}Conclusion and Future Work}{34}{section.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.2}Pooling Architecture}{33}{subsubsection.8.2.2}% 
+\contentsline {subsection}{\numberline {7.1}Conclusion}{34}{subsection.7.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion and Future Work}{34}{section.9}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Conclusion}{34}{subsection.9.1}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Future Work}{35}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {7.2}Future Work}{35}{subsection.7.2}% 

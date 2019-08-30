@@ -13,7 +13,7 @@ import time
 
 K = tf.keras.backend
 
-latent_dim = 50
+latent_dim = 128
 file_tag = "16x16x32TRAINEDON178000" + "_dim" + str(latent_dim)
 # file_tag = os.path.splitext(os.path.basename(__file__))[0] + "_dim" + str(latent_dim)
 batch_size = 128

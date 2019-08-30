@@ -1,39 +1,37 @@
-\BOOKMARK [1][-]{section.1}{Vorwort}{}% 1
-\BOOKMARK [1][-]{section.2}{Kurzfassung}{}% 2
-\BOOKMARK [1][-]{section.3}{Abstract}{}% 3
-\BOOKMARK [1][-]{section.4}{Introduction}{}% 4
-\BOOKMARK [1][-]{section.5}{Background}{}% 5
-\BOOKMARK [2][-]{subsection.5.1}{Remote Sensing}{section.5}% 6
-\BOOKMARK [2][-]{subsection.5.2}{Artificial Neuron}{section.5}% 7
-\BOOKMARK [2][-]{subsection.5.3}{Artificial Neural Network}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.4}{Convolutional Neural Networks}{section.5}% 9
-\BOOKMARK [2][-]{subsection.5.5}{Autoencoders}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.6}{Kullback-Leibler Divergence}{section.5}% 11
-\BOOKMARK [3][-]{subsubsection.5.6.1}{Entropy}{subsection.5.6}% 12
-\BOOKMARK [3][-]{subsubsection.5.6.2}{Cross Entropy}{subsection.5.6}% 13
-\BOOKMARK [3][-]{subsubsection.5.6.3}{Kullback-Leibler Divergence}{subsection.5.6}% 14
-\BOOKMARK [2][-]{subsection.5.7}{Variational Autoencoders}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.8}{t-Distributed Stochastic Neighbor Embedding}{section.5}% 16
-\BOOKMARK [1][-]{section.6}{Related Work}{}% 17
-\BOOKMARK [1][-]{section.7}{Methodology}{}% 18
-\BOOKMARK [2][-]{subsection.7.1}{Environment}{section.7}% 19
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Hardware}{subsection.7.1}% 20
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Software}{subsection.7.1}% 21
-\BOOKMARK [2][-]{subsection.7.2}{Datasets}{section.7}% 22
-\BOOKMARK [2][-]{subsection.7.3}{Architecture}{section.7}% 23
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Fully Convolutional Architecture}{subsection.7.3}% 24
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Max Pooling Architecture}{subsection.7.3}% 25
-\BOOKMARK [2][-]{subsection.7.4}{Understanding Latent Space}{section.7}% 26
-\BOOKMARK [1][-]{section.8}{Experiments}{}% 27
-\BOOKMARK [2][-]{subsection.8.1}{Variational Autoencoder Architecture}{section.8}% 28
-\BOOKMARK [3][-]{subsubsection.8.1.1}{Number of Convolutions}{subsection.8.1}% 29
-\BOOKMARK [3][-]{subsubsection.8.1.2}{Number of Filters}{subsection.8.1}% 30
-\BOOKMARK [3][-]{subsubsection.8.1.3}{Kernel Size}{subsection.8.1}% 31
-\BOOKMARK [3][-]{subsubsection.8.1.4}{Pooling}{subsection.8.1}% 32
-\BOOKMARK [3][-]{subsubsection.8.1.5}{Best Architectures}{subsection.8.1}% 33
-\BOOKMARK [2][-]{subsection.8.2}{Latent Space}{section.8}% 34
-\BOOKMARK [3][-]{subsubsection.8.2.1}{Fully convolutional Architecture}{subsection.8.2}% 35
-\BOOKMARK [3][-]{subsubsection.8.2.2}{Pooling Architecture}{subsection.8.2}% 36
-\BOOKMARK [1][-]{section.9}{Conclusion and Future Work}{}% 37
-\BOOKMARK [2][-]{subsection.9.1}{Conclusion}{section.9}% 38
-\BOOKMARK [2][-]{subsection.9.2}{Future Work}{section.9}% 39
+\BOOKMARK [1][-]{section.1}{Abstract}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Remote Sensing}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Artificial Neuron}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Artificial Neural Network}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Convolutional Neural Networks}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Autoencoders}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.6}{Kullback-Leibler Divergence}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Entropy}{subsection.3.6}% 10
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Cross Entropy}{subsection.3.6}% 11
+\BOOKMARK [3][-]{subsubsection.3.6.3}{Kullback-Leibler Divergence}{subsection.3.6}% 12
+\BOOKMARK [2][-]{subsection.3.7}{Variational Autoencoders}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.8}{t-Distributed Stochastic Neighbor Embedding}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Related Work}{}% 15
+\BOOKMARK [1][-]{section.5}{Methodology}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Environment}{section.5}% 17
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Hardware}{subsection.5.1}% 18
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Software}{subsection.5.1}% 19
+\BOOKMARK [2][-]{subsection.5.2}{Datasets}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.3}{Architecture}{section.5}% 21
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Fully Convolutional Architecture}{subsection.5.3}% 22
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Max Pooling Architecture}{subsection.5.3}% 23
+\BOOKMARK [2][-]{subsection.5.4}{Understanding Latent Space}{section.5}% 24
+\BOOKMARK [1][-]{section.6}{Experiments}{}% 25
+\BOOKMARK [2][-]{subsection.6.1}{Variational Autoencoder Architecture}{section.6}% 26
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Number of Convolutions}{subsection.6.1}% 27
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Number of Filters}{subsection.6.1}% 28
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Kernel Size}{subsection.6.1}% 29
+\BOOKMARK [3][-]{subsubsection.6.1.4}{Pooling}{subsection.6.1}% 30
+\BOOKMARK [3][-]{subsubsection.6.1.5}{Best Architectures}{subsection.6.1}% 31
+\BOOKMARK [2][-]{subsection.6.2}{Latent Space}{section.6}% 32
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Fully convolutional Architecture}{subsection.6.2}% 33
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Pooling Architecture}{subsection.6.2}% 34
+\BOOKMARK [1][-]{section.7}{Conclusion and Future Work}{}% 35
+\BOOKMARK [2][-]{subsection.7.1}{Conclusion}{section.7}% 36
+\BOOKMARK [2][-]{subsection.7.2}{Future Work}{section.7}% 37
