@@ -19,6 +19,66 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{2015-bach-on}{article}{}
+      \name{author}{6}{}{%
+        {{hash=8295a9e73c42cad599c45a2cec0c6d27}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d122a2a87d21da4007f460564975e967}{%
+           family={Binder},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
+           family={Montavon},
+           familyi={M\bibinitperiod},
+           given={Gr{é}goire},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cbac16af17fd4a388467bf85b707de24}{%
+           family={Klauschen},
+           familyi={K\bibinitperiod},
+           given={Frederick},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={M{ü}ller},
+           familyi={M\bibinitperiod},
+           given={Klaus-Robert},
+           giveni={K\bibinithyphendelim R\bibinitperiod}}}%
+        {{hash=7f49b6382ab4ca917a2aa2249f875f79}{%
+           family={Samek},
+           familyi={S\bibinitperiod},
+           given={Wojciech},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{e54f9799fd08ceb06062346ab39063d7}
+      \strng{fullhash}{5ee3866a5cd207d0c7f8d8e4b0ef8904}
+      \strng{bibnamehash}{e54f9799fd08ceb06062346ab39063d7}
+      \strng{authorbibnamehash}{e54f9799fd08ceb06062346ab39063d7}
+      \strng{authornamehash}{e54f9799fd08ceb06062346ab39063d7}
+      \strng{authorfullhash}{5ee3866a5cd207d0c7f8d8e4b0ef8904}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{07}
+      \field{number}{7}
+      \field{title}{On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0130140}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0130140
+      \endverb
+    \endentry
     \entry{2019-bosch-semantic}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=3c7d5a7a419bf6eb32c4778923ed5739}{%
@@ -274,6 +334,51 @@
       \field{title}{The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation}
       \field{volume}{abs/1611.09326}
       \field{year}{2016}
+    \endentry
+    \entry{2019-Kauffmann-from}{article}{}
+      \name{author}{5}{}{%
+        {{hash=136f805e472a7f41106e49972c81668b}{%
+           family={Kauffmann},
+           familyi={K\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bcc2903e964d256fbc14b05aa9bfa2c5}{%
+           family={Esders},
+           familyi={E\bibinitperiod},
+           given={Malte},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
+           family={Montavon},
+           familyi={M\bibinitperiod},
+           given={Gr{é}goire},
+           giveni={G\bibinitperiod}}}%
+        {{hash=7f49b6382ab4ca917a2aa2249f875f79}{%
+           family={Samek},
+           familyi={S\bibinitperiod},
+           given={Wojciech},
+           giveni={W\bibinitperiod}}}%
+        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={M{ü}ller},
+           familyi={M\bibinitperiod},
+           given={Klaus{-}Robert},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{5924b9f04f5522ea6b56500ad7a5de4c}
+      \strng{fullhash}{c43bbf455ce311da152c2835b7bd8439}
+      \strng{bibnamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
+      \strng{authorbibnamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
+      \strng{authornamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
+      \strng{authorfullhash}{c43bbf455ce311da152c2835b7bd8439}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{From Clustering to Cluster Explanations via Neural Networks}
+      \field{volume}{abs/1906.07633}
+      \field{year}{2019}
     \endentry
     \entry{2018-kendall-multi}{inproceedings}{}
       \name{author}{3}{}{%

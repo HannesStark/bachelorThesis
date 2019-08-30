@@ -46,7 +46,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Remote Machine}{13}{section*.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Software}{13}{subsubsection.7.1.2}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Software}{14}{subsubsection.7.1.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2}Datasets}{14}{subsection.7.2}% 
 \defcounter {refsection}{0}\relax 
@@ -54,7 +54,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.1}Fully Convolutional Architecture}{16}{subsubsection.7.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.2}Max Pooling Architecture}{16}{subsubsection.7.3.2}% 
+\contentsline {subsubsection}{\numberline {7.3.2}Max Pooling Architecture}{17}{subsubsection.7.3.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.4}Understanding Latent Space}{17}{subsection.7.4}% 
 \defcounter {refsection}{0}\relax 
@@ -68,18 +68,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {8.1.3}Kernel Size}{23}{subsubsection.8.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.4}Pooling}{24}{subsubsection.8.1.4}% 
+\contentsline {subsubsection}{\numberline {8.1.4}Pooling}{25}{subsubsection.8.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.5}Best Architectures}{26}{subsubsection.8.1.5}% 
+\contentsline {subsubsection}{\numberline {8.1.5}Best Architectures}{27}{subsubsection.8.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Latent Space}{27}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.2}Latent Space}{28}{subsection.8.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.1}Fully convolutional Architecture}{28}{subsubsection.8.2.1}% 
+\contentsline {subsubsection}{\numberline {8.2.1}Fully convolutional Architecture}{29}{subsubsection.8.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.2}Pooling Architecture}{32}{subsubsection.8.2.2}% 
+\contentsline {subsubsection}{\numberline {8.2.2}Pooling Architecture}{33}{subsubsection.8.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Conclusion and Future Work}{33}{section.9}% 
+\contentsline {section}{\numberline {9}Conclusion and Future Work}{34}{section.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Conclusion}{33}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.1}Conclusion}{34}{subsection.9.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Future Work}{34}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.2}Future Work}{35}{subsection.9.2}% 
