@@ -307,6 +307,6 @@ def tsne_vis(image_plot=False):
 
 variational_ae.load_weights("./savedModels/" + file_tag + ".h5")
 
-predictions_and_generations()
+#predictions_and_generations()
 
-#tsne_vis(True)
+tsne_vis(True)
