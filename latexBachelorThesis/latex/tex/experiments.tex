@@ -129,7 +129,7 @@ layers.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as specified in section \ref{hardware}. Notice that the loss is not the same
+        on the personal computer as specified in section \ref{hardware}. Note that the loss is not the same
         as MAE since it additionally takes the Kullback-Leibler divergence into account.}
     \end{table} \label{table_mae_1}
 \end{center}
@@ -186,7 +186,7 @@ layers.
 
 The learning curves in Figure \ref{figure_learning_curves_1} show a correlation between the MAE of the
 reconstructions and the number of convolutional and deconvolutional layers. The less layers the are the better
-is the learning curve which is in line with the visual fidelity of the reconstructions in Figure 
+the learning curve is which is in line with the visual fidelity of the reconstructions in Figure 
 \ref{figure_reconstructions_1}. The reconstructions of the VAE with the least layers are the sharpest and the 
 more layers the VAE has the blurrier the reconstructions are. 
 
@@ -302,7 +302,7 @@ the last convolutional layer and the first deconvolutional layer is missing.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Notice that the loss is not the same
+        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
         as MAE since it additionally takes the Kullback-Leibler divergence into account.}
     \end{table} \label{table_maes2}
 \end{center}
@@ -400,7 +400,7 @@ $1$ performed the best so far and a second one is chosen for comparison.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Notice that the loss is not the same
+        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
         as MAE since it additionally takes the Kullback-Leibler divergence into account.}
     \end{table} \label{table_maes3}
 \end{center}
@@ -436,13 +436,14 @@ $1$ performed the best so far and a second one is chosen for comparison.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
-The previously better performing architecture was better again with a higher kernel size. Still the results are 
-all worse than those with the lower kernel size.
+The architecture, that had more realistic reconstructions previously, still performs best with the increased
+kernel size. However, the reconstructions are all less visually fidel than the ones produced by the 
+test architectures with a lower kernel size.
 
 \subsubsection{Pooling}
 
-This subsection tests the so far best performing architecture, number $1$ from subsection 
-\ref{section_number_of_convolutions_experiment}, again but the convolutional layers now have a stride of $1\times1$
+This subsection again tests the so far best performing architecture, number $1$ from subsection 
+\ref{section_number_of_convolutions_experiment}, but the convolutional layers now have a stride of $1\times1$
 and the dimensionality reduction is done by pooling layers instead as visualized in the tables below. 
 Additionally the architecture $2$ from subsection \ref{section_number_of_filters} is tested 
 with similar modifications for comparison. The tests $1$ and $2$ refer to these architectures with max pooling
@@ -529,7 +530,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Notice that the loss is not the same
+        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
         as MAE since it additionally takes the Kullback-Leibler divergence into account.}
     \end{table} \label{table_maes4}
 \end{center}
@@ -591,7 +592,7 @@ is judged as the best for architecture $1$ of this subsection.
 \subsubsection{Best Architectures}
 
 The two architectures that came out as the best regarding visual fidelity and the MAE between inputs and 
-reconstructions are number $1$ from subsection \ref{section_number_of_convolutions_experiment} and that architecture
+reconstructions are number $1$ from subsection \ref{section_number_of_convolutions_experiment} and the architecture
 with max pooling. These are also the architectures presented in section \ref{architecture} that are used
 for the further experiments regarding the latent space. The following Figure \ref{figure_results_trained_on_all}
 shows the reconstructions of these architectures trained on the full training set of $178,112$ images instead
@@ -643,16 +644,16 @@ to an input image. The dimensionality reduction from the high dimensional latent
 is done via t-SNE as  explained in section \ref{section_understanding_latent_space}.
 
 After PCA and t-SNE is used to reduce the dimensions of the latent code to 2, the low dimensional representation can be
-plotted in a scatter plot. That way it becomes evident if the autoencoder has learned any distinct clusters.
+plotted in a scatter plot. This way it becomes evident if the autoencoder has learned any distinct clusters.
 To recap, every point in those plots is a low dimensional representation of a latent code that corresponds to
 a $128 \times 128$ section of an RGB satellite image. 
 Now the goal is to find out what features the learned clusters in the plots correspond to. For that purpose the
 semantic labeling and digital surface models \ref{datasets} are used. In the first type of plot the points
 are colored according to the most dominant class in the corresponding image. Those classes are building, vegetation,
 water, ground and clutter. In the second kind of plot the points have a gray value equal to the average pixel
-values in the digital surface models meaning that points for images, that have on average more heights, are brighter
+values in the digital surface models meaning that points for images that have on average more heights are brighter
 than points representing images with less heights.
-In a third type of plot the points are represented by the corresponding images themselves 
+In a third type of plot the points are represented by the corresponding images themselves.
 In those plots it can be observed if the clusters correlate to one of the visualized features which would mean that
 the autoencoder has learned to cluster that feature.
 

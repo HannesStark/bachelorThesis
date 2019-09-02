@@ -1,13 +1,13 @@
 \section{Related Work} \label{related_work_general_architecture}
 
 This section presents concrete insights from related literature that influenced the used methodology.
-It covers common practice about
+It covers common practices about
 hyper parameters and other choices for convolutional models as well as information about 
 generative models and explainability of neural networks.\\
 
 \textcite{2015-springenberg-striving}
 find that including pooling layers such as max pooling into a convolutional architecture does not 
-necessarily mean an improvement. When using a large enough network the invariances that should be
+necessarily lead to an improvement. When using a large enough network the invariances that should be
 introduced by pooling layers can also be learned in a network with convolutional layers only. Thus, in certain cases,
 convolutional layers with strides of two can be used to reduce dimensionality in a CNN instead of pooling layers
 which is why both options are explored in this work.
@@ -22,23 +22,23 @@ a scaled exponential linear unit (SELU) as activation function leads to self nor
 eliminate the problem of vanishing or exploding gradients. Additionally the authors prove superiority of SELU 
 over other normalization techniques in their benchmarks. 
 
-This is in line with the results of \textcite{2018-Pedamonti-comparison} reaching the conclusion that SELU leads
-to faster learning rates than other activation functions like ReLU or Leaky ReLU.\\
+This is in line with the results of \textcite{2018-Pedamonti-comparison} who reaches the conclusion that SELU leads
+to faster learning rates than other activation functions such as ReLU or Leaky ReLU.\\
 
 \textcite{2015-theis-generative}
 conclude that there are many difficulties in
 measuring the optimization and performance of generative models. A clear conclusion is that there is no 
-one fits all metric for the quality of models like variational autoencoders. While the intuitive evaluation
+"one-fits-all" metric for the quality of models like variational autoencoders. While the intuitive evaluation
 of visual results favors overfitted models, pure reliance on numerical measures is not appropriate when the
 goal is image synthesis. Overall the quality of evaluation measure is largely dependent on the application
 and goal.\\
 
 \textcite{2018-zhang-visual} analyze CNN's representations of input images in the hidden layers by constructing 
-visualizations that can be used to interpret which layers learns which features. This knowledge can be used to
+visualizations that can be used to interpret which layers learn which features. This knowledge can be used to
 detect inefficiencies in networks. Additionally the insights open possibilities for middle-to-end training
 networks where only little supervision is required to speed up the training process.
-The visualizations used to explain a layer for instance used the weights of the filters directly to understand
-the learned features. \textcite{2018-montavon-methods} on the other hand, altered the network inputs and observed 
+One way in which the visualizations were generated used the weights of the filters directly to understand
+the learned features. \textcite{2018-montavon-methods} on the other hand altered the network inputs and observed 
 the impact of the changes to deduce the information learned by the network.\\
 
 A problem with unsupervised clustering is that the learned clusters are often not attributed to high level input

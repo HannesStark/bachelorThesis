@@ -124,13 +124,14 @@ the latent space \ref{latent_space_experiments}. The described experiments regar
 evaluation can be found
 in section \ref{architecture_experiments}.
 
-The results were that a fully convolutional network without pooling performed the best. However, to inspect the 
+The results were that a fully convolutional network without pooling performed best. However, to inspect the 
 effects of pooling on the latent code an architecture with pooling is used as the second model in the latent space
-experiments. This model yields results that are only a little worse than the ones from the fully convolutional
+experiments. This model yields reconstructions that are only a little worse in terms of visual fidelity
+than the ones from the fully convolutional
 network but the training times were almost twice as long.\\
 
 The following are choices that apply to both architectures. The RGB input values between 0 and 255 are first 
-normalized. Each value is divided by $255$ which way there are only floats between $0$ and $1$.
+normalized. Each value is divided by $255$ which means that there are only floats between $0$ and $1$.
 The last deconvolutional layer in the decoder network (Figure \ref{figure_decoder}) uses the sigmoid activation
 function $S(x) = \frac{e^x}{e^x+1}$. This guarantees that the values in the output image are all 
 between $0$ and $1$ and can be interpreted as RGB values. 
@@ -184,8 +185,8 @@ output with the same dimensions as the input of the encoder.
 The used encoder with max pooling is depicted in Figure \ref{figure_encoder_pooling}. It contains three
 convolutional and three pooling layers with a pooling layer following every convolutional layer. The convolutional
 kernels have size $3\times3$ and the convolution is done with strides of one which means that they do not reduce
-height and width of their input. Instead each pooling layer quarters the dimension with a pooling window of size
-$2\times 2$. This produces and output of size $32\times16\times16$ that is processed further in the same way
+height and width of their input. Instead, each pooling layer quarters the dimension with a pooling window of size
+$2\times 2$. This produces an output of size $32\times16\times16$ that is processed further in the same way
 as in the fully convolutional encoder \ref{section_pure_convolutional_architecture}.
 The decoder is also equivalent to the one in the fully convolutional architecture.
 
