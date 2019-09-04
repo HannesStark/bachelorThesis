@@ -19,8 +19,8 @@ can be attributed to different high level input features like topographic classe
 common for the field of remote sensing. Visualizations are produced to gain insight
 and an understanding of the information captured in the latent space
 of the variational autoencoders. Moreover, it is observed how dierent architectural
-choices aect the reconstructions and the latent space. Code and
-the trained models to reproduce the experiments are publicly available here:
+choices aect the reconstructions and the latent space. Code 
+to reproduce the experiments is publicly available here:
 https://github.com/HannesStaerk/bachelorThesis.*
 
 
@@ -30,17 +30,6 @@ Every script like `Kernel3adjusted2x2x256.py` contains an architecture with an a
 coding size for the latent vector. The a `data_source_dir` with 128x128 images
 has to be specified and functions to train, to make predictions and generations and to
 create the t-SNE and PCA visualizations can be called.
-
-
-
-## Saved Weights
-
-The weights of all trained models can be found in the directory `savedModels`.
-These include the weights for the models that were trained on 3000 images
-for the experiments regarding the architecture and the quality of the reconstructions
-as well as the models trained on 178,112 images for the evaluation of the latent space.
-Each script can load the weights by uncommenting 
-`variational_ae.save_weights("./savedModels/" + file_tag + ".h5")`.
 
 
 ## Data

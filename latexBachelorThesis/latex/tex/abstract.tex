@@ -1,0 +1,26 @@
+\begin{abstract}
+    In computer vision, neural networks have been successfully employed to solve multiple tasks in 
+parallel in one model. The joint exploitation of related objectives can improve the performance
+of each individual task. 
+The architecture of these multi task models can be more complex since the networks branch into the atomic
+tasks at a certain depth. For this reason the process of designing such architectures
+often involves a lot of time consuming 
+trial-and-error. Therefore a more systematic taxonomy is desirable to replace this experimental process.
+For constructing this taxonomy it is necessary to have an understanding of the latent information 
+learned by specific layers of single task models.
+
+This work uses convolutional variational autoencoders to produce latent representations of 
+aerial images which are analyzed to understand the inner workings of the models.
+The method relies on testing whether or not learned clusters can be attributed to
+different high level input features like topographic classes common for the field
+of remote sensing. Visualizations are produced to gain insight and an understanding of the
+information captured in the latent space of the variational autoencoders.
+Moreover, it is observed how different architectural choices affect the reconstructions and the
+latent space.
+Code to reproduce the experiments is publicly available here:
+\href{https://github.com/HannesStaerk/bachelorThesis}{https://github.com/HannesStaerk/bachelorThesis}.
+\end{abstract}
+
+
+
+
