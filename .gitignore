@@ -5,7 +5,6 @@ Track1-RGB
 Track1-Truth
 test-RGB
 tf_logs
-savedModels
 VC
 *.log
 generatedImages
