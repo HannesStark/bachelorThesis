@@ -5,7 +5,6 @@
 
 %   document styles ------------------------------------------------------------
     \usepackage{latex/source/scientific}
-    
     \usepackage{latex/source/bibliography}
     \usepackage{latex/source/figures}
 
@@ -23,18 +22,23 @@
 %   content: -------------------------------------------------------------------
     \maketitle
     \input{latex/tex/abstract.tex}
+    \pagebreak
     \tableofcontents
+    \pagebreak
     \input{latex/tex/introduction.tex}
     \input{latex/tex/background.tex}
     \input{latex/tex/methodology.tex}
     \input{latex/tex/experiments.tex}
     \input{latex/tex/conclusionfuturework.tex}
 
+    \pagebreak
+    \input{latex/tex/erklaerung.tex}
+
 % bibliography ---------------------------------------------------------------
     \pagebreak % @formatting    
 
-    
-    \printbibliography[title=Literature, nottype=image]
-    \printbibliography[title=Images, type=image]
+
+    \printbibliography[title=Literature, nottype=misc]
+    \printbibliography[title=Images, type=misc]
     
 \end{document}

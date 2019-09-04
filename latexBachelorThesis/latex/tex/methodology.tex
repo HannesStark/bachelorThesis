@@ -170,7 +170,7 @@ the last convolutional layer, i. e. $32\times16\times16 = 8,192$. This flattened
 dense layers that produce the means and standard deviations with the chosen size of the latent code. The final step
 is to sample the latent code from the means and deviations.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/figures/encoder_neural_network.png}
     \caption{Encoder network architecture with an encoding size of 1024.
@@ -187,7 +187,7 @@ output vector to $32\times 16\times 16$ as the next step. After that three decon
 These deconvolutional layers are symmetrical to the convolutional layers in the first network resulting in an 
 output with the same dimensions as the input of the encoder. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/figures/decoder_neural_network.png}
     \caption{Decoder network architecture with an encoding size of 1024.

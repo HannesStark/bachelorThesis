@@ -10,12 +10,18 @@
         \usepackage[T1]{fontenc}
         \usepackage{adjustbox, caption, tabularx, ragged2e, longtable, ltxtable, etoolbox}
 
+        \usepackage{chngcntr}
+        \counterwithin{figure}{section}
         \usepackage{hyperref}
+
+        \usepackage{url}
+        \def\UrlBreaks{\do\/}
 
         \let\subsectionautorefname\sectionautorefname
 
         \let\subsubsectionautorefname\sectionautorefname
         \let\Figureautorefname\figureautorefname
+
 
 
         \usepackage{amsmath,amssymb,bm}

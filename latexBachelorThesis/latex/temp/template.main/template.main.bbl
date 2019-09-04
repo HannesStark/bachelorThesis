@@ -133,7 +133,7 @@
       \field{pages}{1524\bibrangedash 1532}
       \range{pages}{9}
     \endentry
-    \entry{2015-Chervinskii-autoencoder}{image}{}
+    \entry{2015-Chervinskii-autoencoder}{misc}{}
       \name{author}{1}{}{%
         {{hash=db86a178e8cdb5816adb7da5ff853297}{%
            family={Chervinskii},
@@ -151,11 +151,11 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (\url{http://creativecommons.org/licenses/by-sa/3.0/})]}
       \field{title}{Schematic picture of an autoencoder architecture}
       \field{year}{2015}
     \endentry
-    \entry{2005-chrislb-artificial-neuron}{image}{}
+    \entry{2005-chrislb-artificial-neuron}{misc}{}
       \name{author}{1}{}{%
         {{hash=c0a5747c199d2e51d4c9734b011ea01d}{%
            family={Chrislb},
@@ -173,7 +173,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (\url{http://creativecommons.org/licenses/by-sa/3.0/})]}
       \field{title}{Diagram of an artificial neuron.}
       \field{year}{2005}
     \endentry
@@ -232,7 +232,7 @@
       \field{year}{2017}
       \keyw{2017 book machine-learning oreilly tensorflow textbook}
     \endentry
-    \entry{2013-glosser-ann}{image}{}
+    \entry{2013-glosser-ann}{misc}{}
       \name{author}{1}{}{%
         {{hash=048c472d6a269e71e462431ed5482a7b}{%
            family={Glosser.ca},
@@ -250,7 +250,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]}
+      \field{note}{[CC BY-SA 3.0 (\url{http://creativecommons.org/licenses/by-sa/3.0/})]}
       \field{title}{Artificial neural network with layer coloring}
       \field{year}{2013}
     \endentry
@@ -815,7 +815,7 @@
       \field{type}{techreport}
       \field{year}{1995}
     \endentry
-    \entry{2019-schmitz-semantic}{article}{}
+    \entry{2019-schmitz-semantic}{unpublished}{}
       \name{author}{3}{}{%
         {{hash=6167c267873396617eba8e34cb26cf1e}{%
            family={Schmitz},

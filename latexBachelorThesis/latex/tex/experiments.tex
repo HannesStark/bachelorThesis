@@ -55,7 +55,7 @@ layers.
     \begin{table}[H] 
         \centering
         \begin{tabular}{ | c | l | c | }
-            \multicolumn{3}{c}{Encoder} \\ \hline
+            \hline
             Test &Layer & Output\\ \hline
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $8  $    & $64\times 64\times 8  $    \\  
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $    & $32\times 32\times 16 $    \\
@@ -78,7 +78,7 @@ layers.
     \begin{table}[H]
         \centering
         \begin{tabular}{ | c | l | c | }
-            \multicolumn{3}{c}{Decoder} \\ \hline
+            \hline
             Test &Layer & Output\\ \hline
             all &Dense                                                            & $1,024$                   \\
             all &Reshape                                                          & $2\times 2\times    256$  \\
@@ -98,8 +98,8 @@ layers.
     \end{table}
 \end{center}
 
-\paragraph{Results} \mbox{}\\
-
+\pagebreak
+\textbf{Results}
 \renewcommand{\thesubfigure}{\arabic{subfigure}}
 \begin{figure}[H]
     \centering
@@ -151,7 +151,7 @@ layers.
     \end{table}
 \end{center}
 
-
+\vspace{-2em}
 \begin{figure}[H] 
     \centering
     \begin{subfigure}[t]{.19\textwidth}
@@ -201,7 +201,7 @@ layers.
     training. The other columns show the reconstructions of the VAE test architectures.} \label{figure_reconstructions_1}
 \end{figure} 
 
-\paragraph{Discussion}
+\paragraph{Discussion} \mbox{} \\
 
 The learning curves in \autoref{figure_learning_curves_1} show a correlation between the MAE of the
 reconstructions and the number of convolutional and deconvolutional layers. The less layers the are the better
@@ -222,8 +222,7 @@ However, this increase in training time is negligible compared to the increase o
 This leads to the idea that increasing the number of filters, and therefore the size of the dense layers, could yield
 better results which is tested in the next section.
 
-
-
+\pagebreak
 \subsubsection{Number of Filters} \label{section_number_of_filters}
 
 The tables below describe test architectures in a similar way as the previous 
@@ -236,8 +235,8 @@ the last convolutional layer and the first deconvolutional layer is missing.
     \begin{table}[H]
         \centering
         \begin{tabular}{ | c | l | c | }
-            \multicolumn{3}{c}{Encoder} \\ \hline
-            Include &Layer & Output\\ \hline
+            \hline
+            Test &Layer & Output\\ \hline
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $    & $64\times 64\times 16 $    \\  
             1   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $    & $32\times 32\times 32 $    \\
             2   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $    & $16\times 16\times 64 $    \\
@@ -258,8 +257,8 @@ the last convolutional layer and the first deconvolutional layer is missing.
     \begin{table}[H]
         \centering
         \begin{tabular}{ | c | l | c | }
-            \multicolumn{3}{c}{Decoder} \\ \hline
-            Include &Layer & Output\\ \hline
+            \hline
+            Test &Layer & Output\\ \hline
             all &Dense                                                            & $2,048$                   \\
             all &Reshape                                                          & $4\times 4\times    256$  \\
             4   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $128$      & $8\times 8\times    128$  \\
@@ -277,7 +276,9 @@ the last convolutional layer and the first deconvolutional layer is missing.
     \end{table}
 \end{center}
 
-\paragraph{Results} \mbox{}\\
+
+\pagebreak
+\textbf{Results}
 
 
 \begin{figure}[H]
@@ -330,6 +331,8 @@ the last convolutional layer and the first deconvolutional layer is missing.
     \end{table} 
 \end{center}
 
+
+\vspace{-2em}
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{.19\textwidth}
@@ -379,7 +382,7 @@ the last convolutional layer and the first deconvolutional layer is missing.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
-\paragraph{Discussion}
+\paragraph{Discussion} \mbox{} \\
 
 The trend of less layers correlating with better results does not hold up for the experiments in this subsection when
 observing the MAEs in \autoref{table_maes2}. However, the MAEs of the last epoch are not as crucial as in the 
@@ -388,6 +391,7 @@ comparison to the previous subsection. Still the best MAE of the previous archit
 these tests while also taking less than half as long to train and having more realistic looking reconstructions.
 
 
+\pagebreak
 \subsubsection{Kernel Size}
 
 In this subsection the two architectures $1$ and $3$, now called $1$ and $2$,
@@ -395,7 +399,7 @@ of the \autoref{section_number_of_convolutions_experiment}
 are tested with a kernel size of $5\times 5$ instead of $3\times 3$. These architectures are chosen since architecture
 $1$ performed the best so far and a second one is chosen for comparison. 
 
-\paragraph{Results} \mbox{}\\
+\paragraph{Results}
 
 \begin{figure}[H]
     \centering
@@ -433,6 +437,7 @@ $1$ performed the best so far and a second one is chosen for comparison.
     \end{table} 
 \end{center}
 
+\vspace{-2em}
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{.19\textwidth}
@@ -464,13 +469,14 @@ $1$ performed the best so far and a second one is chosen for comparison.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
-\paragraph{Discussion}
+\paragraph{Discussion} \mbox{} \\
 
 
 The architecture, which had more realistic reconstructions previously, still performs best with the increased
 kernel size. However, the reconstructions are all less realistic looking than the ones produced by the 
 test architectures with a lower kernel size.
 
+\pagebreak
 \subsubsection{Pooling}
 
 This subsection again tests the so far best performing architecture, number $1$ from  
@@ -487,7 +493,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
     \begin{table}[H] 
         \centering
         \begin{tabular}{ | l | c | }
-            \multicolumn{2}{c}{Encoder} \\ \hline
+            \hline
             Layer & Output\\ \hline
             Conv: Kernel $3\times3$, Stride $1\times1$, Filters $8  $    & $128\times 128\times 8  $    \\
             Pool: Pool size $2\times2$                                   & $64\times 64\times 8  $  \\
@@ -507,7 +513,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
     \begin{table}[H]
         \centering
         \begin{tabular}{ | l | c | }
-            \multicolumn{2}{c}{Decoder} \\ \hline
+            \hline
             Layer & Output\\ \hline
             Dense                                                            & $1,024$                   \\
             Reshape                                                          & $16\times 16\times  32 $  \\
@@ -520,7 +526,9 @@ while $3$ and $4$ refer to the architectures with average pooling.
     \end{table}
 \end{center}
 
-\paragraph{Results} \mbox{}\\
+
+\pagebreak
+\textbf{Results}
 
 \begin{figure}[H]
     \centering
@@ -572,6 +580,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
     \end{table} 
 \end{center}
 
+\vspace{-2em}
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{.19\textwidth}
@@ -621,7 +630,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
-\paragraph{Discussion}
+\paragraph{Discussion} \mbox{} \\
 
 
 Regarding the results in Table \autoref{table_maes4} it could be argued that pooling just led to worse results with
