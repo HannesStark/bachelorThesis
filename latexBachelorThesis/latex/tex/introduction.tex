@@ -1,42 +1,42 @@
 \section{Introduction}
 
-Semantic Segmentation, i.e. pixelwise classification, has seen good results using convolutional neural networks
-(CNNs). Different approaches for designing these CNNs have been published such as adapting known image classification
+Convolutional neural networks (CNNs) have achieved impressive results in solving the single
+task of semantic segmentation, 
+i.e. pixelwise classification. 
+Different approaches for designing these CNNs have been published such as adapting known image classification
 architectures and fine-tuning them for semantic segmentation \parencite{2017-shelhamer-fully} or directly
 constructing architectures trained for semantic segmentation only \parencite{2016-jegou-the}.\\
 
-Other authors have researched multi-task learning \parencite{2018-kendall-multi} where a single CNN is trained
+Other authors have researched multi task learning \parencite{2018-kendall-multi} where a single CNN is trained
 for multiple tasks in parallel. This should improve generalization and increase processing efficiency since multiple
 problems are solved simultaneously and the CNNs attention can be steered into a correct direction.
-Multi task learning and additional height input has also been the topic in further research observing the impact
-of fused height data on semantic segmentation of aerial images \parencite{2019-schmitz-semantic}. The authors found
+The tasks for which this has been tested include semantic segmentation and depth estimation.
+Multi task learning has also been the topic in further research observing its impact
+on semantic segmentation of aerial images \parencite{2019-schmitz-semantic}. The authors found
 no significant improvement in the results neither by using the height information as additional input nor by defining
 an additional task which leads to the assumption that the used CNN already learns the height and its meaning with only
 images as input. \\
 
-However, different authors have shown that multi-task models, with specifically weighted loss functions for each task,
-can outperform models trained for each problem individually \parencite{2018-kendall-multi}. 
-The tasks for which this was shown included semantic segmentation and depth estimation which are 
-related to semantic segmentation in airborne
-images with height estimation.
+
+
 
 While multiple researchers, like \textcite{2019-schmitz-semantic}, often relied on testing many different educated 
 guesses for
 how to design multi-task models, there have already been proposals where a branched network
 is constructed automatically based on a relatedness measure between tasks \parencite{2019-vandenhende-branched}.\\
 
-It is clear that a more systematic approach is necessary to eliminate the time consuming process of testing 
-the many different possibilities of multi-task architectures. A multi-task taxonomy, with information on which tasks
-should be processed in parallel and what the corresponding architecture should be, would serve that purpose.
-This is where this thesis comes into play since the construction of such a taxonomy requires an understanding
-of the latent information learned in the different layers of single task models. Insight into which layer
-learns which features opens possibilities to determine at which depth a multi-task model should branch
+It is expected that a more systematic approach is helpful to eliminate the time consuming process of testing 
+the many different possibilities of multi-task architectures. A multi-task taxonomy, with information about
+the relatedness of tasks and which tasks can be processed in parallel, will serve that purpose.
+This issue is addressed in this work since the construction of such a taxonomy requires an understanding
+of the latent information learned in the different layers of single task models. Knowledge about the
+features learned by each layer
+opens possibilities to determine at which depth a multi-task model optimally branches
 into the atomic tasks. 
 For this purpose a variational autoencoder is trained to generate continuous latent representations of aerial images.
 Then the latent space of the variational autoencoder is analyzed regarding its clustering of different
 features such as topographic classes which are common for remote sensing like vegetation or buildings.
-The underlying hope is that 
-the methods used for understanding the latent space and the performed unsupervised clustering can also be
+The underlying expectation is that the used methods can also be
 employed to decipher the latent information learned in the hidden layers of different single task models. 
 This is a necessary step towards a multi-task taxonomy that can decide at which layer a multi-task model
 should split into the atomic tasks.

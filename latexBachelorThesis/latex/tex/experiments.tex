@@ -3,15 +3,27 @@
 This sections contains experiments regarding the architecture of the variational autoencoder (VAE)
 and the quality of the latent space. The experiments use the test and validation data of the RGB
 imagery as well as the ground truth semantic labeling and the digital surface models as described in
-\ref{datasets}.
+\autoref{datasets}.
 
 \subsection{Variational Autoencoder Architecture} \label{architecture_experiments}
 
 The experiments presented in this subsection determine the architecture that is used for the further
 experiments regarding the latent space in the next subsection. All the tested VAE architectures have 
-latent code of the size $1024$ and are trained with a batch size of $128$, $3000$ images over $50$ epochs.
-This is done on the personal computer described in section \ref{hardware}.
-The quality of the VAEs is on the one hand measured by the mean absolute error (MAE)
+latent code of the size $1024$ and are trained with $3000$ images over $50$ epochs.
+The chosen batch size is $128$ which is base on the results of \textcite{2016-mishkin-systematic} who have analyzed
+the impact of multiple learning parameter and architecture choices on the performance of convolutional neural networks.
+One conclusion they reach is the suggestion to use batch sizes around 128 or 256.
+The training here is done on the personal computer described in \autoref{hardware}.
+
+
+Regarding the evaluation of the experiments it is interesting how \textcite{2015-theis-generative}
+conclude that there are many difficulties in
+measuring the optimization and performance of generative models. They find that there is no 
+"one-fits-all" metric for the quality of models like variational autoencoders. While the intuitive evaluation
+of visual results favors overfitted models, pure reliance on numerical measures is not appropriate when the
+goal is image synthesis. Overall the quality of evaluation measure is largely dependent on the application
+and goal.
+Therefore the performance of the VAEs is on the one hand measured by the mean absolute error (MAE)
 between the reconstruction and the input image.
 On the other hand it is judged by the subjective opinion of how realistic the reconstructions look and how well
 the semantic contents were recreated. This is the case since the MAE 
@@ -22,7 +34,7 @@ input. Clearly the inverted image is a much better reconstruction of the input t
 additionally judging the results via a visual inspection is necessary.
 
 The VAE architecture descriptions all cover an encoder up to a one dimensional tensor that is fed into two dense
-layers which create the means and standard deviations as explained in section \ref{architecture}. Since these two
+layers which create the means and standard deviations as explained in \autoref{architecture}. Since these two
 dense layers, the resampling and the dimension of the latent code is the same for every architecture the following
 specifications of encoders do not include these features for brevity.
 The inputs for every encoder are $128\times 128$ RGB images, i.e. $128\times 128\times 3$ images. The inputs
@@ -37,8 +49,10 @@ described in the tables caption. This means that the test architecture $4$ has $
 $6$ deconvolutional layers while test $1$ has only $3$ convolutional and $3$ deconvolutional
 layers.
 
+\paragraph{Experiment Architectures}
+
 \begin{center}
-    \begin{table}[H] \label{table_encoder_num_conv}
+    \begin{table}[H] 
         \centering
         \begin{tabular}{ | c | l | c | }
             \multicolumn{3}{c}{Encoder} \\ \hline
@@ -56,7 +70,7 @@ layers.
         the means and standard deviations for the latent code. Test $x$ only contains the layers up to
         the layer with $x$ in the \textit{Test} column and the layers with \textit{all}.
         The output of the \textit{Flatten} layer
-        varies depending on the test.}
+        varies depending on the test.} \label{table_encoder_num_conv}
     \end{table}
 \end{center}
 \vspace{-4em}
@@ -83,6 +97,8 @@ layers.
         layers vary depending on the test.}
     \end{table}
 \end{center}
+
+\paragraph{Results} \mbox{}\\
 
 \renewcommand{\thesubfigure}{\arabic{subfigure}}
 \begin{figure}[H]
@@ -112,8 +128,9 @@ layers.
         \caption{}
     \end{subfigure}
     \caption{There is a graph for each test architecture.
-    Each graph depicts the mean MAEs between input and reconstructions across all iterations in an epoch of training.}
-\end{figure} \label{figure_learning_curves_1}
+    Each graph depicts the mean MAEs between input and reconstructions across all iterations in an epoch of training.} 
+    \label{figure_learning_curves_1}
+\end{figure} 
 
 \begin{center}
     \begin{table}[H]
@@ -129,9 +146,9 @@ layers.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as specified in section \ref{hardware}. Note that the loss is not the same
-        as MAE since it additionally takes the Kullback-Leibler divergence into account.}
-    \end{table} \label{table_mae_1}
+        on the personal computer as specified in \autoref{hardware}. Note that the loss is not the same
+        as MAE since it additionally takes the Kullback-Leibler divergence into account.}  \label{table_mae_1}
+    \end{table}
 \end{center}
 
 
@@ -181,13 +198,15 @@ layers.
         \caption{}
     \end{subfigure}
     \caption{The left column shows original images taken from a validation set that the VAE has not seen during
-    training. The other columns show the reconstructions of the VAE test architectures.}
-\end{figure} \label{figure_reconstructions_1}
+    training. The other columns show the reconstructions of the VAE test architectures.} \label{figure_reconstructions_1}
+\end{figure} 
 
-The learning curves in Figure \ref{figure_learning_curves_1} show a correlation between the MAE of the
+\paragraph{Discussion}
+
+The learning curves in \autoref{figure_learning_curves_1} show a correlation between the MAE of the
 reconstructions and the number of convolutional and deconvolutional layers. The less layers the are the better
-the learning curve is which is in line with the visual fidelity of the reconstructions in Figure 
-\ref{figure_reconstructions_1}. The reconstructions of the VAE with the least layers are the sharpest and the 
+the learning curve is which is in line with the visual fidelity of the reconstructions in 
+\autoref{figure_reconstructions_1}. The reconstructions of the VAE with the least layers are the sharpest and the 
 more layers the VAE has the blurrier the reconstructions are. 
 
 A possible reason for this behavior is that the number of weights in the two dense layers between the 
@@ -197,7 +216,7 @@ value in the last convolutional layer there are $1,024$ additional weights in th
 since $1,024$ is the size of the latent code. For example architecture $4$ only has $3,935,651$ weights while
 architecture $3$, with one convolutional and deconvolutional layer less, has $6,492,192$ total weights.
 The weights in the dense layers make up most of the total weights
-and the higher amount of weights also leads to longer training times as it can be seen in Table \ref{table_mae_1}.
+and the higher amount of weights also leads to longer training times as it can be seen in \autoref{table_mae_1}.
 However, this increase in training time is negligible compared to the increase of the quality of the reconstructions. 
 
 This leads to the idea that increasing the number of filters, and therefore the size of the dense layers, could yield
@@ -207,9 +226,11 @@ better results which is tested in the next section.
 
 \subsubsection{Number of Filters} \label{section_number_of_filters}
 
-The tables below describe test architectures in a similar way as the previous subsection 
-\ref{section_number_of_convolutions_experiment}. The differences here are that the number of filters is doubled and
+The tables below describe test architectures in a similar way as the previous 
+\autoref{section_number_of_convolutions_experiment}. The differences here are that the number of filters is doubled and
 the last convolutional layer and the first deconvolutional layer is missing.
+
+\paragraph{Experiment Architectures}
 
 \begin{center}
     \begin{table}[H]
@@ -256,6 +277,7 @@ the last convolutional layer and the first deconvolutional layer is missing.
     \end{table}
 \end{center}
 
+\paragraph{Results} \mbox{}\\
 
 
 \begin{figure}[H]
@@ -285,8 +307,9 @@ the last convolutional layer and the first deconvolutional layer is missing.
         \caption{}
     \end{subfigure}
     \caption{There is a graph for each test architecture.
-    Each graph depicts the mean MAEs between input and reconstructions across all iterations in an epoch of training.}
-\end{figure} \label{figure_learning_curves2}
+    Each graph depicts the mean MAEs between input and reconstructions 
+    across all iterations in an epoch of training.} \label{figure_learning_curves2}
+\end{figure} 
 
 \begin{center}
     \begin{table}[H]
@@ -302,9 +325,9 @@ the last convolutional layer and the first deconvolutional layer is missing.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
-        as MAE since it additionally takes the Kullback-Leibler divergence into account.}
-    \end{table} \label{table_maes2}
+        on the personal computer as described in \autoref{hardware}. Note that the loss is not the same
+        as MAE since it additionally takes the Kullback-Leibler divergence into account.} \label{table_maes2}
+    \end{table} 
 \end{center}
 
 \begin{figure}[H]
@@ -356,19 +379,23 @@ the last convolutional layer and the first deconvolutional layer is missing.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
+\paragraph{Discussion}
+
 The trend of less layers correlating with better results does not hold up for the experiments in this subsection when
-observing the MAEs in Table \ref{table_maes2}. However, the MAEs of the last epoch are not as crucial as in the 
-previous subsection since the learning curves in Figure \ref{figure_learning_curves2} show a lot of variance in 
+observing the MAEs in \autoref{table_maes2}. However, the MAEs of the last epoch are not as crucial as in the 
+previous subsection since the learning curves in \autoref{figure_learning_curves2} show a lot of variance in 
 comparison to the previous subsection. Still the best MAE of the previous architectures beats all results of 
-these tests while also taking less than halve as long to train and having more realistic looking reconstructions.
+these tests while also taking less than half as long to train and having more realistic looking reconstructions.
 
 
 \subsubsection{Kernel Size}
 
 In this subsection the two architectures $1$ and $3$, now called $1$ and $2$,
-of the subsection \ref{section_number_of_convolutions_experiment}
+of the \autoref{section_number_of_convolutions_experiment}
 are tested with a kernel size of $5\times 5$ instead of $3\times 3$. These architectures are chosen since architecture
 $1$ performed the best so far and a second one is chosen for comparison. 
+
+\paragraph{Results} \mbox{}\\
 
 \begin{figure}[H]
     \centering
@@ -385,8 +412,9 @@ $1$ performed the best so far and a second one is chosen for comparison.
         \caption{}
     \end{subfigure}
     \caption{There is a graph for each test architecture.
-    Each graph depicts the mean MAEs between input and reconstructions across all iterations in an epoch of training.}
-\end{figure} \label{figure_learning_curves3}
+    Each graph depicts the mean MAEs between input and reconstructions across all 
+    iterations in an epoch of training.} \label{figure_learning_curves3}
+\end{figure} 
 
 \begin{center}
     \begin{table}[H]
@@ -400,9 +428,9 @@ $1$ performed the best so far and a second one is chosen for comparison.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
-        as MAE since it additionally takes the Kullback-Leibler divergence into account.}
-    \end{table} \label{table_maes3}
+        on the personal computer as described in \autoref{hardware}. Note that the loss is not the same
+        as MAE since it additionally takes the Kullback-Leibler divergence into account.} \label{table_maes3}
+    \end{table} 
 \end{center}
 
 \begin{figure}[H]
@@ -436,21 +464,27 @@ $1$ performed the best so far and a second one is chosen for comparison.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
+\paragraph{Discussion}
+
+
 The architecture, which had more realistic reconstructions previously, still performs best with the increased
 kernel size. However, the reconstructions are all less realistic looking than the ones produced by the 
 test architectures with a lower kernel size.
 
 \subsubsection{Pooling}
 
-This subsection again tests the so far best performing architecture, number $1$ from subsection 
-\ref{section_number_of_convolutions_experiment}, but the convolutional layers now have a stride of $1\times1$
+This subsection again tests the so far best performing architecture, number $1$ from  
+\autoref{section_number_of_convolutions_experiment}, but the convolutional layers now have a stride of $1\times1$
 and the dimensionality reduction is done by pooling layers instead as visualized in the tables below. 
-Additionally the architecture $2$ from subsection \ref{section_number_of_filters} is tested 
+Additionally the architecture $2$ from \autoref{section_number_of_filters} is tested 
 with similar modifications for comparison. The tests $1$ and $2$ refer to these architectures with max pooling
 while $3$ and $4$ refer to the architectures with average pooling.
 
+
+\paragraph{Experiment Architectures}
+
 \begin{center}
-    \begin{table}[H] \label{table_encoder_pooling}
+    \begin{table}[H] 
         \centering
         \begin{tabular}{ | l | c | }
             \multicolumn{2}{c}{Encoder} \\ \hline
@@ -465,7 +499,7 @@ while $3$ and $4$ refer to the architectures with average pooling.
             \hline
         \end{tabular} 
         \caption{The layers of the encoder of test $1$ up to the vector that the two dense layers use to produce 
-        the means and standard deviations for the latent code.}
+        the means and standard deviations for the latent code.} \label{table_encoder_pooling}
     \end{table}
 \end{center}
 \vspace{-4em}
@@ -485,6 +519,8 @@ while $3$ and $4$ refer to the architectures with average pooling.
         \caption{The layers of the decoder of test $1$.}
     \end{table}
 \end{center}
+
+\paragraph{Results} \mbox{}\\
 
 \begin{figure}[H]
     \centering
@@ -513,8 +549,9 @@ while $3$ and $4$ refer to the architectures with average pooling.
         \caption{}
     \end{subfigure}
     \caption{There is a graph for each test architecture.
-    Each graph depicts the mean MAEs between input and reconstructions across all iterations in an epoch of training.}
-\end{figure} \label{figure_learning_curves4}
+    Each graph depicts the mean MAEs between input and reconstructions across 
+    all iterations in an epoch of training.} \label{figure_learning_curves4}
+\end{figure} 
 
 \begin{center}
     \begin{table}[H]
@@ -530,9 +567,9 @@ while $3$ and $4$ refer to the architectures with average pooling.
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
         epoch, the mean loss across all iterations of the last epoch and the time it took to train the model
-        on the personal computer as described in section \ref{hardware}. Note that the loss is not the same
-        as MAE since it additionally takes the Kullback-Leibler divergence into account.}
-    \end{table} \label{table_maes4}
+        on the personal computer as described in \autoref{hardware}. Note that the loss is not the same
+        as MAE since it additionally takes the Kullback-Leibler divergence into account.} \label{table_maes4}
+    \end{table} 
 \end{center}
 
 \begin{figure}[H]
@@ -584,7 +621,10 @@ while $3$ and $4$ refer to the architectures with average pooling.
     training. The other columns show the reconstructions of the VAE test architectures.}
 \end{figure}
 
-Regarding the results in Table \ref{table_maes4} it could be argued that pooling just led to worse results with
+\paragraph{Discussion}
+
+
+Regarding the results in Table \autoref{table_maes4} it could be argued that pooling just led to worse results with
 MAEs that are a bit worse and training times that are far longer. However, the visual fidelity of the recreations
 is judged as the best for architecture $1$ of this subsection.
 
@@ -592,9 +632,9 @@ is judged as the best for architecture $1$ of this subsection.
 \subsubsection{Best Architectures}
 
 The two architectures that came out as the best regarding visual fidelity and the MAE between inputs and 
-reconstructions are number $1$ from subsection \ref{section_number_of_convolutions_experiment} and the architecture
-with max pooling. These are also the architectures presented in section \ref{architecture} that are used
-for the further experiments regarding the latent space. The following Figure \ref{figure_results_trained_on_all}
+reconstructions are number $1$ from \autoref{section_number_of_convolutions_experiment} and the architecture
+with max pooling. These are also the architectures presented in \autoref{architecture} that are used
+for the further experiments regarding the latent space. The following \autoref{figure_results_trained_on_all}
 shows the reconstructions of these architectures trained on the full training set of $178,112$ images instead
 of just $3000$ images. The size of the latent code is $1,024$ again.
 
@@ -631,24 +671,22 @@ while the pooling architecture creates more blur than the fully convolutional ar
     \end{subfigure}
     \caption{The left column shows original images taken from a validation set that the VAE has not seen during
     training. Column $(a)$ shows the reconstructions of the fully convolutional VAE while column $(b)$ 
-    depicts the reconstructions of the max pooling architecture.}
-\end{figure} \label{figure_results_trained_on_all}
-
-
-%TODO in the images above column b is still wrong and needs to be replaced with the actual images  
+    depicts the reconstructions of the max pooling architecture.} \label{figure_results_trained_on_all}
+\end{figure} 
+ 
 
 \subsection{Latent Space} \label{latent_space_experiments}
 
 The results below visualize two dimensional data points that represent a latent code which then again corresponds
 to an input image. The dimensionality reduction from the high dimensional latent space to two dimensional space
-is done via t-SNE as  explained in section \ref{section_understanding_latent_space}.
+is done via t-SNE as  explained in \autoref{section_understanding_latent_space}.
 
 After PCA and t-SNE is used to reduce the dimensions of the latent code to 2, the low dimensional representation can be
 plotted in a scatter plot. This way it becomes evident if the autoencoder has learned any distinct clusters.
 To recap, every point in those plots is a low dimensional representation of a latent code that corresponds to
 a $128 \times 128$ section of an RGB satellite image. 
 Now the goal is to find out what features the learned clusters in the plots correspond to. For that purpose the
-semantic labeling and digital surface models \ref{datasets} are used. In the first type of plot the points
+semantic labeling and digital surface models, \autoref{datasets}, are used. In the first type of plot the points
 are colored according to the most dominant class in the corresponding image. Those classes are building, vegetation,
 water, ground and clutter. In the second kind of plot the points have a gray value equal to the average pixel
 values in the digital surface models meaning that points for images that have on average more heights are brighter
@@ -714,8 +752,8 @@ distinguishing by height up to the latent layer.
     \caption{PCA results in the top row. 
     T-SNE results in the bottom row. 
     The coloring corresponds to the predominant classes in the input images with green for vegetation, 
-    grey for ground, blue for water, red for buildings and yellow for clutter.}
-\end{figure} \label{figure_classes_convolutional}
+    grey for ground, blue for water, red for buildings and yellow for clutter.} \label{figure_classes_convolutional}
+\end{figure} 
 
 \begin{figure}[H]
     \centering
@@ -758,13 +796,13 @@ distinguishing by height up to the latent layer.
     \caption{PCA results in the top row. 
     T-SNE results in the bottom row.  
     The coloring corresponds to the average of the height values in the digital surface model for the
-    input image. Darker points represent a higher average height.}
-\end{figure} \label{figure_heights_convolutional}
+    input image. Darker points represent a higher average height.} \label{figure_heights_convolutional}
+\end{figure}
 
 The figure below only features the results of t-SNE since the PCA visualizations offer no additional insights.
 The most obvious of those insights is that the learned clusters correspond to the average color of the images.
 While this is rather easy to learn a closer inspection of the clusters show that the VAE has also learned far
-more complicated features which can be seen in Figure \ref{figure_closer_clusters}. The VAEs also seem to
+more complicated features which can be seen in \autoref{figure_closer_clusters}. The VAEs also seem to
 cluster by the direction of edges and higher level features like types of roads with images of different sections
 of the same road always being in the same cluster.\\
 
@@ -778,8 +816,8 @@ If the improved visualization is the result of the learning behavior of the VAE
 it means that there is a tradeoff between a more interpretable latent space with 
 good clustering and the reconstruction quality. This is the case because a smaller latent dimension 
 means worse reconstructions
-since the VAE has to fit the same information into a smaller vector. This can also be seen in Figure
-\ref{figure_reconstructions_convolutional}.
+since the VAE has to fit the same information into a smaller vector. This can also be seen in
+\autoref{figure_reconstructions_convolutional}.
 
 \begin{figure}[H]
     \centering
@@ -804,8 +842,8 @@ since the VAE has to fit the same information into a smaller vector. This can al
         \caption{Code size: $50$}
     \end{subfigure}
     \caption{Two dimensional output points of t-SNE of $4000$ latent codes. The points are represented by the input
-    images that produced the latent code corresponding to the two dimensional representation.} 
-    \label{figure_images_convolutional_tsne}
+    images that produced the latent code corresponding 
+    to the two dimensional representation.} \label{figure_images_convolutional_tsne}
 \end{figure} 
 
 \begin{figure}[H]
@@ -895,8 +933,8 @@ The hypothesis is that the invariances introduced by the pooling layers force th
 features than the fully convolutional architecture. However, this does not seem to be the case since the 
 figures below show almost exactly the same results as the fully convolutional
 VAE in the previous subsection. This means that the tested pooling architecture offers no advantages with the
-quality of the latent space being equal while producing worse reconstructions as it was seen in Section 
-\ref{architecture_experiments}. The convolutional VAE seems to implicitly learn the invariances introduced by
+quality of the latent space being equal while producing worse reconstructions as it was seen in 
+\autoref{architecture_experiments}. The convolutional VAE seems to implicitly learn the invariances introduced by
 the pooling layers.
 
 \begin{figure}[H]
@@ -940,8 +978,8 @@ the pooling layers.
     \caption{ PCA results in the top row. 
     T-SNE results in the bottom row. 
     The coloring represents the predominant class in the input with green for vegetation, 
-    grey for ground, blue for water, red for buildings and yellow for clutter.}
-\end{figure} \label{figure_classes_pooling}
+    grey for ground, blue for water, red for buildings and yellow for clutter.} \label{figure_classes_pooling}
+\end{figure} 
 
 \begin{figure}[H]
     \centering
@@ -984,8 +1022,8 @@ the pooling layers.
     \caption{PCA results in the top row. 
     T-SNE results in the bottom row. 
     The coloring corresponds to the average of the height values in the digital surface model for the
-    input image. Darker points represent a higher average height.}
-\end{figure} \label{figure_heights_pooling}
+    input image. Darker points represent a higher average height.} \label{figure_heights_pooling}
+\end{figure}
 
 
 \begin{figure}[H]
@@ -1012,4 +1050,5 @@ the pooling layers.
     \end{subfigure}
     \caption{Two dimensional output points of t-SNE of $4000$ latent codes. The points are represented by the input
     images that produced the latent code corresponding to the two dimensional representation.}
-\end{figure} \label{figure_images_pooling_PCA}
+    \label{figure_images_pooling_PCA}
+\end{figure} 

@@ -55,7 +55,7 @@ However, in practice most of the time
 deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}.
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
-in Figure \ref{figure_fully_connected_nn}.
+in \autoref{figure_fully_connected_nn}.
 
 \begin{figure}[ht] 
     \centering
@@ -111,7 +111,7 @@ the same input space leading to the ability to extract multiple features that ca
 further in the following layer. The amount of neurons with the same input space is referred to as
 the number of filters since each one of those neurons has its own filter with its respective
 weights and all those filters are applied to the same piece of the input. This is visualized in
-Figure \ref{figure_cnn_filter}.
+\autoref{figure_cnn_filter}.
 
 \begin{figure}[h]
     \centering
@@ -124,7 +124,7 @@ Figure \ref{figure_cnn_filter}.
 
 Instead of having a kernel in each possible area of the input there can also be a distance between
 each kernel which is called stride. This can be used to decrease the dimensionality of the output
-of a layer. For example with strides of 2 the output dimensions are halve that of the input
+of a layer. For example with strides of 2 the output dimensions are half as as long as the input
 dimensions.
 
 \paragraph{Pooling}
@@ -136,6 +136,8 @@ the inputs \parencite{2016-goodfellow-deep} which is most of the time desired si
 learn features instead of exact pixel locations. Many popular CNN architectures like 
 AlexNet \parencite{2012-krizhevsky-imagenet} use pooling layers between the convolutional layers.
 In these CNNs the pooling layers are also often used to reduce the dimension of the layers.
+
+
 
 
 \subsection{Autoencoders}
@@ -153,7 +155,7 @@ One common constraint for autoencoders is choosing a dimension for the latent co
 than the dimension of the input. This means that the encoder is forced to learn to extract only the
 most important features from the input and the latent code is a representation of those most
 important features in a lower dimensionality than the input. Such an autoencoder, called
-undercomplete autoencoder, is visualized in Figure \ref{figure_undercomplete_ae}.
+undercomplete autoencoder, is visualized in \autoref{figure_undercomplete_ae}.
 
 \begin{figure}[h]
     \centering
@@ -167,16 +169,55 @@ Undercomplete autoencoders can be used for pretraining by taking the trained enc
 learned the most important features of the input and using it for the actual desired task like 
 classification. Another obvious application would be dimensionality reduction.
 
+
+\subsection{Variational Autoencoders} \label{vae_background}
+
+Standard autoencoders are fairly limited in their generative capabilities or in their capabilities
+to interpolate in the latent space and the problem lies
+in their latent code. For generation tasks a random latent code $z$ is sampled from the space of
+possible latent codes. But with a standard autoencoder this space of possible latent codes is most
+likely not continuous and chances are high that the sampled $z$ is intuitively speaking
+from a gap in the latent space that the decoder has not been trained for. Therefore it will not
+produce realistic outputs. This discontinuous latent space also means that interpolation in it
+does not work well.
+
+To solve this in a variational autoencoder the encoder does not produce discrete values but rather
+probability distributions $p_{i}$ by generating two vectors of the same size as $z$ where one vector $\mu$
+contains means and the other vector $\sigma$ contains standard deviations.
+Then each $z_{i}$ is determined by sampling it from $p_{i}=N(\mu_{i},\sigma_{i})$.
+As a result the decoder is forced to not 
+only just learn how to decode single, discrete latent codes but also the possible variations
+introduced by the random sampling. This leads to the desired continuous decodable latent space.
+However, the encoder could still produce $\sigma$ sigma that are very small and $\mu$ that are far apart.
+To prevent this the encoder is forced to produce distributions that are similar to a normal
+distribution with standard deviation 1 and mean 0 by adding a second loss function next to the
+loss $L(x,x')$ between the input and output.
+
+For this purpose a measure for the
+difference between two probability distributions is necessary. This measure can be used as the second loss
+function for the variational autoencoder that should now also minimize the difference
+between the output distribution and $N(0,1)$.
+
+To achieve the goal of generating new content that is similar to the input that the variational 
+autoencoder was trained with, one can sample each component for a latent code from $N(0,1)$ and
+use it as the input for the decoder.
+Also smooth interpolation in the latent space is possible leading to possibilities for combining
+content in interesting ways.
+
+Further details about variational autoencoders can be found here \parencite{2016-doersch-tutorial}.
+
 \subsection{Kullback-Leibler Divergence} \label{KL-Divergence}
 
 \subsubsection{Entropy}
 
-A part of the loss function used in the variational autoencoder is based on Kullback-Leibler divergence.
+The previous \autoref{vae_background} mentioned the necessity of a measure for the difference between
+two probability distributions that can be used as additional loss function in variational autoencoders.
+Kullback-Leibler divergence serves this purpose and ist used in this context.
 To understand Kullback-Leibler divergence it seems necessary to explain entropy from
 the field of information theory. In short, entropy is a measure for the minimum average size an
 encoding for a piece of information can possibly have.
 
-Suppose there is a system $S1$ that can have four different states $a, b, c, d$
+Suppose there is a system $S_1$ that can have four different states $a, b, c, d$
 and every one of those states is equally likely to occur, that means the probability $P(x)$
 of each state $x$ is $1/4$. Now the goal is to losslessly transmit all information about that system
 with the minimum average amount of bits. That can be done with only two bits for example like this
@@ -188,8 +229,8 @@ with the minimum average amount of bits. That can be done with only two bits for
 \end{center}
 
 However, if $P(a)=1$ and $P(b)=P(c)=P(d)=0,$ zero bits will suffice to encode the information since
-it is always certain that the system is in state a. So the entropy of the system clearly depends on
-the probabilities of each state. To see in which way, one can consider the system $S2$ with 
+it is always certain that the system is in state $a$. So the entropy of the system clearly depends on
+the probabilities of each state. To see in which way, one can consider the system $S_2$ with 
 $P(a)=1/2,\ P(b)=1/4,\ P(c)=1/8$ and $P(d)=1/8$. In that case it would be best to encode the state
 with the highest probability with as few bits as possible since it has to be transmitted the most
 often. That means $a$ is encoded with one bit as $0$. When decoding the information there must be
@@ -211,12 +252,12 @@ half of all transmissions have one bit. Additionally a quarter of all transmissi
 The sum of those probabilities multiplied with the respective amount of bits is the average amount of bits
 needed to transfer the information in a given encoding. So in the example, with $f(x)$ as the number of
 bits that encode a state $x$, that turns out to be $P(a)f(a)+P(b)f(b)+P(c)f(c)+P(d)f(d)=1.75$.
-That means for $S2$ on average you only need $1.75$ bits to encode a state and since that is also the
-minimum $1.75$ is the entropy of $S2$.
+That means for $S_2$ on average you only need $1.75$ bits to encode a state and since that is also the
+minimum $1.75$ is the entropy of $S_2$.
 
-In general, when the encoding is optimal, $f(x)$ is the same as $\log_{2} \frac{1}{P(x)}$. For $S1$ $P(x)$ is $1/4$
+In general, when the encoding is optimal, $f(x)$ is the same as $\log_{2} \frac{1}{P(x)}$. For $S_1$ $P(x)$ is $1/4$
 so the number of bits for $x$ is $\log_{2} (4)=2$ which matches the two bits the first encoding uses 
-for the states of $S1$.
+for the states of $S_1$.
 
 The entropy $H$ of a system with a set of discrete events $X$ and the probability distribution $P(x)$
 for each $x\in X$ is
@@ -242,8 +283,8 @@ expectation under the actual distribution resulting in the cross entropy $H(P,Q)
     H(P,Q)=E_{x\sim P}[-log_{2}Q(x)]=-\sum_{x\in X} P(x)\log_{2} (Q(x))
 \end{equation}
 In machine learning tasks regarding classification this is often used as a loss function since the
-label of a piece of data gives us a distribution $P$ with absolute certainty and $H(P)=0$. With the
-inaccurate distribution $Q$ that the model estimates $H(P,Q)$ will be greater than zero unless
+label of a piece of data gives us a distribution $P$ with absolute certainty and $H(P)=0$. The
+inaccurate distribution $Q$ that the model estimates leads to $H(P,Q) > 0$ unless
 $P=Q$ where $H(P,Q)=H(P,P)=H(P)=0$. So the learning algorithm can try to minimize $H(P,Q)$.
 
 \subsubsection{Kullback-Leibler Divergence}
@@ -260,47 +301,13 @@ possible to compare those distributions by comparing $H(P)$ and $H(P,Q)$ through
     \end{split}
 \end{equation}
 where $D_{KL}(P\parallel Q)$ is called the Kullback-Leibler divergence of $P$ and $Q$. This works
-because $D_{KL}(P\parallel Q)$ is zero if $Q$ and $P$ are the same since that means $H(P,Q)=H(P)$.
-On the opposite if $Q$ is different from $P$ then $H(P,Q)$ is greater than $H(P)$ and therefore 
-the KL divergence is greater than zero proportional to how different $Q$ and $P$ are.
+because if $Q=P$ then $H(P,Q)=H(P)$ and therefore $D_{KL}(P\parallel Q) = 0$.
+On the opposite if $Q\neq P$ then $H(P,Q)> H(P)$ and therefore 
+$D_{KL}(P\parallel Q) > 0$ proportional to how different $Q$ and $P$ are.
 In summary Kullback-Leibler divergence is a measure of how different two probability distributions
 are. The divergence is zero if the distributions are the same and greater than zero if not.
 
-\subsection{Variational Autoencoders} \label{vae_background}
 
-Standard autoencoders are fairly limited in their generative capabilities or in their capabilities
-to interpolate in the latent space and the problem lies
-in their latent code. For generation tasks a random latent code $z$ is sampled from the space of
-possible latent codes. But with a standard autoencoder this space of possible latent codes is most
-likely not continuous and chances are high that the sampled $z$ is intuitively speaking
-from a gap in the latent space that the decoder has not been trained for. Therefore it will not
-produce realistic outputs. This discontinuous latent space also means that interpolation in it
-does not work well.
-
-To solve this in a variational autoencoder the encoder does not produce discrete values but rather
-probability distributions $p_{i}$ by generating two vectors of the same size as $z$ where one vector $\mu$
-contains means and the other vector $\sigma$ contains standard deviations.
-Then each $z_{i}$ is determined by sampling it from $p_{i}=N(\mu_{i},\sigma_{i})$.
-As a result the decoder is forced to not 
-only just learn how to decode single, discrete latent codes but also the possible variations
-introduced by the random sampling. This leads to the desired continuous decodable latent space.
-However, the encoder could still produce $\sigma$ sigma that are very small and $\mu$ that are far apart.
-To prevent this the encoder is forced to produce distributions that are similar to a normal
-distribution with standard deviation 1 and mean 0 by adding a second loss function next to the
-loss $L(x,x')$ between the input and output.
-
-As discussed in \ref{KL-Divergence} Kullback-Leibler divergence can be seen as a measure for the
-difference of two probability distributions. This means that it can be used as the second loss
-function for the variational autoencoder that should now also minimize the sum
-of all the Kullback-Leibler divergences between the output distribution and $N(0,1)$.
-
-To achieve the goal of generating new content that is similar to the input that the variational 
-autoencoder was trained with, one can sample each component for a latent code from $N(0,1)$ and
-use it as the input for the decoder.
-Also smooth interpolation in the latent space is possible leading to possibilities for combining
-content in interesting ways.
-
-Further details about variational autoencoders can be found here \parencite{2016-doersch-tutorial}.
 
 \subsection{t-Distributed Stochastic Neighbor Embedding} \label{t-sne}
 
@@ -330,7 +337,7 @@ probability $q_{ij}$ given by the following.
 \end{equation}
 
 Then the mistake between the representation in high dimensional space and in low dimensional space is
-given by the Kullback-Leibler divergence \ref{KL-Divergence} of high dimensional and low dimensional
+given by the Kullback-Leibler divergence, \autoref{KL-Divergence}, of high dimensional and low dimensional
 conditionals which is $\sum_{i}\sum_{j\neq i}p_{ij}log \frac{p_{ij}}{q_{ij}}$.
 
 The Kullback-Leibler divergence is then minimized with gradient descent, moving the points in the embedding to

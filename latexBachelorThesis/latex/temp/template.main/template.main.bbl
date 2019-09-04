@@ -335,51 +335,6 @@
       \field{volume}{abs/1611.09326}
       \field{year}{2016}
     \endentry
-    \entry{2019-Kauffmann-from}{article}{}
-      \name{author}{5}{}{%
-        {{hash=136f805e472a7f41106e49972c81668b}{%
-           family={Kauffmann},
-           familyi={K\bibinitperiod},
-           given={Jacob},
-           giveni={J\bibinitperiod}}}%
-        {{hash=bcc2903e964d256fbc14b05aa9bfa2c5}{%
-           family={Esders},
-           familyi={E\bibinitperiod},
-           given={Malte},
-           giveni={M\bibinitperiod}}}%
-        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
-           family={Montavon},
-           familyi={M\bibinitperiod},
-           given={Gr{é}goire},
-           giveni={G\bibinitperiod}}}%
-        {{hash=7f49b6382ab4ca917a2aa2249f875f79}{%
-           family={Samek},
-           familyi={S\bibinitperiod},
-           given={Wojciech},
-           giveni={W\bibinitperiod}}}%
-        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
-           family={M{ü}ller},
-           familyi={M\bibinitperiod},
-           given={Klaus{-}Robert},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{5924b9f04f5522ea6b56500ad7a5de4c}
-      \strng{fullhash}{c43bbf455ce311da152c2835b7bd8439}
-      \strng{bibnamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
-      \strng{authorbibnamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
-      \strng{authornamehash}{5924b9f04f5522ea6b56500ad7a5de4c}
-      \strng{authorfullhash}{c43bbf455ce311da152c2835b7bd8439}
-      \field{sortinit}{K}
-      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{CoRR}
-      \field{title}{From Clustering to Cluster Explanations via Neural Networks}
-      \field{volume}{abs/1906.07633}
-      \field{year}{2019}
-    \endentry
     \entry{2018-kendall-multi}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=4b1053f4ffb69cd61c1f122cc435c884}{%
@@ -701,46 +656,6 @@
       \field{title}{Systematic evaluation of {CNN} advances on the ImageNet}
       \field{volume}{abs/1606.02228}
       \field{year}{2016}
-    \endentry
-    \entry{2018-montavon-methods}{article}{}
-      \name{author}{3}{}{%
-        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
-           family={Montavon},
-           familyi={M\bibinitperiod},
-           given={Gr{é}goire},
-           giveni={G\bibinitperiod}}}%
-        {{hash=7f49b6382ab4ca917a2aa2249f875f79}{%
-           family={Samek},
-           familyi={S\bibinitperiod},
-           given={Wojciech},
-           giveni={W\bibinitperiod}}}%
-        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
-           family={M{ü}ller},
-           familyi={M\bibinitperiod},
-           given={Klaus-Robert},
-           giveni={K\bibinithyphendelim R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{0e9835294203df396bc6021a5d0308c5}
-      \strng{fullhash}{033c4de53c065bf497c87531cc4e9e31}
-      \strng{bibnamehash}{0e9835294203df396bc6021a5d0308c5}
-      \strng{authorbibnamehash}{0e9835294203df396bc6021a5d0308c5}
-      \strng{authornamehash}{0e9835294203df396bc6021a5d0308c5}
-      \strng{authorfullhash}{033c4de53c065bf497c87531cc4e9e31}
-      \field{sortinit}{M}
-      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Digital Signal Processing}
-      \field{title}{Methods for interpreting and understanding deep neural networks}
-      \field{volume}{73}
-      \field{year}{2018}
-      \field{pages}{1\bibrangedash 15}
-      \range{pages}{15}
     \endentry
     \entry{2018-Pedamonti-comparison}{article}{}
       \name{author}{1}{}{%
@@ -1092,36 +1007,6 @@
       \field{title}{Branched Multi-Task Networks: Deciding What Layers To Share}
       \field{volume}{abs/1904.02920}
       \field{year}{2019}
-    \endentry
-    \entry{2018-zhang-visual}{article}{}
-      \name{author}{2}{}{%
-        {{hash=de2dc858d894cf4cb48352f902be1f40}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Quanshi},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=9b4356508155ef61bbcbb2e10e2c918b}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={Song{-}Chun},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{9ca8735809249cf467cd88fd2ad13b39}
-      \strng{fullhash}{c3ad673f8341f9e564c207a9d198d829}
-      \strng{bibnamehash}{9ca8735809249cf467cd88fd2ad13b39}
-      \strng{authorbibnamehash}{9ca8735809249cf467cd88fd2ad13b39}
-      \strng{authornamehash}{9ca8735809249cf467cd88fd2ad13b39}
-      \strng{authorfullhash}{c3ad673f8341f9e564c207a9d198d829}
-      \field{sortinit}{Z}
-      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{CoRR}
-      \field{title}{Visual Interpretability for Deep Learning: a Survey}
-      \field{volume}{abs/1802.00614}
-      \field{year}{2018}
     \endentry
   \enddatalist
 \endrefsection
