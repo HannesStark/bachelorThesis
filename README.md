@@ -18,8 +18,8 @@ of the models. The method relies on testing whether or not learned clusters
 can be attributed to different high level input features like topographic classes
 common for the field of remote sensing. Visualizations are produced to gain insight
 and an understanding of the information captured in the latent space
-of the variational autoencoders. Moreover, it is observed how dierent architectural
-choices aect the reconstructions and the latent space. Code 
+of the variational autoencoders. Moreover, it is observed how different architectural
+choices affect the reconstructions and the latent space. Code 
 to reproduce the experiments is publicly available here:
 https://github.com/HannesStaerk/bachelorThesis.*
 
