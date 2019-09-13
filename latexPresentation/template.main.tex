@@ -1,0 +1,35 @@
+\documentclass{beamer}
+% ==============================================================================
+%   template.main.tex ----------------------------------------------------------
+% ==============================================================================
+
+%   document styles ------------------------------------------------------------
+    \usepackage{latex/source/bibliography}
+    \usepackage{latex/source/figures}
+
+
+%   bibliography ---------------------------------------------------------------
+    \addbibresource{bibliography/topographic-objects.bib}
+%   document -------------------------------------------------------------------
+% ==============================================================================
+    \title{Understanding Variational Autoencoders' Latent Representations of Remote Sensing Images}
+    \author{Hannes St\"ark}
+    \begin{document}
+
+%   appendix -------------------------------------------------------------------
+
+%   content: -------------------------------------------------------------------
+    \begin{frame}
+    \titlepage % Print the title page as the first slide
+    \end{frame}
+
+    \input{latex/tex/structure.tex}
+
+% bibliography ---------------------------------------------------------------
+ 
+
+
+    \printbibliography[title=Literature, nottype=misc]
+    \printbibliography[title=Images, type=misc]
+    
+\end{document}
