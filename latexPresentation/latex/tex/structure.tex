@@ -100,6 +100,13 @@
 
 
 
+\begin{frame}{Latenter Raum Experimente}
+	\begin{itemize}
+		\item 4000 Bilder $=>$ 4000 Encodings
+		\item Dimension reduzieren
+		\item Visualisieren
+	\end{itemize}
+\end{frame}
 
 
 
@@ -107,16 +114,49 @@
 \begin{frame}{t-Stochastic-Neighbor-Embedding}
 	\begin{itemize}
 		\item Machine-Learning Verfahren zur Dimensions Reduktion
-		\item Besonders gut geeignet für 
+		\item Besonders gut geeignet für einzelne Visualisierungen
 		\item Fokus auf Kontext von Punkten zu ihren Nachbarn
-		\item 
 	\end{itemize}
 \end{frame}
 
-	
-\begin{frame}{Latenter Raum Experimente}
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/figures/presentation/tsne-Classes.jpg}
+	\end{figure}
 \end{frame}
 
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/figures/presentation/tsne-DSM.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/figures/experimenthms_latent/convolutional_dim50_images.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=\textwidth]
+		{images/figures/experiments_latent/convolutional_dim50_images_upwards_observation.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=\textwidth]
+		{images/figures/experiments_latent/convolutional_dim50_images_sideways_street3.png}
+	\end{figure}
+\end{frame}
 
 \begin{frame}{Fazit und wie es weiter gehen kann}
+	\begin{itemize}
+		\item Der VAE lernt nach komplizierten Features zu clustern
+		\item Mit t-SNE kann man die Cluster gut visualisieren
+		\item Gute Rekonstruktionen vs. Guter Latenter Raum?
+		\item Präzisere Methoden um Cluster zu Features zuzuordnen
+		\item Als nächstes bei anderen Tasks als bei Autoencodern testen
+	\end{itemize}
 \end{frame}
