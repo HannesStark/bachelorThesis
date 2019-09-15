@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'F:\projects\bachelorarbeit\latexPresentation\latex\temp\template.main\template.main.blg'
+[30] biber-MSWIN64:315> INFO - === 
+[53] Biber.pm:371> INFO - Reading 'F:\projects\bachelorarbeit\latexPresentation\latex\temp\template.main\template.main.bcf'
+[144] Biber.pm:889> INFO - Found 0 citekeys in bib section 0
+[152] Utils.pm:193> WARN - The file 'F:\projects\bachelorarbeit\latexPresentation\latex\temp\template.main\template.main.bcf' does not contain any citations!
+[160] bbl.pm:636> INFO - Writing 'F:\projects\bachelorarbeit\latexPresentation\latex\temp\template.main\template.main.bbl' with encoding 'UTF-8'
+[160] bbl.pm:739> INFO - Output to F:\projects\bachelorarbeit\latexPresentation\latex\temp\template.main\template.main.bbl
+[161] Biber.pm:110> INFO - WARNINGS: 1

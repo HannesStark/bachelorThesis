@@ -1,35 +1,46 @@
-\documentclass{beamer}
-% ==============================================================================
-%   template.main.tex ----------------------------------------------------------
-% ==============================================================================
+\documentclass[envcountsect,11]{beamer}
 
-%   document styles ------------------------------------------------------------
     \usepackage{latex/source/bibliography}
     \usepackage{latex/source/figures}
+    \usepackage{latex/source/talk}
 
+    \makeatletter \let\old@itemize=\itemize
+    \def\itemize{\old@itemize\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+      \setlength{\leftskip}{-1em}} \makeatother
+    
+    
+    \makeatletter \let\old@enumerate=\enumerate
+    \def\enumerate{\old@enumerate\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+      \setlength{\leftskip}{-1em}} \makeatother
+    
+    
+    \makeatletter \let\old@description=\description
+    \def\description{\old@description\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+      \setlength{\leftskip}{-1em}} \makeatother
+    
+    \newcommand{\D}{\displaystyle}
+    \newcommand{\TP}{^{\mbox{\sf\scriptsize T}}}
 
 %   bibliography ---------------------------------------------------------------
     \addbibresource{bibliography/topographic-objects.bib}
-%   document -------------------------------------------------------------------
+
+\begin{document}
+
+%   title ----------------------------------------------------------------------
 % ==============================================================================
-    \title{Understanding Variational Autoencoders' Latent Representations of Remote Sensing Images}
-    \author{Hannes St\"ark}
-    \begin{document}
+\input{latex/tex/zaa.cover.talk.tex}
 
-%   appendix -------------------------------------------------------------------
+%   section --------------------------------------------------------------------
+% ==============================================================================
+% \input{latex/tex/talk.table-of-content.tex}
 
-%   content: -------------------------------------------------------------------
-    \begin{frame}
-    \titlepage % Print the title page as the first slide
-    \end{frame}
+%   section --------------------------------------------------------------------
+% ==============================================================================
 
-    \input{latex/tex/structure.tex}
+\input{latex/tex/structure.tex}
 
-% bibliography ---------------------------------------------------------------
- 
+%   bibliography ---------------------------------------------------------------
+% ==============================================================================
+% \input{latex/tex/talk.bibliography.tex}
 
-
-    \printbibliography[title=Literature, nottype=misc]
-    \printbibliography[title=Images, type=misc]
-    
 \end{document}
