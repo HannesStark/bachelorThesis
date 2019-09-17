@@ -59,10 +59,10 @@ layers.
             Test &Layer & Output\\ \hline
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $8  $    & $64\times 64\times 8  $    \\  
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $    & $32\times 32\times 16 $    \\
-            1   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $    & $16\times 16\times 32 $    \\
-            2   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $    & $8\times 8\times   64 $    \\
-            3   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $128$    & $4\times 4\times   128$    \\
-            4   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $256$    & $2\times 2\times   256$    \\
+            4   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $    & $16\times 16\times 32 $    \\
+            3   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $    & $8\times 8\times   64 $    \\
+            2   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $128$    & $4\times 4\times   128$    \\
+            1   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $256$    & $2\times 2\times   256$    \\
             all &Flatten                                                              & $1,024$                    \\
             \hline
         \end{tabular} 
@@ -82,10 +82,10 @@ layers.
             Test &Layer & Output\\ \hline
             all &Dense                                                            & $1,024$                   \\
             all &Reshape                                                          & $2\times 2\times    256$  \\
-            4   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $128$      & $4\times 4\times    128$  \\  
-            3   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $      & $8\times 8\times    64 $  \\
-            2   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $      & $16\times 16\times  32 $  \\
-            1   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $      & $32\times 32\times  16 $  \\
+            1   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $128$      & $4\times 4\times    128$  \\  
+            2   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $      & $8\times 8\times    64 $  \\
+            3   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $      & $16\times 16\times  32 $  \\
+            4   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $      & $32\times 32\times  16 $  \\
             all &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $8  $      & $64\times 64\times  8  $  \\
             all &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $3  $      & $128\times 128\times3  $  \\
             \hline
@@ -138,10 +138,10 @@ layers.
         \begin{tabular}{ | c | c | c | c | }
             \hline
             Test &MAEs last Epoch & Loss last Epoch & Training time\\ \hline
-            4 & $0.08093627$  & $0.08655346$  & 12 min 58 sec  \\
-            3 & $0.07256235$  & $0.07953142$  & 13 min 17 sec  \\
-            2 & $0.07004701$  & $0.07820769$  & 14 min 8 sec  \\  
-            1 & $0.06594399$  & $0.0751977$  & 15 min 27 sec  \\  
+            1 & $0.08093627$  & $0.08655346$  & 12 min 58 sec  \\
+            2 & $0.07256235$  & $0.07953142$  & 13 min 17 sec  \\
+            3 & $0.07004701$  & $0.07820769$  & 14 min 8 sec  \\  
+            4 & $0.06594399$  & $0.0751977$  & 15 min 27 sec  \\  
             \hline
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
@@ -213,8 +213,8 @@ A possible reason for this behavior is that the number of weights in the two den
 last convolutional layer and the means and standard deviations increases drastically
 if the number of convolutional layers decreases. This is the case because for each additional
 value in the last convolutional layer there are $1,024$ additional weights in the three dense layers of the VAE
-since $1,024$ is the size of the latent code. For example architecture $4$ only has $3,935,651$ weights while
-architecture $3$, with one convolutional and deconvolutional layer less, has $6,492,192$ total weights.
+since $1,024$ is the size of the latent code. For example architecture $1$ only has $3,935,651$ weights while
+architecture $2$, with one convolutional and deconvolutional layer less, has $6,492,192$ total weights.
 The weights in the dense layers make up most of the total weights
 and the higher amount of weights also leads to longer training times as it can be seen in \autoref{table_mae_1}.
 However, this increase in training time is negligible compared to the increase of the quality of the reconstructions. 
@@ -238,10 +238,10 @@ the last convolutional layer and the first deconvolutional layer is missing.
             \hline
             Test &Layer & Output\\ \hline
             all &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $    & $64\times 64\times 16 $    \\  
-            1   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $    & $32\times 32\times 32 $    \\
-            2   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $    & $16\times 16\times 64 $    \\
-            3   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $128$    & $8\times 8\times   128$    \\
-            4   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $256$    & $4\times 4\times   256$    \\
+            4   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $    & $32\times 32\times 32 $    \\
+            3   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $    & $16\times 16\times 64 $    \\
+            2   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $128$    & $8\times 8\times   128$    \\
+            1   &Conv: Kernel $3\times3$, Stride $2\times2$, Filters $256$    & $4\times 4\times   256$    \\
             all &Flatten                                                      & $2,048$                    \\
             \hline
         \end{tabular} 
@@ -261,10 +261,10 @@ the last convolutional layer and the first deconvolutional layer is missing.
             Test &Layer & Output\\ \hline
             all &Dense                                                            & $2,048$                   \\
             all &Reshape                                                          & $4\times 4\times    256$  \\
-            4   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $128$      & $8\times 8\times    128$  \\
-            3   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $      & $16\times 16\times  64 $  \\
-            2   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $      & $32\times 32\times  32 $  \\
-            1   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $      & $64\times 64\times  16 $  \\
+            1   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $128$      & $8\times 8\times    128$  \\
+            2   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $64 $      & $16\times 16\times  64 $  \\
+            3   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $32 $      & $32\times 32\times  32 $  \\
+            4   &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $16 $      & $64\times 64\times  16 $  \\
             all &Deconv: Kernel $3\times3$, Stride $2\times2$, Filters $3  $      & $128\times 128\times3  $  \\
             \hline
         \end{tabular}
@@ -318,10 +318,10 @@ the last convolutional layer and the first deconvolutional layer is missing.
         \begin{tabular}{ | c | c | c | c | }
             \hline
             Test &MAEs last Epoch & Loss last Epoch & Training time\\ \hline
-            4 & $0.07518449$  & $0.08227883$  & 21 min 31 sec  \\
-            3 & $0.06828707$  & $0.07637741$  & 22 min 31 sec  \\
-            2 & $0.07282908$  & $0.08208682$  & 26 min 17 sec  \\  
-            1 & $0.07343805$  & $0.08214357$  & 34 min 31 sec  \\  
+            1 & $0.07518449$  & $0.08227883$  & 21 min 31 sec  \\
+            2 & $0.06828707$  & $0.07637741$  & 22 min 31 sec  \\
+            3 & $0.07282908$  & $0.08208682$  & 26 min 17 sec  \\  
+            4 & $0.07343805$  & $0.08214357$  & 34 min 31 sec  \\  
             \hline
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
@@ -394,7 +394,7 @@ these tests while also taking less than half as long to train and having more re
 \pagebreak
 \subsubsection{Kernel Size}
 
-In this subsection the two architectures $1$ and $3$, now called $1$ and $2$,
+In this subsection the two architectures $4$ and $2$, now called $2$ and $1$,
 of the \autoref{section_number_of_convolutions_experiment}
 are tested with a kernel size of $5\times 5$ instead of $3\times 3$. These architectures are chosen since architecture
 $1$ performed the best so far and a second one is chosen for comparison. 
@@ -426,8 +426,8 @@ $1$ performed the best so far and a second one is chosen for comparison.
         \begin{tabular}{ | c | c | c | c | }
             \hline
             Test &MAEs last Epoch & Loss last Epoch & Training time\\ \hline
-            2 & $0.08430038$  & $0.08984258$  & 19 min 19 sec  \\  
-            1 & $0.07351803$  & $0.08184456$  & 19 min 40 sec  \\  
+            1 & $0.08430038$  & $0.08984258$  & 19 min 19 sec  \\  
+            2 & $0.07351803$  & $0.08184456$  & 19 min 40 sec  \\  
             \hline
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
@@ -479,10 +479,10 @@ test architectures with a lower kernel size.
 \pagebreak
 \subsubsection{Pooling}
 
-This subsection again tests the so far best performing architecture, number $1$ from  
+This subsection again tests the so far best performing architecture, number $4$ from  
 \autoref{section_number_of_convolutions_experiment}, but the convolutional layers now have a stride of $1\times1$
 and the dimensionality reduction is done by pooling layers instead as visualized in the tables below. 
-Additionally the architecture $2$ from \autoref{section_number_of_filters} is tested 
+Additionally the architecture $3$ from \autoref{section_number_of_filters} is tested 
 with similar modifications for comparison. The tests $1$ and $2$ refer to these architectures with max pooling
 while $3$ and $4$ refer to the architectures with average pooling.
 
@@ -567,10 +567,10 @@ while $3$ and $4$ refer to the architectures with average pooling.
         \begin{tabular}{ | c | c | c | c | }
             \hline
             Test &MAEs last Epoch & Loss last Epoch & Training time\\ \hline
-            4 & $0.07099171$  & $0.07931245$  & 53 min 11 sec  \\
-            3 & $0.06803931$  & $0.07641139$  & 30 min 48 sec  \\
-            2 & $0.07182192$  & $0.08001233$  & 54 min 9 sec  \\  
-            1 & $0.06689975$  & $0.07499783$  & 31 min 39 sec  \\  
+            1 & $0.07099171$  & $0.07931245$  & 53 min 11 sec  \\
+            2 & $0.06803931$  & $0.07641139$  & 30 min 48 sec  \\
+            3 & $0.07182192$  & $0.08001233$  & 54 min 9 sec  \\  
+            4 & $0.06689975$  & $0.07499783$  & 31 min 39 sec  \\  
             \hline
         \end{tabular} 
         \caption{For each test architecture the table shows the mean of the MAEs across all iterations of the last
@@ -635,13 +635,13 @@ while $3$ and $4$ refer to the architectures with average pooling.
 
 Regarding the results in Table \autoref{table_maes4} it could be argued that pooling just led to worse results with
 MAEs that are a bit worse and training times that are far longer. However, the visual fidelity of the recreations
-is judged as the best for architecture $1$ of this subsection.
+is judged as the best for architecture $4$ of this subsection.
 
 
 \subsubsection{Best Architectures}
 
 The two architectures that came out as the best regarding visual fidelity and the MAE between inputs and 
-reconstructions are number $1$ from \autoref{section_number_of_convolutions_experiment} and the architecture
+reconstructions are number $4$ from \autoref{section_number_of_convolutions_experiment} and the architecture
 with max pooling. These are also the architectures presented in \autoref{architecture} that are used
 for the further experiments regarding the latent space. The following \autoref{figure_results_trained_on_all}
 shows the reconstructions of these architectures trained on the full training set of $178,112$ images instead
