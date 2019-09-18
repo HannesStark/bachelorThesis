@@ -55,7 +55,7 @@ However, in practice most of the time
 deep neural networks with two or more hidden layers are used \parencite{2017-geron-homl}.
 If all the neurons of a previous layer are connected to each neuron in the following layer the layers are
 called fully connected which is the case for every layer in the artificial neural network depicted
-in \autoref{figure_fully_connected_nn}.
+in \Cref{figure_fully_connected_nn}.
 
 \begin{figure}[ht] 
     \centering
@@ -111,7 +111,7 @@ the same input space leading to the ability to extract multiple features that ca
 further in the following layer. The amount of neurons with the same input space is referred to as
 the number of filters since each one of those neurons has its own filter with its respective
 weights and all those filters are applied to the same piece of the input. This is visualized in
-\autoref{figure_cnn_filter}.
+\Cref{figure_cnn_filter}.
 
 \begin{figure}[h]
     \centering
@@ -155,7 +155,7 @@ One common constraint for autoencoders is choosing a dimension for the latent co
 than the dimension of the input. This means that the encoder is forced to learn to extract only the
 most important features from the input and the latent code is a representation of those most
 important features in a lower dimensionality than the input. Such an autoencoder, called
-undercomplete autoencoder, is visualized in \autoref{figure_undercomplete_ae}.
+undercomplete autoencoder, is visualized in \Cref{figure_undercomplete_ae}.
 
 \begin{figure}[h]
     \centering
@@ -210,7 +210,7 @@ Further details about variational autoencoders can be found here \parencite{2016
 
 \subsubsection{Entropy}
 
-The previous \autoref{vae_background} mentioned the necessity of a measure for the difference between
+The previous \Cref{vae_background} mentioned the necessity of a measure for the difference between
 two probability distributions that can be used as additional loss function in variational autoencoders.
 Kullback-Leibler divergence serves this purpose and ist used in this context.
 To understand Kullback-Leibler divergence it seems necessary to explain entropy from
@@ -337,7 +337,7 @@ probability $q_{ij}$ given by the following.
 \end{equation}
 
 Then the mistake between the representation in high dimensional space and in low dimensional space is
-given by the Kullback-Leibler divergence, \autoref{KL-Divergence}, of high dimensional and low dimensional
+given by the Kullback-Leibler divergence, \Cref{KL-Divergence}, of high dimensional and low dimensional
 conditionals which is $\sum_{i}\sum_{j\neq i}p_{ij}log \frac{p_{ij}}{q_{ij}}$.
 
 The Kullback-Leibler divergence is then minimized with gradient descent, moving the points in the embedding to

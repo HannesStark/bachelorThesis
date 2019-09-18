@@ -120,9 +120,9 @@ models are then evaluated and compared after training with all $178,122$ picture
 Here the performance is measured regarding the quality of the reconstruction and not the quality of the latent space.
 In all these test the dimension
 of the latent code is $1024$ while the architectures allow to alter the coding size for the experiments regarding
-the latent space in \autoref{latent_space_experiments}. The described experiments regarding the architecture and their
+the latent space in \Cref{latent_space_experiments}. The described experiments regarding the architecture and their
 evaluation can be found
-in \autoref{architecture_experiments}.
+in \Cref{architecture_experiments}.
 
 The results were that a fully convolutional network without pooling performed best. However, to inspect the 
 effects of pooling on the latent code an architecture with pooling is used as the second model in the latent space
@@ -132,7 +132,7 @@ network but the training times were almost twice as long.\\
 
 The following are choices that apply to both architectures. The RGB input values between 0 and 255 are first 
 normalized. Each value is divided by $255$ which means that there are only floats between $0$ and $1$.
-The last deconvolutional layer in the decoder network, \autoref{figure_decoder}), uses the sigmoid activation
+The last deconvolutional layer in the decoder network, \Cref{figure_decoder}), uses the sigmoid activation
 function $S(x) = \frac{e^x}{e^x+1}$. This guarantees that the values in the output image are all 
 between $0$ and $1$ and can be interpreted as RGB values. 
 Every other layer uses a scaled exponential linear unit (SELU) as activation function with the standard scale
@@ -162,7 +162,7 @@ necessarily lead to an improvement. When using a large enough network the invari
 introduced by pooling layers can also be learned in a network with convolutional layers only. Thus, in certain cases,
 convolutional layers with strides of two can be used to reduce dimensionality in a CNN instead of pooling layers
 which is why both options are explored in this work.
-\autoref{figure_pure_convolutional_encoder} visualizes the used encoder network. It has an example size for the
+\Cref{figure_pure_convolutional_encoder} visualizes the used encoder network. It has an example size for the
 latent code of $1024$ which is not fixed. There are three convolutional
 layers with kernels of the dimension $3\times 3$ and strides of two. The output of the last convolutional layer
 is flattened to a single vector which means that it has the size of the depth times the height times the width of
@@ -176,12 +176,12 @@ is to sample the latent code from the means and deviations.
     \caption{Encoder network architecture with an encoding size of 1024.
     The kernel size is $3\times 3$ in every layer. The 
     reparameterization trick in the last layer
-    refers to the sampling as described in \autoref{vae_background}.
+    refers to the sampling as described in \Cref{vae_background}.
     The dimensions of each layers output are specified with
     depth first, the height second and the width third.} \label{figure_pure_convolutional_encoder}
 \end{figure}
 
-The decoder, as visualized in \autoref{figure_decoder}, takes the latent code produced by the encoder and 
+The decoder, as visualized in \Cref{figure_decoder}, takes the latent code produced by the encoder and
 first passes it through a dense layer with a $32\times16\times16=8,192$ output. This way it is possible to reshape that
 output vector to $32\times 16\times 16$ as the next step. After that three deconvolutions are applied.
 These deconvolutional layers are symmetrical to the convolutional layers in the first network resulting in an 
@@ -198,12 +198,12 @@ output with the same dimensions as the input of the encoder.
 
 \subsubsection{Max Pooling Architecture}
 
-The used encoder with max pooling is depicted in \autoref{figure_encoder_pooling}. It contains three
+The used encoder with max pooling is depicted in \Cref{figure_encoder_pooling}. It contains three
 convolutional and three pooling layers with a pooling layer following every convolutional layer. The convolutional
 kernels have size $3\times3$ and the convolution is done with strides of one which means that they do not reduce
 height and width of their input. Instead, each pooling layer quarters the dimension with a pooling window of size
 $2\times 2$. This produces an output of size $32\times16\times16$ that is processed further in the same way
-as in the fully convolutional encoder in \autoref{section_pure_convolutional_architecture}.
+as in the fully convolutional encoder in \Cref{section_pure_convolutional_architecture}.
 The decoder is also equivalent to the one in the fully convolutional architecture.
 
 \begin{figure}[H]
@@ -212,7 +212,7 @@ The decoder is also equivalent to the one in the fully convolutional architectur
     \caption{Part of the encoder network architecture with pooling and an encoding size of 1024.
     The convolutional kernel always has size $3\times 3$. The pooling window always has size $2\times 2$.
     The rest of the encoder that generates the latent code is the same as in the fully convolutional encoder
-    in \autoref{section_pure_convolutional_architecture}. The dimensions of each layers output are specified with
+    in \Cref{section_pure_convolutional_architecture}. The dimensions of each layers output are specified with
     depth first, the height second and the width third.} \label{figure_encoder_pooling}
 \end{figure}
 
@@ -226,19 +226,19 @@ codes can be visualized in a way that allows humans to comprehend what the autoe
 One dimensionality reduction method that could be used here is principal component analysis (PCA).
 
 However,
-t-distributed stochastic neighbor embedding (t-SNE), as presented in \autoref{t-sne}, is used in addition
+t-distributed stochastic neighbor embedding (t-SNE), as presented in \Cref{t-sne}, is used in addition
 to PCA in this work.
 The reason for this choice is that PCA focuses on preserving large distances, so dissimilar points in the
 high dimensional space appear far apart in a low dimensionality visualization. For visualization though
 it may be more interesting to keep more of the underlying structure which is accomplished by t-SNE as its
 focus is on preserving the context of points to their neighbors \parencite{2008-vanDerMaaten-visualizing}.
-That behavior is caused by the asymmetry of the used Kullback-Leibler divergence, \autoref{KL-Divergence}.
+That behavior is caused by the asymmetry of the used Kullback-Leibler divergence, \Cref{KL-Divergence}.
 During the training process it penalizes a lot if large probabilities, i. e. far apart points, in high dimensional
 space are represented by small probabilities, i. e. close together points, in low dimensional space. Meanwhile, the 
 penalty is negligible if small probabilities in high dimensional space are represented by large probabilities in
 low dimensional space, leading to the claimed focus on local similarities.
 
-In the experiments \autoref{latent_space_experiments} this lower dimensional space is visualized
-for different coding sizes for the two architectures presented in \autoref{architecture}.
+In the experiments \Cref{latent_space_experiments} this lower dimensional space is visualized
+for different coding sizes for the two architectures presented in \Cref{architecture}.
 This gives insight into what coding sizes yield the best unsupervised clustering.
 
