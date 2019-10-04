@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.4}{Convolutional Neural Networks}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.5}{Autoencoders}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.6}{Variational Autoencoders}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.7}{Kullback-Leibler Divergence}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.7}{Entropy and Kullback-Leibler Divergence}{section.2}% 9
 \BOOKMARK [3][-]{subsubsection.2.7.1}{Entropy}{subsection.2.7}% 10
 \BOOKMARK [3][-]{subsubsection.2.7.2}{Cross Entropy}{subsection.2.7}% 11
 \BOOKMARK [3][-]{subsubsection.2.7.3}{Kullback-Leibler Divergence}{subsection.2.7}% 12
@@ -28,7 +28,7 @@
 \BOOKMARK [3][-]{subsubsection.4.1.4}{Pooling}{subsection.4.1}% 28
 \BOOKMARK [3][-]{subsubsection.4.1.5}{Best Architectures}{subsection.4.1}% 29
 \BOOKMARK [2][-]{subsection.4.2}{Latent Space}{section.4}% 30
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Fully convolutional Architecture}{subsection.4.2}% 31
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Fully Convolutional Architecture}{subsection.4.2}% 31
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Pooling Architecture}{subsection.4.2}% 32
 \BOOKMARK [1][-]{section.5}{Conclusion and Future Work}{}% 33
 \BOOKMARK [2][-]{subsection.5.1}{Conclusion}{section.5}% 34

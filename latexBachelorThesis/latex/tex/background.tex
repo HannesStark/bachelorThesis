@@ -33,7 +33,7 @@ the input of another neuron similarly to how stronger or weaker connections can 
 world.
 If a neurons activation function has a binary value range it is called a perceptron.
 By adjusting the separate weights of the inputs a single neuron is able to model
-simple functions like the logic $and$ or the logic $or$ but it is not abled to solve other trivial problems
+simple functions like the logic $and$ or the logic $or$ but it is not able to solve other trivial problems
 like the exclusive or (XOR).
 
 \begin{figure}[H]
@@ -117,7 +117,7 @@ weights and all those filters are applied to the same piece of the input. This i
     \centering
     \includegraphics[width=0.6\textwidth]{images/figures/convolutional_net_multiple_filters.png}
     \caption{A convolutional network with 12 filters in the first convolutional layer and 7
-    filters in the second convolutional layer. Each filters can learn different features and an
+    filters in the second convolutional layer. Each filter can learn different features and an
     RGB image is depicted as the input here.
     Image taken from \parencite{2017-geron-homl}} \label{figure_cnn_filter}
 \end{figure}
@@ -206,7 +206,7 @@ content in interesting ways.
 
 Further details about variational autoencoders can be found here \parencite{2016-doersch-tutorial}.
 
-\subsection{Kullback-Leibler Divergence} \label{KL-Divergence}
+\subsection{Entropy and Kullback-Leibler Divergence} \label{KL-Divergence}
 
 \subsubsection{Entropy}
 
@@ -275,7 +275,7 @@ one can be confident that the system is in a certain state as in the previous ex
 
 \subsubsection{Cross Entropy}
 
-If the real distribution $P$ of a system is unknown an estimate distribution $Q$ could be guessed
+If the real distribution $P$ of a system is unknown, an estimate distribution $Q$ could be guessed
 and encoding sizes $-log_{2}Q(x)$ can be produced which will not be optimal for the true distribution
 $P$. Now with some data gathered and $P$ known the used encoding sizes can be cross-checked with the
 expectation under the actual distribution resulting in the cross entropy $H(P,Q)$
@@ -290,7 +290,7 @@ $P=Q$ where $H(P,Q)=H(P,P)=H(P)=0$. So the learning algorithm can try to minimiz
 \subsubsection{Kullback-Leibler Divergence}
 
 Having computed the entropy $H(P)$ and cross-entropy $H(P,Q)$ of two distributions $P,\ Q$ it is 
-possible to compare those distributions by comparing $H(P)$ and $H(P,Q)$ through subtraction
+possible to compare those distributions by subtracting $H(P)$ from $H(P,Q)$
 \begin{equation} \label{eq1}
     \begin{split}
         D_{KL}(P\parallel Q)    & = H(P,Q)-H(P) \\

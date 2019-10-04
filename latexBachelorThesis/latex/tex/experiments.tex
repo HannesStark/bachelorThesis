@@ -34,8 +34,8 @@ input. Clearly the inverted image is a much better reconstruction of the input t
 additionally judging the results via a visual inspection is necessary.
 
 The VAE architecture descriptions all cover an encoder up to a one dimensional tensor that is fed into two dense
-layers which create the means and standard deviations as explained in \Cref{architecture}. Since these two
-dense layers, the resampling and the dimension of the latent code is the same for every architecture the following
+layers which create the means and standard deviations as explained in \Cref{architecture}. From these two
+dense layers onwards, the resampling and the dimension of the latent code is the same for every architecture the following
 specifications of encoders do not include these features for brevity.
 The inputs for every encoder are $128\times 128$ RGB images, i.e. $128\times 128\times 3$ images. The inputs
 for every decoder are the latent code vectors of size $1,024$.
@@ -204,7 +204,7 @@ layers.
 \paragraph{Discussion} \mbox{} \\
 
 The learning curves in \Cref{figure_learning_curves_1} show a correlation between the MAE of the
-reconstructions and the number of convolutional and deconvolutional layers. The less layers the are the better
+reconstructions and the number of convolutional and deconvolutional layers. The less layers the are, the better
 the learning curve is which is in line with the visual fidelity of the reconstructions in 
 \Cref{figure_reconstructions_1}. The reconstructions of the VAE with the least layers are the sharpest and the
 more layers the VAE has the blurrier the reconstructions are. 
@@ -706,7 +706,7 @@ the autoencoder has learned to cluster that feature.
 
 All the plots in the following subsections display points for $4000$ images.
 
-\subsubsection{Fully convolutional Architecture}
+\subsubsection{Fully Convolutional Architecture}
 When observing the following two figures it first of all becomes evident that the VAEs have generated some clusters
 which is more clear in the visualizations produced with t-SNE than in those produced with PCA.
 

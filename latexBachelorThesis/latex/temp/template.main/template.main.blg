@@ -1,18 +1,20 @@
-[0] Config.pm:304> INFO - This is Biber 2.12
-[0] Config.pm:307> INFO - Logfile is 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.blg'
-[42] biber-MSWIN64:315> INFO - === 
-[128] Biber.pm:371> INFO - Reading 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
-[223] Biber.pm:889> INFO - Found 23 citekeys in bib section 0
-[239] Biber.pm:4093> INFO - Processing section 0
-[267] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
-[280] bibtex.pm:1523> INFO - LaTeX decoding ...
-[415] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
-[455] Utils.pm:193> WARN - month field 'June' in entry '2018-kendall-multi' is not an integer - this will probably not sort properly.
-[724] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[724] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[724] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[724] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[752] bbl.pm:636> INFO - Writing 'F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
-[764] Utils.pm:193> WARN - The entry '2015-martin-tensorflow' has characters which cannot be encoded in 'latin1'. Recoding problematic characters into macros.
-[769] bbl.pm:739> INFO - Output to F:\projects\bachelorarbeit\latexBachelorThesis\latex\temp\template.main\template.main.bbl
-[770] Biber.pm:110> INFO - WARNINGS: 2
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'D:\projects\bachelorThesis\latexBachelorThesis\latex\temp\template.main\template.main.blg'
+[41] biber-MSWIN64:315> INFO - === 
+[104] Biber.pm:375> INFO - Reading 'D:\projects\bachelorThesis\latexBachelorThesis\latex\temp\template.main\template.main.bcf'
+[209] Biber.pm:905> INFO - Found 23 citekeys in bib section 0
+[227] Biber.pm:4196> INFO - Processing section 0
+[271] Utils.pm:75> INFO - Globbing data source 'bibliography/topographic-objects.bib'
+[302] Utils.pm:91> INFO - Globbed data source 'bibliography/topographic-objects.bib' to bibliography/topographic-objects.bib
+[330] Biber.pm:4373> INFO - Looking for bibtex format file 'bibliography/topographic-objects.bib' for section 0
+[344] bibtex.pm:1462> INFO - LaTeX decoding ...
+[482] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography/topographic-objects.bib'
+[520] Utils.pm:300> WARN - month field 'June' in entry '2018-kendall-multi' is not an integer - this will probably not sort properly.
+[785] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[785] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[786] Biber.pm:4024> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[786] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-US'
+[813] bbl.pm:648> INFO - Writing 'D:\projects\bachelorThesis\latexBachelorThesis\latex\temp\template.main\template.main.bbl' with encoding 'latin1'
+[831] Utils.pm:300> WARN - The entry '2015-martin-tensorflow' has characters which cannot be encoded in 'latin1'. Recoding problematic characters into macros.
+[839] bbl.pm:751> INFO - Output to D:\projects\bachelorThesis\latexBachelorThesis\latex\temp\template.main\template.main.bbl
+[849] Biber.pm:110> INFO - WARNINGS: 2

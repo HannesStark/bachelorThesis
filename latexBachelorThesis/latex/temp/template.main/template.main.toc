@@ -18,7 +18,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Variational Autoencoders}{8}{subsection.2.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}Kullback-Leibler Divergence}{9}{subsection.2.7}% 
+\contentsline {subsection}{\numberline {2.7}Entropy and Kullback-Leibler Divergence}{9}{subsection.2.7}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.7.1}Entropy}{9}{subsubsection.2.7.1}% 
 \defcounter {refsection}{0}\relax 
@@ -82,7 +82,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2}Latent Space}{29}{subsection.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1}Fully convolutional Architecture}{30}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Fully Convolutional Architecture}{30}{subsubsection.4.2.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.2.2}Pooling Architecture}{34}{subsubsection.4.2.2}% 
 \defcounter {refsection}{0}\relax 
