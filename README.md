@@ -1,6 +1,6 @@
 # Understanding Variational Autoencoders' Latent Representations of Remote Sensing Images
 
-
+Disclaimer: I would not write code like this today :3
 ## Abstract
 
 *In computer vision, neural networks have been successfully employed to solve
